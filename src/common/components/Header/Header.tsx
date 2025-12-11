@@ -1,8 +1,16 @@
 import tmdbLogo from "@/assets/images/tmdb-logo.svg";
 import { Path } from "@/common/routing";
 import { NavLink } from "react-router";
-export const Header = () => {
 
+const navItems = [
+  { to: Path.Main, label: "Main" },
+  { to: Path.CategoryMovies, label: "Category Movies" },
+  { to: Path.FilteredMovies, label: "Filtered Movies" },
+  { to: Path.Search, label: "Search" },
+  { to: Path.Favorites, label: "Favorites" },
+];
+
+export const Header = () => {
   return (
     <header>
       <div>
@@ -11,11 +19,11 @@ export const Header = () => {
         </NavLink>
       </div>
       <nav>
-        <NavLink to={Path.Main}>Main</NavLink>
-        <NavLink to={Path.CategoryMovies}>Category Movies</NavLink>
-        <NavLink to={Path.FilteredMovies}>Filtered Movies</NavLink>
-        <NavLink to={Path.Search}>Search</NavLink>
-        <NavLink to={Path.Favorites}>Favorites</NavLink>
+        {navItems.map((item) => (
+          <NavLink key={item.to} to={item.to}>
+            {item.label}
+          </NavLink>
+        ))}
       </nav>
     </header>
   );

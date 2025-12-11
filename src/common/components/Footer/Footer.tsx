@@ -1,5 +1,5 @@
 export const Footer = () => {
   return (
-    <div>Footer</div>
+    <span>© 2025 Kinopoisk Demo · Data courtesy of TMDB.</span>
   )
 }

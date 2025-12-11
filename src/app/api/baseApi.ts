@@ -7,10 +7,7 @@ export const baseApi = createApi({
     const result = await fetchBaseQuery({
       baseUrl: import.meta.env.VITE_BASE_URL,
       headers: {
-        "API-KEY": import.meta.env.VITE_API_KEY,
-      },
-      prepareHeaders: (headers) => {
-        headers.set("Authorization", `Bearer ${import.meta.env.VITE_ACCESS_TOKEN}`);
+        Authorization: `Bearer ${import.meta.env.VITE_ACCESS_TOKEN}`,
       },
     })(args, api, extraOptions);
 
