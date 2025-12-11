@@ -1,43 +1,85 @@
 import * as z from "zod";
 
-export const DatesSchema = z.object({
+const nonNegativeInt = z.number().int().min(0);
+const nonNegativeNumber = z.number().min(0);
+const nullableString = z.string().nullable();
+const voteAverageSchema = z.number().min(0).max(10);
+const genderSchema = z.number().int().min(0).max(2);
+
+
+export const datesSchema = z.object({
   maximum: z.string(),
   minimum: z.string(),
 });
 
-export const GenreSchema = z.object({
-  id: z.number().int().positive(),
+export const genreSchema = z.object({
+  id: nonNegativeInt,
   name: z.string(),
 });
 
-export const GenresListSchema = z.object({
-  genres: z.array(GenreSchema),
+export const genresListSchema = z.object({
+  genres: z.array(genreSchema),
 });
 
 export const movieSchema = z.object({
   adult: z.boolean(),
-  backdrop_path: z.union([z.null(), z.string()]),
-  genre_ids: z.array(z.number().int().positive()),
-  id: z.number().int().positive(),
+  backdrop_path: nullableString,
+  genre_ids: z.array(nonNegativeInt),
+  id: nonNegativeInt,
   original_language: z.string(),
   original_title: z.string(),
   overview: z.string(),
-  popularity: z.number().positive(),
-  poster_path: z.union([z.null(), z.string()]),
+  popularity: nonNegativeNumber,
+  poster_path: nullableString,
   release_date: z.string(),
   title: z.string(),
   video: z.boolean(),
-  vote_average: z.number().positive(),
-  vote_count: z.number().int().positive(),
+  vote_average: voteAverageSchema,
+  vote_count: nonNegativeInt,
 });
 
 export const getMoviesSchema = z.object({
-  page: z.number().int().positive(),
+  page: nonNegativeInt,
   results: z.array(movieSchema),
-  total_pages: z.number().int().positive(),
-  total_results: z.number().int().positive(),
+  total_pages: nonNegativeInt,
+  total_results: nonNegativeInt,
 });
 
 export const getMoviesWithDatesSchema = getMoviesSchema.extend({
-  dates: DatesSchema,
+  dates: datesSchema,
+});
+
+export const castSchema = z.object({
+  adult: z.boolean(),
+  cast_id: nonNegativeInt,
+  character: z.string(),
+  credit_id: z.string(),
+  gender: genderSchema,
+  id: nonNegativeInt,
+  known_for_department: z.string(),
+  name: z.string(),
+  original_name: z.string(),
+  order: nonNegativeInt,
+  popularity: nonNegativeNumber,
+  profile_path: nullableString,
+});
+
+export const crewSchema = z.object({
+  adult: z.boolean(),
+  credit_id: z.string(),
+  department: z.string(),
+  gender: genderSchema,
+  id: nonNegativeInt,
+  job: z.string(),
+  known_for_department: z.string(),
+  name: z.string(),
+  original_name: z.string(),
+  popularity: nonNegativeNumber,
+  profile_path: nullableString,
+});
+
+export const movieCreditsSchema = z.object({
+  id: nonNegativeInt,
+  cast: z.array(castSchema),
+  crew: z.array(crewSchema),
 });

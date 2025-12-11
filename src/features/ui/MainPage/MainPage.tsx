@@ -11,17 +11,24 @@ export const MainPage = () => {
   };
 
   const searchHandler = () => {
-    trigger({ query: search }) //обрезать пробелы в начале и конце
-      .unwrap()
-      .then(() => setSearch(""));
+    const trimmedSearch = search.trim();
+    if (trimmedSearch !== "") {
+      trigger({ query: trimmedSearch })
+        .unwrap()
+        .then(() => setSearch(""));
+    }
   };
 
   return (
-    <main aria-label="Main page" tabIndex={0} role="main">
-      <input type="search" placeholder={"Search movie..."} value={search} onChange={onChangeHandler} />
-      <button type="button" onClick={searchHandler}>
-        Search
-      </button>
+    <main>
+      <h1>Welcome to the TMDB Kinopoisk</h1>
+      <h2>Browse the latest movies and TV shows</h2>
+      <form action="">
+        <input type="search" placeholder={"Search movie..."} value={search} onChange={onChangeHandler} />
+        <button type="button" onClick={searchHandler}>
+          Search
+        </button>
+      </form>
     </main>
   );
 };

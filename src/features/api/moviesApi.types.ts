@@ -1,44 +1,45 @@
 import * as z from "zod";
-import type { DatesSchema, GenreSchema, GenresListSchema, getMoviesSchema, getMoviesWithDatesSchema, movieSchema } from "../model/movies.schemas";
+import type { castSchema, crewSchema, datesSchema, genreSchema, genresListSchema, getMoviesSchema, getMoviesWithDatesSchema, movieCreditsSchema, movieSchema } from "../model/movies.schemas";
 
-export type Dates = z.infer<typeof DatesSchema>;
-export type Genre = z.infer<typeof GenreSchema>;
-export type GetGenresListResponse = z.infer<typeof GenresListSchema>;
+export type Dates = z.infer<typeof datesSchema>;
+export type Genre = z.infer<typeof genreSchema>;
+export type GetGenresListResponse = z.infer<typeof genresListSchema>;
 export type Movie = z.infer<typeof movieSchema>;
 export type GetMoviesResponse = z.infer<typeof getMoviesSchema>;
 export type GetMoviesWithDatesResponse = z.infer<typeof getMoviesWithDatesSchema>;
+export type Cast = z.infer<typeof castSchema>;
+export type Crew = z.infer<typeof crewSchema>;
+export type GetMovieCreditsResponse = z.infer<typeof movieCreditsSchema>;
 
 // Params
-export type GetMoviesBySearchParams = {
-  query: string;
-};
-
-export type GetPopularMoviesParams = {
+export type BaseQueryParams = {
   language?: string;
   page?: number;
   region?: string;
 };
 
-export type GetGenresListParams = {
-  language?: string;
+export type GetMoviesBySearchParams = BaseQueryParams & {
+  query: string;
+  include_adult?: boolean;
+  primary_release_year?: number;
+  year?: number;
 };
 
-export type GetFilteredMoviesParams = {
+export type GetGenresListParams = Pick<BaseQueryParams, "language">;
+
+export type GetFilteredMoviesParams = BaseQueryParams & {
   certification?: string;
   "certification.gte"?: string;
   "certification.lte"?: string;
   certification_country?: string;
   include_adult?: boolean;
   include_video?: boolean;
-  language?: string;
-  page?: number;
   primary_release_year?: number;
   "primary_release_date.gte"?: string;
   "primary_release_date.lte"?: string;
-  region?: string;
   "release_date.gte"?: string;
   "release_date.lte"?: string;
-  sort_by?: string; // enums
+  sort_by?: string;
   "vote_average.gte"?: number;
   "vote_average.lte"?: number;
   "vote_count.gte"?: number;
@@ -52,7 +53,7 @@ export type GetFilteredMoviesParams = {
   with_origin_country?: string;
   with_original_language?: string;
   with_people?: string;
-  with_release_type?: number; // enums
+  with_release_type?: number;
   "with_runtime.gte"?: number;
   "with_runtime.lte"?: number;
   with_watch_monetization_types?: string;
@@ -62,4 +63,9 @@ export type GetFilteredMoviesParams = {
   without_keywords?: string;
   without_watch_providers?: string;
   year?: number;
+};
+
+export type GetMovieCreditsParams = {
+  movie_id: number;
+  language?: string;
 };
