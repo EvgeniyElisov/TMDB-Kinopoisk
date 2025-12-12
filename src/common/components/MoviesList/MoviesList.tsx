@@ -12,14 +12,16 @@ export const MoviesList = ({ movies, title, columns = 6 }: Props) => {
   const moviesListClassName = columns === 5 ? `${styles.moviesList} ${styles.moviesList5}` : styles.moviesList;
 
   return (
-    <section>
-      <h2>{title}</h2>
-      <div className={moviesListClassName}>
+    <section aria-labelledby={`movies-section-${title.replace(/\s+/g, "-").toLowerCase()}`}>
+      <h2 id={`movies-section-${title.replace(/\s+/g, "-").toLowerCase()}`}>{title}</h2>
+      <ul className={moviesListClassName} role="list">
         {movies?.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
+          <li key={movie.id}>
+            <MovieCard movie={movie} />
+          </li>
         ))}
-      </div>
-      <button className={styles.viewMoreButton} type="button">
+      </ul>
+      <button className={styles.viewMoreButton} type="button" aria-label={`View more ${title}`}>
         View more
       </button>
     </section>

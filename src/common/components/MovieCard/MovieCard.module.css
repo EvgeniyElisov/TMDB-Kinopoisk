@@ -2,10 +2,17 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  text-decoration: none;
   color: inherit;
   position: relative;
   overflow: hidden;
+}
+
+.card a {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
 }
 
 .posterWrapper {
@@ -24,7 +31,8 @@
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.card:hover .poster {
+.card:hover .poster,
+.card a:hover .poster {
   transform: scale(1.1);
 }
 
@@ -78,7 +86,8 @@
   transition: color 0.2s ease;
 }
 
-.card:hover .title {
+.card:hover .title,
+.card a:hover .title {
   color: #a5b4fc;
 }
 

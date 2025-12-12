@@ -14,14 +14,18 @@ export const MovieCard = ({ movie }: Props) => {
   const ratingClass = getRatingClass(rating);
 
   return (
-    <NavLink to={`/movie/${movie.id}`} className={styles.card} aria-label={`${movie.title} - Rating: ${rating}`}>
-      <div className={styles.posterWrapper}>
-        <img src={imgPath} alt={movie.title} className={styles.poster} loading="lazy" />
-        <div className={`${styles.rating} ${styles[ratingClass]}`}>{rating}</div>
-      </div>
-      <div className={styles.info}>
-        <h3 className={styles.title}>{movie.title}</h3>
-      </div>
-    </NavLink>
+    <article className={styles.card}>
+      <NavLink to={`/movie/${movie.id}`} aria-label={`${movie.title} - Rating: ${rating}`}>
+        <div className={styles.posterWrapper}>
+          <img src={imgPath} alt={movie.title} className={styles.poster} loading="lazy" />
+          <div className={`${styles.rating} ${styles[ratingClass]}`} aria-label={`Rating: ${rating}`}>
+            {rating}
+          </div>
+        </div>
+        <div className={styles.info}>
+          <h3 className={styles.title}>{movie.title}</h3>
+        </div>
+      </NavLink>
+    </article>
   );
 };

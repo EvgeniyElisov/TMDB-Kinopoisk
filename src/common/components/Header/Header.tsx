@@ -15,16 +15,20 @@ export const Header = () => {
   return (
     <header className={styles.header}>
       <div>
-        <NavLink to={PagePaths.Main}>
+        <NavLink to={PagePaths.Main} aria-label="Go to main page">
           <img src={tmdbLogo} alt="TMDB Logo" />
         </NavLink>
       </div>
-      <nav>
-        {navItems.map((item) => (
-          <NavLink key={item.to} to={item.to} end={item.to === PagePaths.Main} className={({ isActive }) => (isActive ? styles.active : "")}>
-            {item.label}
-          </NavLink>
-        ))}
+      <nav aria-label="Main navigation">
+        <ul role="list">
+          {navItems.map((item) => (
+            <li key={item.to}>
+              <NavLink to={item.to} end={item.to === PagePaths.Main} className={({ isActive }) => (isActive ? styles.active : "")} aria-label={`Go to ${item.label} page`}>
+                {item.label}
+              </NavLink>
+            </li>
+          ))}
+        </ul>
       </nav>
     </header>
   );
