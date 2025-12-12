@@ -1,14 +1,18 @@
 section {
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
 }
 
 section h2 {
   color: #ffffff;
-  font-size: 1.75rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid rgba(102, 126, 234, 0.3);
+  background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.8) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .moviesList {
@@ -18,66 +22,125 @@ section h2 {
   padding: 1.5rem 0;
 }
 
-.moviesList > div {
+.moviesList5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.moviesList > * {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  border-radius: 8px;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+  border-radius: 12px;
   overflow: hidden;
-  background-color: #1a1a1a;
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.9) 0%, rgba(20, 20, 20, 0.95) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.moviesList > div:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+.moviesList > *:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 24px rgba(102, 126, 234, 0.3), 0 0 0 1px rgba(102, 126, 234, 0.2);
+  border-color: rgba(102, 126, 234, 0.4);
 }
 
-.moviesList > div img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 2/3;
-  object-fit: cover;
-  border-radius: 8px 8px 0 0;
-}
-
-.moviesList > div span {
-  padding: 0.5rem;
+.viewMoreButton {
+  margin-top: 2rem;
+  padding: 0.875rem 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: #ffffff;
-  font-size: 0.875rem;
-  font-weight: 500;
-  text-align: center;
-  line-height: 1.3;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
 }
 
-@media (max-width: 1400px) {
+.viewMoreButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.viewMoreButton:active {
+  transform: translateY(0);
+}
+
+/* Адаптивность для больших экранов */
+@media (min-width: 1920px) {
   .moviesList {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 2rem;
+  }
+
+  .moviesList5 {
     grid-template-columns: repeat(5, 1fr);
   }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1600px) {
   .moviesList {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+  }
+
+  .moviesList5 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (max-width: 1400px) {
+  .moviesList {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+  }
+
+  .moviesList5 {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
+  section h2 {
+    font-size: 1.75rem;
+  }
+
   .moviesList {
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+  section {
+    margin-bottom: 3rem;
+  }
+
+  section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
   .moviesList {
     grid-template-columns: repeat(2, 1fr);
+    gap: 0.875rem;
+    padding: 1rem 0;
+  }
+
+  .viewMoreButton {
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9375rem;
+  }
+}
+
+@media (max-width: 480px) {
+  section h2 {
+    font-size: 1.25rem;
+  }
+
+  .moviesList {
     gap: 0.75rem;
   }
 }
+

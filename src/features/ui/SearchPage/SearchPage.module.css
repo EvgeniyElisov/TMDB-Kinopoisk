@@ -1,0 +1,57 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.title {
+  margin-bottom: 0.5rem;
+}
+
+.page form {
+  max-width: 700px;
+  width: 100%;
+}
+
+.message {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  padding: 2rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.noResults {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1rem;
+  padding: 1.5rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.noResults strong {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .page {
+    gap: 1.5rem;
+  }
+
+  .message {
+    font-size: 1rem;
+    padding: 1.5rem;
+  }
+
+  .noResults {
+    font-size: 0.9375rem;
+    padding: 1.25rem;
+  }
+}
+

@@ -6,14 +6,20 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   display: flex;
   flex-direction: column;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #0f0f0f;
+  background: linear-gradient(135deg, #0a0a0a 0%, #0f0f0f 50%, #0a0a0a 100%);
+  background-attachment: fixed;
   color: #ffffff;
+  overflow-x: hidden;
 }
 
 #root {
@@ -24,20 +30,32 @@ body {
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.2;
   color: #ffffff;
-  margin: 2rem 0 1rem 0;
+  margin: 0 0 1rem 0;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.8) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 h2 {
   color: #ffffff;
+  font-weight: 600;
+}
+
+h3 {
+  color: #ffffff;
+  font-weight: 600;
+  margin: 0;
 }
 
 main {
   flex: 1;
-  padding: 2rem;
-  max-width: 1600px;
+  padding: 2.5rem 2rem;
+  max-width: 1920px;
   width: 100%;
   margin: 0 auto;
 }
@@ -46,24 +64,28 @@ main form {
   display: flex;
   gap: 1rem;
   margin: 2rem 0;
-  max-width: 600px;
+  max-width: 700px;
+  width: 100%;
 }
 
 main form input[type="search"] {
   flex: 1;
-  padding: 0.75rem 1rem;
+  padding: 1rem 1.25rem;
   border: 2px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
   color: #ffffff;
   font-size: 1rem;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
+  font-family: inherit;
 }
 
 main form input[type="search"]:focus {
   outline: none;
   border-color: #667eea;
-  background-color: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
 }
 
 main form input[type="search"]::placeholder {
@@ -71,32 +93,98 @@ main form input[type="search"]::placeholder {
 }
 
 main form button {
-  padding: 0.75rem 2rem;
+  padding: 1rem 2.5rem;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: #ffffff;
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  font-family: inherit;
+  white-space: nowrap;
 }
 
 main form button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
 }
 
 main form button:active {
   transform: translateY(0);
 }
 
+main p {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #a5b4fc;
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 a:hover {
-  color: #535bf2;
+  color: #c7d2fe;
+}
+
+section {
+  margin-bottom: 3rem;
+}
+
+@media (max-width: 1024px) {
+  main {
+    padding: 2rem 1.5rem;
+  }
+
+  main form {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    padding: 1.5rem 1rem;
+  }
+
+  main form {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  main form input[type="search"] {
+    padding: 0.875rem 1rem;
+    font-size: 0.9375rem;
+  }
+
+  main form button {
+    width: 100%;
+    padding: 0.875rem 1.5rem;
+    font-size: 0.9375rem;
+  }
+
+  h1 {
+    font-size: clamp(1.75rem, 6vw, 2.5rem);
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    padding: 1.25rem 0.875rem;
+  }
+
+  main form input[type="search"] {
+    padding: 0.75rem 0.875rem;
+    font-size: 0.875rem;
+  }
+
+  main form button {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.875rem;
+  }
 }

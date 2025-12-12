@@ -1,6 +1,7 @@
-import { SearchInput } from "@/common/components";
+import { MoviesList, SearchInput } from "@/common/components";
 import { useGetMoviesBySearchQuery } from "@/features/api/moviesApi";
 import { useSearchParams } from "react-router";
+import styles from "./SearchPage.module.css";
 
 export const SearchPage = () => {
   const [searchParams] = useSearchParams();
@@ -8,11 +9,18 @@ export const SearchPage = () => {
   const { data: searchedMovies } = useGetMoviesBySearchQuery({ query }, { skip: !query });
 
   return (
-    <main aria-label="Search page">
-      <h1>Search Results</h1>
+    <main aria-label="Search page" className={styles.page}>
+      <h1 className={styles.title}>Search Results</h1>
       <SearchInput />
-      {!query && <p>Enter a movie title to search</p>}
-      {searchedMovies?.results.length === 0 && <p>No movies found for {query}</p>}
+      {!query && <p className={styles.message}>Enter a movie title to search</p>}
+      {query && searchedMovies?.results.length === 0 && (
+        <p className={styles.noResults}>
+          No movies found for <strong>{query}</strong>
+        </p>
+      )}
+      {query && searchedMovies?.results && searchedMovies.results.length > 0 && (
+        <MoviesList movies={searchedMovies.results} title={`Search results for "${query}"`} />
+      )}
     </main>
   );
 };

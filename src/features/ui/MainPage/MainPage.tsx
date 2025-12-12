@@ -1,7 +1,7 @@
 import { CategoryMoviesTitles } from "@/common/constants";
 import { useGetNowPlayingMoviesQuery, useGetPopularMoviesQuery, useGetTopRatedMoviesQuery, useGetUpcomingMoviesQuery } from "@/features/api/moviesApi";
-import { WelcomeSection } from "./WelcomeSection";
 import { MoviesSection } from "./MoviesSection";
+import { WelcomeSection } from "./WelcomeSection";
 
 export const MainPage = () => {
   const { data: popularMovies } = useGetPopularMoviesQuery({ page: 1 });

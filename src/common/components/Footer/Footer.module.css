@@ -1,89 +1,100 @@
- .footer {
+.footer {
   margin-top: auto;
-  background: linear-gradient(135deg, #0f0f0f 0%, #151515 100%);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(135deg, #0a0a0a 0%, #0f0f0f 50%, #0a0a0a 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   color: #e8e8e8;
+  backdrop-filter: blur(10px);
 }
 
 .content {
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
-  padding: 24px 20px 28px;
+  padding: 2.5rem 2rem 3rem;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
-  gap: 24px;
+  gap: 3rem;
 }
 
 .brandBlock {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  max-width: 420px;
+  gap: 1rem;
+  max-width: 480px;
+  flex: 1;
 }
 
 .logoBlock {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 1rem;
 }
 
 .logo {
-  width: 40px;
-  height: 40px;
-  filter: drop-shadow(0 4px 12px rgba(103, 187, 255, 0.35));
+  width: 44px;
+  height: 44px;
+  filter: drop-shadow(0 4px 12px rgba(102, 126, 234, 0.4));
+  transition: filter 0.3s ease;
+}
+
+.logoBlock:hover .logo {
+  filter: drop-shadow(0 6px 16px rgba(102, 126, 234, 0.5));
 }
 
 .brandText {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 0.25rem;
   color: #ffffff;
 }
 
 .brandTitle {
   font-weight: 700;
   letter-spacing: 0.3px;
+  font-size: 1.125rem;
 }
 
 .brandSubtitle {
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.9375rem;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .tagline {
   margin: 0;
-  color: rgba(255, 255, 255, 0.72);
-  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.6;
+  font-size: 0.9375rem;
 }
 
 .nav {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 14px;
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.04);
+  padding: 0.75rem 1.25rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
   color: #e8e8e8;
   text-decoration: none;
   font-weight: 600;
   letter-spacing: 0.2px;
-  transition: transform 0.18s ease, border-color 0.18s ease, background-color 0.18s ease,
-    box-shadow 0.18s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 0.9375rem;
 }
 
 .link:hover {
-  border-color: rgba(102, 126, 234, 0.55);
-  background: rgba(102, 126, 234, 0.12);
-  box-shadow: 0 6px 18px rgba(102, 126, 234, 0.35);
+  border-color: rgba(102, 126, 234, 0.6);
+  background: rgba(102, 126, 234, 0.15);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
   transform: translateY(-2px);
+  color: #ffffff;
 }
 
 .link:focus-visible {
@@ -95,37 +106,80 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 6px;
+  gap: 0.5rem;
   color: rgba(255, 255, 255, 0.7);
   text-align: right;
+  font-size: 0.875rem;
+}
+
+@media (max-width: 1024px) {
+  .content {
+    padding: 2rem 1.5rem 2.5rem;
+    gap: 2rem;
+  }
 }
 
 @media (max-width: 960px) {
   .content {
     flex-direction: column;
     align-items: flex-start;
+    gap: 2rem;
   }
 
   .meta {
     align-items: flex-start;
     text-align: left;
   }
+
+  .nav {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding: 1.75rem 1.25rem 2rem;
+    gap: 1.5rem;
+  }
+
+  .logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .brandTitle {
+    font-size: 1rem;
+  }
+
+  .brandSubtitle {
+    font-size: 0.875rem;
+  }
+
+  .tagline {
+    font-size: 0.875rem;
+  }
 }
 
 @media (max-width: 560px) {
   .content {
-    padding: 20px 16px 24px;
-    gap: 16px;
+    padding: 1.5rem 1rem 1.75rem;
+    gap: 1.25rem;
   }
 
   .link {
     width: 100%;
+    padding: 0.625rem 1rem;
+    font-size: 0.875rem;
   }
 
   .nav {
+    flex-direction: column;
     width: 100%;
-    flex-wrap: wrap;
-    justify-content: flex-start;
+  }
+
+  .meta {
+    font-size: 0.8125rem;
   }
 }
 

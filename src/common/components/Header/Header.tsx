@@ -5,7 +5,7 @@ import styles from "./Header.module.css";
 import { PagePaths } from "@/common/constants";
 const navItems = [
   { to: PagePaths.Main, label: "Main" },
-  { to: PagePaths.CategoryMovies, label: "Category Movies" },
+  { to: PagePaths.PopularMovies, label: "Category Movies" },
   { to: PagePaths.FilteredMovies, label: "Filtered Movies" },
   { to: PagePaths.Search, label: "Search" },
   { to: PagePaths.Favorites, label: "Favorites" },
@@ -21,7 +21,7 @@ export const Header = () => {
       </div>
       <nav>
         {navItems.map((item) => (
-          <NavLink key={item.to} to={item.to} className={({ isActive }) => (isActive ? styles.active : "")}>
+          <NavLink key={item.to} to={item.to} end={item.to === PagePaths.Main} className={({ isActive }) => (isActive ? styles.active : "")}>
             {item.label}
           </NavLink>
         ))}

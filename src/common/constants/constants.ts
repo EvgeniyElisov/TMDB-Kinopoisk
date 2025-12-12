@@ -16,7 +16,6 @@ export const CategoryMoviesTitles = {
 
 export const PagePaths = {
   Main: "/",
-  CategoryMovies: "/movies",
   PopularMovies: `/movies/${CategoryMoviesPaths.Popular}`,
   TopRatedMovies: `/movies/${CategoryMoviesPaths.TopRated}`,
   UpcomingMovies: `/movies/${CategoryMoviesPaths.Upcoming}`,
@@ -25,6 +24,7 @@ export const PagePaths = {
   Search: "/search",
   Favorites: "/favorites",
   Movie: "/movie/:id",
+  CategoryMovies: "/movies/:category",
   NotFound: "*",
 } as const;
 
