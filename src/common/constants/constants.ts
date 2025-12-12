@@ -1,8 +1,8 @@
-export const picturePath = "https://image.tmdb.org/t/p/w500" as const;
+export const picturesBaseUrl = "https://image.tmdb.org/t/p/original" as const;
 
 export const CategoryMoviesPaths = {
   Popular: "popular",
-  TopRated: "top_rated", 
+  TopRated: "top_rated",
   Upcoming: "upcoming",
   NowPlaying: "now_playing",
 } as const;
@@ -27,6 +27,15 @@ export const PagePaths = {
   CategoryMovies: "/movies/:category",
   NotFound: "*",
 } as const;
+
+export const PagePathsType = {
+  PopularMovies: PagePaths.PopularMovies,
+  TopRatedMovies: PagePaths.TopRatedMovies,
+  UpcomingMovies: PagePaths.UpcomingMovies,
+  NowPlayingMovies: PagePaths.NowPlayingMovies,
+} as const;
+
+export type PagePathsType = typeof PagePathsType[keyof typeof PagePathsType];
 
 export const CategoriesInfo = [
   { title: CategoryMoviesTitles.Popular, path: PagePaths.PopularMovies },

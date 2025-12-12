@@ -1,11 +1,14 @@
 import { PagePaths } from "@/common/constants";
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import { useNavigate, useSearchParams } from "react-router";
+import styles from "./SearchInput.module.css";
 
 export const SearchInput = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const [search, setSearch] = useState(searchParams.get("query") || "");
+  const trimmedSearch = search.trim();
+  const isDisabled = trimmedSearch === "";
 
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     setSearch(e.currentTarget.value);
@@ -13,15 +16,16 @@ export const SearchInput = () => {
 
   const searchHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const trimmedSearch = search.trim();
-    if (trimmedSearch === "") return;
+    if (isDisabled) return;
     navigate(`${PagePaths.Search}?query=${trimmedSearch}`);
   };
 
   return (
-    <form onSubmit={searchHandler}>
-      <input type="search" placeholder={"Search movie..."} value={search} onChange={onChangeHandler} />
-      <button type="submit">Search</button>
+    <form onSubmit={searchHandler} className={styles.form}>
+      <input type="search" placeholder={"Search movie..."} value={search} onChange={onChangeHandler} className={styles.input} />
+      <button type="submit" disabled={isDisabled} className={styles.button}>
+        Search
+      </button>
     </form>
   );
 };
