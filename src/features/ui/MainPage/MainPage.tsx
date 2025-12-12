@@ -1,34 +1,25 @@
-import { useLazyGetMoviesBySearchQuery } from "@/features/api/moviesApi";
-import { useState, type ChangeEvent } from "react";
+import { CategoryMoviesTitles } from "@/common/constants";
+import { useGetNowPlayingMoviesQuery, useGetPopularMoviesQuery, useGetTopRatedMoviesQuery, useGetUpcomingMoviesQuery } from "@/features/api/moviesApi";
+import { WelcomeSection } from "./WelcomeSection";
+import { MoviesSection } from "./MoviesSection";
 
 export const MainPage = () => {
-  const [search, setSearch] = useState("");
+  const { data: popularMovies } = useGetPopularMoviesQuery({ page: 1 });
+  const { data: topRatedMovies } = useGetTopRatedMoviesQuery({ page: 1 });
+  const { data: upcomingMovies } = useGetUpcomingMoviesQuery({ page: 1 });
+  const { data: nowPlayingMovies } = useGetNowPlayingMoviesQuery({ page: 1 });
 
-  const [trigger, { data: movies }] = useLazyGetMoviesBySearchQuery();
-
-  const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    setSearch(e.currentTarget.value);
-  };
-
-  const searchHandler = () => {
-    const trimmedSearch = search.trim();
-    if (trimmedSearch !== "") {
-      trigger({ query: trimmedSearch })
-        .unwrap()
-        .then(() => setSearch(""));
-    }
-  };
+  const moviesListData = [
+    { title: CategoryMoviesTitles.Popular, movies: popularMovies?.results || [] },
+    { title: CategoryMoviesTitles.TopRated, movies: topRatedMovies?.results || [] },
+    { title: CategoryMoviesTitles.Upcoming, movies: upcomingMovies?.results || [] },
+    { title: CategoryMoviesTitles.NowPlaying, movies: nowPlayingMovies?.results || [] },
+  ];
 
   return (
-    <main>
-      <h1>Welcome to the TMDB Kinopoisk</h1>
-      <h2>Browse the latest movies and TV shows</h2>
-      <form action="">
-        <input type="search" placeholder={"Search movie..."} value={search} onChange={onChangeHandler} />
-        <button type="button" onClick={searchHandler}>
-          Search
-        </button>
-      </form>
+    <main aria-label="Main page">
+      <WelcomeSection />
+      <MoviesSection moviesListData={moviesListData} />
     </main>
   );
 };

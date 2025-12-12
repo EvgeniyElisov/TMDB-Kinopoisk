@@ -83,3 +83,56 @@ export const movieCreditsSchema = z.object({
   cast: z.array(castSchema),
   crew: z.array(crewSchema),
 });
+
+export const productionCompanySchema = z.object({
+  id: nonNegativeInt,
+  logo_path: nullableString,
+  name: z.string(),
+  origin_country: z.string(),
+});
+
+export const productionCountrySchema = z.object({
+  iso_3166_1: z.string(),
+  name: z.string(),
+});
+
+export const spokenLanguageSchema = z.object({
+  english_name: z.string(),
+  iso_639_1: z.string(),
+  name: z.string(),
+});
+
+export const belongsToCollectionSchema = z.object({
+  id: nonNegativeInt,
+  name: z.string(),
+  poster_path: nullableString,
+  backdrop_path: nullableString,
+}).nullable();
+
+export const movieDetailsSchema = z.object({
+  adult: z.boolean(),
+  backdrop_path: nullableString,
+  belongs_to_collection: belongsToCollectionSchema,
+  budget: nonNegativeInt,
+  genres: z.array(genreSchema),
+  homepage: nullableString,
+  id: nonNegativeInt,
+  imdb_id: nullableString,
+  original_language: z.string(),
+  original_title: z.string(),
+  overview: z.string(),
+  popularity: nonNegativeNumber,
+  poster_path: nullableString,
+  production_companies: z.array(productionCompanySchema),
+  production_countries: z.array(productionCountrySchema),
+  release_date: z.string(),
+  revenue: nonNegativeInt,
+  runtime: nonNegativeInt.nullable(),
+  spoken_languages: z.array(spokenLanguageSchema),
+  status: z.string(),
+  tagline: nullableString,
+  title: z.string(),
+  video: z.boolean(),
+  vote_average: voteAverageSchema,
+  vote_count: nonNegativeInt,
+});

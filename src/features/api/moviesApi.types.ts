@@ -1,5 +1,5 @@
 import * as z from "zod";
-import type { castSchema, crewSchema, datesSchema, genreSchema, genresListSchema, getMoviesSchema, getMoviesWithDatesSchema, movieCreditsSchema, movieSchema } from "../model/movies.schemas";
+import type { castSchema, crewSchema, datesSchema, genreSchema, genresListSchema, getMoviesSchema, getMoviesWithDatesSchema, movieCreditsSchema, movieDetailsSchema, movieSchema, productionCompanySchema, productionCountrySchema, spokenLanguageSchema } from "../model/movies.schemas";
 
 export type Dates = z.infer<typeof datesSchema>;
 export type Genre = z.infer<typeof genreSchema>;
@@ -10,6 +10,11 @@ export type GetMoviesWithDatesResponse = z.infer<typeof getMoviesWithDatesSchema
 export type Cast = z.infer<typeof castSchema>;
 export type Crew = z.infer<typeof crewSchema>;
 export type GetMovieCreditsResponse = z.infer<typeof movieCreditsSchema>;
+export type MovieDetails = z.infer<typeof movieDetailsSchema>;
+export type ProductionCompany = z.infer<typeof productionCompanySchema>;
+export type ProductionCountry = z.infer<typeof productionCountrySchema>;
+export type SpokenLanguage = z.infer<typeof spokenLanguageSchema>;
+export type GetMovieDetailsResponse = z.infer<typeof movieDetailsSchema>;
 
 // Params
 export type BaseQueryParams = {
@@ -68,4 +73,10 @@ export type GetFilteredMoviesParams = BaseQueryParams & {
 export type GetMovieCreditsParams = {
   movie_id: number;
   language?: string;
+};
+
+export type GetMovieDetailsParams = {
+  movie_id: number;
+  language?: string;
+  append_to_response?: string;
 };
