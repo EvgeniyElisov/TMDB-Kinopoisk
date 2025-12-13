@@ -14,12 +14,26 @@ import type {
   GetMoviesResponse,
   GetMoviesWithDatesResponse,
 } from "./moviesApi.types";
-import { Endpoints } from "@/common/constants";
+import { Endpoints } from "@/common/types";
 
 export const moviesApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
-    getMoviesBySearch: build.query<GetMoviesResponse, GetMoviesBySearchParams>({
-      query: (params) => ({ url: `${Endpoints.getMoviesBySearch}`, params }),
+    getMoviesBySearch: build.infiniteQuery<GetMoviesResponse, GetMoviesBySearchParams, number | undefined>({
+      infiniteQueryOptions: {
+        initialPageParam: 1,
+        getNextPageParam: (lastPage) => {
+          if (lastPage.page < lastPage.total_pages) {
+            return lastPage.page + 1;
+          }
+          return undefined;
+        },
+      },
+      query: ({ pageParam, queryArg }) => {
+        return {
+          url: `${Endpoints.getMoviesBySearch}`,
+          params: { page: pageParam, query: queryArg.query },
+        };
+      },
       ...withZodCatch(getMoviesSchema),
     }),
 
@@ -66,8 +80,7 @@ export const moviesApi = baseApi.injectEndpoints({
 });
 
 export const {
-  useGetMoviesBySearchQuery,
-  useLazyGetMoviesBySearchQuery,
+  useGetMoviesBySearchInfiniteQuery,
   useGetPopularMoviesQuery,
   useLazyGetGenresListQuery,
   useLazyGetMovieCreditsQuery,

@@ -5,7 +5,7 @@ import { MainPage } from "@/features/ui/MainPage";
 import { MoviePage } from "@/features/ui/MoviePage";
 import { SearchPage } from "@/features/ui/SearchPage";
 import { Route, Routes } from "react-router";
-import { PagePaths } from "../constants";
+import { PagePaths } from "../types";
 
 export const Routing = () => {
   return (

@@ -1,5 +1,19 @@
 import * as z from "zod";
-import type { castSchema, crewSchema, datesSchema, genreSchema, genresListSchema, getMoviesSchema, getMoviesWithDatesSchema, movieCreditsSchema, movieDetailsSchema, movieSchema, productionCompanySchema, productionCountrySchema, spokenLanguageSchema } from "../model/movies.schemas";
+import type {
+  castSchema,
+  crewSchema,
+  datesSchema,
+  genreSchema,
+  genresListSchema,
+  getMoviesSchema,
+  getMoviesWithDatesSchema,
+  movieCreditsSchema,
+  movieDetailsSchema,
+  movieSchema,
+  productionCompanySchema,
+  productionCountrySchema,
+  spokenLanguageSchema,
+} from "../model/movies.schemas";
 
 export type Dates = z.infer<typeof datesSchema>;
 export type Genre = z.infer<typeof genreSchema>;
@@ -32,6 +46,25 @@ export type GetMoviesBySearchParams = BaseQueryParams & {
 
 export type GetGenresListParams = Pick<BaseQueryParams, "language">;
 
+
+
+export type SortByValues =
+  | "popularity.asc"
+  | "popularity.desc"
+  | "title.asc"
+  | "title.desc"
+  | "revenue.asc"
+  | "revenue.desc"
+  | "primary_release_date.asc"
+  | "primary_release_date.desc"
+  | "original_title.asc"
+  | "original_title.desc"
+  | "vote_average.asc"
+  | "vote_average.desc"
+  | "vote_count.asc"
+  | "vote_count.desc";
+
+
 export type GetFilteredMoviesParams = BaseQueryParams & {
   certification?: string;
   "certification.gte"?: string;
@@ -44,7 +77,7 @@ export type GetFilteredMoviesParams = BaseQueryParams & {
   "primary_release_date.lte"?: string;
   "release_date.gte"?: string;
   "release_date.lte"?: string;
-  sort_by?: string;
+  sort_by?: SortByValues;
   "vote_average.gte"?: number;
   "vote_average.lte"?: number;
   "vote_count.gte"?: number;

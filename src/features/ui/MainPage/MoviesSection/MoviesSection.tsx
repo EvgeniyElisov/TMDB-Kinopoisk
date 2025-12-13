@@ -1,5 +1,5 @@
 import { MoviesList } from "@/common/components";
-import { CategoryMoviesTitles, PagePathsType } from "@/common/constants";
+import { CategoryMoviesTitles, PagePathsType } from "@/common/types";
 import { useGetPopularMoviesQuery, useGetTopRatedMoviesQuery, useGetUpcomingMoviesQuery, useGetNowPlayingMoviesQuery } from "@/features/api/moviesApi";
 
 export const MoviesSection = () => {

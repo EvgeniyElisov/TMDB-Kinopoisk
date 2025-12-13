@@ -1,34 +1,33 @@
+import noPoster from "@/assets/images/no-poster.jpg";
 import { picturesBaseUrl } from "@/common/constants";
 import { getRatingClass } from "@/common/utils";
-import type { Movie } from "@/features/api/moviesApi.types";
 import { useState } from "react";
 import { NavLink } from "react-router";
 import styles from "./MovieCard.module.css";
-import noPoster from "@/assets/images/no-poster.svg";
-
 
 type Props = {
-  movie: Movie;
+  id: number;
+  title: string;
+  posterPath: string | null;
+  rating: number;
 };
 
-export const MovieCard = ({ movie }: Props) => {
+export const MovieCard = ({ id, title, posterPath, rating }: Props) => {
   const [isFavorite, setIsFavorite] = useState(false);
-  const imgPath = movie.poster_path ? `${picturesBaseUrl}${movie.poster_path}` : noPoster;
-  const rating = +movie.vote_average.toFixed(1);
+  const imgPath = posterPath ? `${picturesBaseUrl}${posterPath}` : noPoster;
   const ratingClass = getRatingClass(rating);
 
   const handleFavoriteClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     e.stopPropagation();
-    setIsFavorite((prev) => !prev);
-    // TODO: добавить функционал добавления в избранное
+    setIsFavorite(!isFavorite);
   };
 
   return (
     <article className={styles.card}>
-      <NavLink to={`/movie/${movie.id}`} aria-label={`${movie.title} - Rating: ${rating}`}>
+      <NavLink to={`/movie/${id}`} aria-label={`${title} - Rating: ${rating}`}>
         <div className={styles.posterWrapper}>
-          <img src={imgPath} alt={movie.title} className={styles.poster} loading="lazy" />
+          <img src={imgPath} alt={title} className={styles.poster} loading="lazy" />
           <button
             className={styles.favoriteButton}
             onClick={handleFavoriteClick}
@@ -42,7 +41,7 @@ export const MovieCard = ({ movie }: Props) => {
           </div>
         </div>
         <div className={styles.info}>
-          <h3 className={styles.title}>{movie.title}</h3>
+          <h3 className={styles.title}>{title}</h3>
         </div>
       </NavLink>
     </article>

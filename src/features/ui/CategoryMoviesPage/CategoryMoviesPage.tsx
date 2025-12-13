@@ -1,13 +1,17 @@
 import { MoviesList } from "@/common/components";
-import { CategoryMoviesPaths, CategoryMoviesTitles } from "@/common/constants";
-import { useGetNowPlayingMoviesQuery, useGetPopularMoviesQuery, useGetTopRatedMoviesQuery, useGetUpcomingMoviesQuery } from "@/features/api/moviesApi";
+import { Paginator } from "@/common/components/Paginator";
+import { CategoryMoviesPaths } from "@/common/types";
+import { getCategoryMoviesData } from "@/common/utils";
+import {
+  useGetNowPlayingMoviesQuery,
+  useGetPopularMoviesQuery,
+  useGetTopRatedMoviesQuery,
+  useGetUpcomingMoviesQuery
+} from "@/features/api/moviesApi";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { CategoriesButtons } from "./CategoriesButtons";
 import styles from "./CategoryMoviesPage.module.css";
-import Pagination from "@mui/material/Pagination";
-import Stack from "@mui/material/Stack";
-import type { ChangeEvent } from "react";
 
 export const CategoryMoviesPage = () => {
   const { category } = useParams();
@@ -21,24 +25,15 @@ export const CategoryMoviesPage = () => {
     setPage(1);
   }, [category]);
 
-  const getMoviesData = () => {
-    switch (category) {
-      case CategoryMoviesPaths.Popular:
-        return { movies: popularMoviesData?.results || [], title: CategoryMoviesTitles.Popular, totalPages: popularMoviesData?.total_pages || 1 };
-      case CategoryMoviesPaths.TopRated:
-        return { movies: topRatedMoviesData?.results || [], title: CategoryMoviesTitles.TopRated, totalPages: topRatedMoviesData?.total_pages || 1 };
-      case CategoryMoviesPaths.Upcoming:
-        return { movies: upcomingMoviesData?.results || [], title: CategoryMoviesTitles.Upcoming, totalPages: upcomingMoviesData?.total_pages || 1 };
-      case CategoryMoviesPaths.NowPlaying:
-        return { movies: nowPlayingMoviesData?.results || [], title: CategoryMoviesTitles.NowPlaying, totalPages: nowPlayingMoviesData?.total_pages || 1 };
-      default:
-        return { movies: [], title: "", totalPages: 0 };
-    }
-  };
+  const { movies, title, totalPages } = getCategoryMoviesData({
+    category,
+    popularMoviesData,
+    topRatedMoviesData,
+    upcomingMoviesData,
+    nowPlayingMoviesData,
+  });
 
-  const { movies, title, totalPages } = getMoviesData();
-
-  const handlePageChange = (_event: ChangeEvent<unknown>, value: number) => {
+  const handlePageChange = (_event: React.ChangeEvent<unknown>, value: number) => {
     setPage(value);
   };
 
@@ -46,16 +41,9 @@ export const CategoryMoviesPage = () => {
     <main aria-label="Movies by category page" className={styles.page}>
       <CategoriesButtons />
       <MoviesList movies={movies} title={title} />
-      <Stack spacing={2} className={styles.paginationWrapper}>
-        <Pagination 
-        count={totalPages} 
-        page={page} 
-        variant="outlined" 
-        shape="rounded" 
-        size={"large"} 
-        onChange={handlePageChange}
-        />
-      </Stack>
+      {
+        totalPages > 1 && <Paginator totalPages={totalPages} page={page} handlePageChange={handlePageChange} />
+      }
     </main>
   );
 };

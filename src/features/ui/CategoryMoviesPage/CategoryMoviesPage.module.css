@@ -4,80 +4,8 @@
   gap: 2rem;
 }
 
-.paginationWrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem 0;
-  margin-top: 1rem;
-}
-
-.paginationWrapper :global(.MuiPagination-root) {
-  display: flex;
-  justify-content: center;
-}
-
-.paginationWrapper :global(.MuiPaginationItem-root) {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 1rem;
-  font-weight: 500;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
-}
-
-.paginationWrapper :global(.MuiPaginationItem-root:hover) {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(102, 126, 234, 0.5);
-  color: #ffffff;
-  transform: translateY(-2px);
-}
-
-.paginationWrapper :global(.Mui-selected) {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: #ffffff;
-  border-color: transparent;
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
-}
-
-.paginationWrapper :global(.Mui-selected:hover) {
-  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
-  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
-  transform: translateY(-2px);
-}
-
-.paginationWrapper :global(.MuiPaginationItem-icon) {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 1.5rem;
-}
-
-.paginationWrapper :global(.MuiPaginationItem-icon:hover) {
-  color: #ffffff;
-}
-
-.paginationWrapper :global(.Mui-disabled) {
-  opacity: 0.3;
-  cursor: not-allowed;
-}
-
 @media (max-width: 768px) {
   .page {
     gap: 1.5rem;
   }
-
-  .paginationWrapper {
-    padding: 1.5rem 0;
-  }
-
-  .paginationWrapper :global(.MuiPaginationItem-root) {
-    font-size: 0.875rem;
-    min-width: 36px;
-    height: 36px;
-  }
-
-  .paginationWrapper :global(.MuiPaginationItem-icon) {
-    font-size: 1.25rem;
-  }
 }
-

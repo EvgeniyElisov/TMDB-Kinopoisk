@@ -1,0 +1,100 @@
+.paginationWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+
+.pagination :global(.MuiPagination-ul) {
+  gap: 0.5rem;
+}
+
+.pagination :global(.MuiPaginationItem-root) {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+  font-weight: 600;
+  min-width: 44px;
+  height: 44px;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 12px;
+}
+
+.pagination :global(.MuiPaginationItem-root:hover) {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(102, 126, 234, 0.6);
+  color: #ffffff;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+.pagination :global(.Mui-selected) {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+  font-weight: 700;
+}
+
+.pagination :global(.Mui-selected:hover) {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.5);
+  transform: translateY(-2px) scale(1.05);
+}
+
+.pagination :global(.MuiPaginationItem-icon) {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.75rem;
+  transition: all 0.3s ease;
+}
+
+.pagination :global(.MuiPaginationItem-icon:hover) {
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+.pagination :global(.Mui-disabled) {
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
+.pagination :global(.MuiPaginationItem-ellipsis) {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1.25rem;
+  min-width: 44px;
+  height: 44px;
+  border: none;
+  background: transparent;
+}
+
+@media (max-width: 768px) {
+  .paginationWrapper {
+    padding: 1.5rem 0;
+  }
+
+  .pagination :global(.MuiPaginationItem-root) {
+    font-size: 0.875rem;
+    min-width: 36px;
+    height: 36px;
+    border-radius: 10px;
+  }
+
+  .pagination :global(.MuiPaginationItem-icon) {
+    font-size: 1.25rem;
+  }
+
+  .pagination :global(.MuiPaginationItem-ellipsis) {
+    min-width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+}

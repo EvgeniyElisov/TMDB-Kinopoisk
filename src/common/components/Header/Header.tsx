@@ -2,7 +2,8 @@ import tmdbLogo from "@/assets/images/tmdb-logo.svg";
 import { NavLink } from "react-router";
 
 import styles from "./Header.module.css";
-import { PagePaths } from "@/common/constants";
+import { PagePaths } from "@/common/types";
+
 const navItems = [
   { to: PagePaths.Main, label: "Main" },
   { to: PagePaths.PopularMovies, label: "Category Movies" },

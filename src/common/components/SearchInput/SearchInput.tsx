@@ -1,7 +1,7 @@
-import { PagePaths } from "@/common/constants";
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import { useNavigate, useSearchParams } from "react-router";
 import styles from "./SearchInput.module.css";
+import { PagePaths } from "@/common/types";
 
 export const SearchInput = () => {
   const navigate = useNavigate();

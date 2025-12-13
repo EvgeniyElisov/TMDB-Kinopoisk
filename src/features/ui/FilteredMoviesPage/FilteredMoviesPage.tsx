@@ -1,10 +1,15 @@
+import { useGetMoviesByFilterQuery } from "@/features/api/moviesApi";
 import styles from "./FilteredMoviesPage.module.css";
+import { FiltersSection } from "./FiltersSection";
+import { MoviesList } from "@/common/components";
 
 export const FilteredMoviesPage = () => {
+  const { data: filteredMoviesData } = useGetMoviesByFilterQuery({});
+
   return (
     <main aria-label="Filtered movies page" className={styles.page}>
-      <h1>Filtered Movies</h1>
-      <p className={styles.message}>Filter functionality coming soon...</p>
+     <FiltersSection />
+     <MoviesList movies={filteredMoviesData?.results || []} title="Filtered movies" />
     </main>
   );
 };
