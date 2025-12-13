@@ -1,8 +1,15 @@
 .page {
   display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.content {
+  flex: 1;
+  display: flex;
   flex-direction: column;
   gap: 2rem;
-  padding: 2rem 0;
 }
 
 .message {
@@ -15,9 +22,15 @@
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+@media (max-width: 1024px) {
+  .page {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+
 @media (max-width: 768px) {
   .page {
-    padding: 1.5rem 0;
     gap: 1.5rem;
   }
 

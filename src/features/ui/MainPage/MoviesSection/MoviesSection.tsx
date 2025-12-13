@@ -25,6 +25,7 @@ export const MoviesSection = () => {
           movies={movieData.movies} 
           itemsNumber={6}
           categoryPath={movieData.categoryPath}
+          columns={6}
         />
       ))}
     </section>

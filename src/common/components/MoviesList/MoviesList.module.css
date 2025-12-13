@@ -40,15 +40,11 @@ section h2::before {
 
 .moviesList {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
   gap: 1.5rem;
   padding: 1.5rem 0;
   list-style: none;
   margin: 0;
-}
-
-.moviesList5 {
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(var(--columns, 6), 1fr);
 }
 
 .moviesList li {
@@ -95,37 +91,35 @@ section h2::before {
 /* Адаптивность для больших экранов */
 @media (min-width: 1920px) {
   .moviesList {
-    grid-template-columns: repeat(6, 1fr);
     gap: 2rem;
   }
-
-  .moviesList5 {
-    grid-template-columns: repeat(5, 1fr);
-  }
 }
 
+/* Для экранов до 1600px - максимум 5 колонок */
 @media (max-width: 1600px) {
   .moviesList {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(5, 1fr) !important;
     gap: 1.5rem;
   }
-
-  .moviesList5 {
-    grid-template-columns: repeat(5, 1fr);
-  }
 }
 
+/* Для экранов до 1400px - максимум 4 колонки */
 @media (max-width: 1400px) {
   .moviesList {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr) !important;
     gap: 1.25rem;
-  }
-
-  .moviesList5 {
-    grid-template-columns: repeat(4, 1fr);
   }
 }
 
+/* Для экранов до 1200px - максимум 4 колонки */
+@media (max-width: 1200px) {
+  .moviesList {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 1.25rem;
+  }
+}
+
+/* Для экранов до 1024px - максимум 3 колонки */
 @media (max-width: 1024px) {
   section h2 {
     font-size: 1.75rem;
@@ -136,11 +130,12 @@ section h2::before {
   }
 
   .moviesList {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr) !important;
     gap: 1rem;
   }
 }
 
+/* Для экранов до 768px - 2 колонки */
 @media (max-width: 768px) {
   section {
     margin-bottom: 3rem;
@@ -158,7 +153,7 @@ section h2::before {
   }
 
   .moviesList {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr) !important;
     gap: 0.875rem;
     padding: 1rem 0;
   }
@@ -170,6 +165,7 @@ section h2::before {
   }
 }
 
+/* Для экранов до 480px - остаются 2 колонки, уменьшаем gap */
 @media (max-width: 480px) {
   section h2 {
     font-size: 1.25rem;
@@ -177,6 +173,23 @@ section h2::before {
 
   .moviesList {
     gap: 0.75rem;
+  }
+}
+
+/* Для экранов до 360px - одна колонка */
+@media (max-width: 360px) {
+  section h2 {
+    font-size: 1.125rem;
+  }
+
+  .moviesList {
+    grid-template-columns: 1fr !important;
+    gap: 1rem;
+  }
+
+  .viewMoreButton {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.875rem;
   }
 }
 

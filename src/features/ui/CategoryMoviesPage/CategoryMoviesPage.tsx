@@ -40,7 +40,7 @@ export const CategoryMoviesPage = () => {
   return (
     <main aria-label="Movies by category page" className={styles.page}>
       <CategoriesButtons />
-      <MoviesList movies={movies} title={title} />
+      <MoviesList movies={movies} title={title} columns={5} />
       {
         totalPages > 1 && <Paginator totalPages={totalPages} page={page} handlePageChange={handlePageChange} />
       }

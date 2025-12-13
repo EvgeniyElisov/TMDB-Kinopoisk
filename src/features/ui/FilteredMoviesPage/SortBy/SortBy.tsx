@@ -1,4 +1,5 @@
 import type { SortByValues } from "@/features/api/moviesApi.types";
+import styles from "./SortBy.module.css";
 
 const sortByOptions: { value: SortByValues; label: string }[] = [
   { value: "popularity.asc", label: "Popularity ↑" },
@@ -19,9 +20,9 @@ const sortByOptions: { value: SortByValues; label: string }[] = [
 
 export const SortBy = () => {
   return (
-    <div>
-      <label>Sort by</label>
-      <select>
+    <div className={styles.container}>
+      <label className={styles.label}>Sort by</label>
+      <select className={styles.select}>
         {sortByOptions.map((option) => (
           <option key={option.value} value={option.value}>
             {option.label}

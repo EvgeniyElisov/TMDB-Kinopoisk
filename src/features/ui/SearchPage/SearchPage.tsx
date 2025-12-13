@@ -38,7 +38,7 @@ export const SearchPage = () => {
       )}
       {query && allMovies.length > 0 && (
         <>
-          <MoviesList movies={allMovies} title={`Search results for "${query}"`} />
+          <MoviesList movies={allMovies} title={`Search results for "${query}"`} columns={5} />
           <div ref={observerRef} />
         </>
       )}

@@ -9,14 +9,15 @@ type Props = {
   title: string;
   itemsNumber?: number;
   categoryPath?: PagePathsType;
+  columns: number;
 };
 
-export const MoviesList = ({ movies, title, itemsNumber, categoryPath }: Props) => {
+export const MoviesList = ({ movies, title, itemsNumber, categoryPath, columns }: Props) => {
   const displayedMovies = itemsNumber ? movies.slice(0, itemsNumber) : movies;
   const hasMoreMovies = itemsNumber && movies.length > itemsNumber;
 
   return (
-    <section aria-labelledby={`movies-section-${title.replace(/\s+/g, "-").toLowerCase()}`}>
+    <section aria-labelledby={`movies-section-${title?.replace(/\s+/g, "-").toLowerCase()}`}>
       <div className={styles.headerContainer}>
         <h2 id={`movies-section-${title.replace(/\s+/g, "-").toLowerCase()}`}>{title}</h2>
         {hasMoreMovies && categoryPath && (
@@ -29,9 +30,9 @@ export const MoviesList = ({ movies, title, itemsNumber, categoryPath }: Props) 
         )}
       </div>
       <ul 
-        className={styles.moviesList} 
-        role="list" 
-        style={{ gridTemplateColumns: itemsNumber && `repeat(${itemsNumber}, 1fr)` }}
+        role="list"
+        className={styles.moviesList}
+        style={{ '--columns': columns } as React.CSSProperties}
       >
         {displayedMovies?.map((movie) => (
           <li key={movie.id}>
