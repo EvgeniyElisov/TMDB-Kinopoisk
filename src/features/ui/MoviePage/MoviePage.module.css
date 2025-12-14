@@ -1,32 +1,66 @@
 .page {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  padding: 2rem 0;
+  gap: 3rem;
+  padding: 2.5rem 2rem;
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  position: relative;
 }
 
 .loading,
 .error {
   text-align: center;
-  padding: 3rem 2rem;
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 1.125rem;
+  padding: 4rem 2rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.25rem;
+  font-weight: 500;
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.6) 0%, rgba(20, 20, 20, 0.8) 100%);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .error {
   color: #ff6b6b;
+  background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, rgba(26, 26, 26, 0.8) 100%);
+  border-color: rgba(255, 107, 107, 0.3);
+}
+
+@media (max-width: 1024px) {
+  .page {
+    gap: 2.5rem;
+    padding: 2rem 1.5rem;
+  }
 }
 
 @media (max-width: 768px) {
   .page {
-    padding: 1.5rem 0;
+    padding: 1.5rem 1rem;
+    gap: 2rem;
+  }
+
+  .loading,
+  .error {
+    padding: 3rem 1.5rem;
+    font-size: 1.125rem;
+    border-radius: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page {
+    padding: 1.25rem 0.875rem;
     gap: 1.5rem;
   }
 
   .loading,
   .error {
-    padding: 2rem 1rem;
+    padding: 2.5rem 1rem;
     font-size: 1rem;
+    border-radius: 10px;
   }
 }
 

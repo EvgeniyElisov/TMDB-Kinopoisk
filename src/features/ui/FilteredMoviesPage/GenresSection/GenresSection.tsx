@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useGetGenresListQuery } from "@/features/api/moviesApi";
 import styles from "./GenresSection.module.css";
 import type { GetFilteredMoviesParams } from "@/features/api/moviesApi.types";
+import { GenresSkeleton } from "@/common/components/Skeletons";
 
 type Props = {
   params: GetFilteredMoviesParams;
@@ -11,7 +12,7 @@ type Props = {
 export const GenresSection = ({ params, setParams }: Props) => {
   const genres = params.with_genres || [];
   const [selectedGenres, setSelectedGenres] = useState<number[]>(genres);
-  const { data: genresListData } = useGetGenresListQuery({});
+  const { data: genresListData, isLoading } = useGetGenresListQuery({});
 
   useEffect(() => {
     setSelectedGenres(params.with_genres || []);
@@ -33,6 +34,10 @@ export const GenresSection = ({ params, setParams }: Props) => {
       setParams(restParams);
     }
   }, [selectedGenres]);
+
+  if (isLoading) {
+    return <GenresSkeleton />;
+  }
 
   return (
     <div className={styles.genresSection}>

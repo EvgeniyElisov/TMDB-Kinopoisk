@@ -7,6 +7,7 @@ import type {
   genresListSchema,
   getMoviesSchema,
   getMoviesWithDatesSchema,
+  getSimilarMoviesResponseSchema,
   movieCreditsSchema,
   movieDetailsSchema,
   movieSchema,
@@ -29,6 +30,7 @@ export type ProductionCompany = z.infer<typeof productionCompanySchema>;
 export type ProductionCountry = z.infer<typeof productionCountrySchema>;
 export type SpokenLanguage = z.infer<typeof spokenLanguageSchema>;
 export type GetMovieDetailsResponse = z.infer<typeof movieDetailsSchema>;
+
 
 // Params
 export type BaseQueryParams = {
@@ -108,8 +110,10 @@ export type GetMovieCreditsParams = {
   language?: string;
 };
 
-export type GetMovieDetailsParams = {
-  movie_id: number;
-  language?: string;
+export type GetSimilarMoviesParams = GetMovieCreditsParams & {
+  page?: number;
+};
+
+export type GetMovieDetailsParams = GetMovieCreditsParams & {
   append_to_response?: string;
 };

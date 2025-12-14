@@ -3,3 +3,8 @@ export { Footer } from "./Footer/Footer";
 export { MoviesList } from "./MoviesList/MoviesList";
 export { MovieCard } from "./MovieCard/MovieCard";
 export { SearchInput } from "./SearchInput/SearchInput";
+export { MovieRating } from "./MovieRating";
+export { FavoriteButton } from "./FavoriteButton";
+export { MoviePoster } from "./MoviePoster";
+export { BackButton } from "./BackButton";
+export * from "./Skeletons";

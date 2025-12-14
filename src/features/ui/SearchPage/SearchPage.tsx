@@ -1,7 +1,6 @@
-import { MoviesList, SearchInput } from "@/common/components";
+import { MoviesList, MoviesSkeleton, SearchInput } from "@/common/components";
 import { useInfiniteScroll } from "@/common/hooks";
 import { useGetMoviesBySearchInfiniteQuery } from "@/features/api/moviesApi";
-import { useMemo } from "react";
 import { useSearchParams } from "react-router";
 import styles from "./SearchPage.module.css";
 
@@ -15,10 +14,7 @@ export const SearchPage = () => {
     isFetching,
   } = useGetMoviesBySearchInfiniteQuery({ query }, { skip: !query });
 
-  const allMovies = useMemo(() => {
-    if (!searchedMoviesData?.pages) return [];
-    return searchedMoviesData.pages.flatMap((page) => page.results);
-  }, [searchedMoviesData]);
+  const movies = searchedMoviesData?.pages.flatMap((page) => page.results) || [];
 
   const { observerRef } = useInfiniteScroll({
     hasNextPage: hasNextPage ?? false,
@@ -29,16 +25,17 @@ export const SearchPage = () => {
   return (
     <main aria-label="Search page" className={styles.page}>
       <h1 className={styles.title}>Search Results</h1>
-      <SearchInput />
+      <SearchInput placeholder="Search movie..." />
       {!query && <p className={styles.message}>Enter a movie title to search</p>}
-      {query && allMovies.length === 0 && !isFetching && (
+      {query && isFetching && movies.length === 0 && <MoviesSkeleton count={20} />}
+      {query && movies.length === 0 && !isFetching && (
         <p className={styles.noResults}>
           No movies found for <strong>{query}</strong>
         </p>
       )}
-      {query && allMovies.length > 0 && (
+      {query && movies.length > 0 && (
         <>
-          <MoviesList movies={allMovies} title={`Search results for "${query}"`} columns={5} />
+          <MoviesList movies={movies} title={`Search results for "${query}"`} columns={5} />
           <div ref={observerRef} />
         </>
       )}

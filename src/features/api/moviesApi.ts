@@ -1,4 +1,5 @@
 import { baseApi } from "@/app/api/baseApi";
+import { Endpoints } from "@/common/types";
 import { withZodCatch } from "@/common/utils/withZodCatch";
 import { genresListSchema, getMoviesSchema, getMoviesWithDatesSchema, movieCreditsSchema, movieDetailsSchema } from "../model/movies.schemas";
 import type {
@@ -13,8 +14,8 @@ import type {
   GetMoviesBySearchParams,
   GetMoviesResponse,
   GetMoviesWithDatesResponse,
+  GetSimilarMoviesParams,
 } from "./moviesApi.types";
-import { Endpoints } from "@/common/types";
 
 export const moviesApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
@@ -85,8 +86,13 @@ export const moviesApi = baseApi.injectEndpoints({
     }),
 
     getMovieCredits: build.query<GetMovieCreditsResponse, GetMovieCreditsParams>({
-      query: ({ movie_id, ...params }) => ({ url: `movie/${movie_id}/credits`, params }),
+      query: ({ movie_id, ...params }) => ({ url: `${Endpoints.getMovieDetails}/${movie_id}/credits`, params }),
       ...withZodCatch(movieCreditsSchema),
+    }),
+
+    getSimilarMovies: build.query<GetMoviesResponse, GetSimilarMoviesParams>({
+      query: ({ movie_id, ...params }) => ({ url: `${Endpoints.getMovieDetails}/${movie_id}/similar`, params }),
+      ...withZodCatch(getMoviesSchema),
     }),
 
     getMovieDetails: build.query<GetMovieDetailsResponse, GetMovieDetailsParams>({
@@ -97,20 +103,14 @@ export const moviesApi = baseApi.injectEndpoints({
 });
 
 export const {
+  useGetSimilarMoviesQuery,
   useGetMoviesBySearchInfiniteQuery,
   useGetPopularMoviesQuery,
-  useLazyGetGenresListQuery,
-  useLazyGetMovieCreditsQuery,
   useGetMoviesByFilterInfiniteQuery,
-  useLazyGetNowPlayingMoviesQuery,
-  useLazyGetPopularMoviesQuery,
-  useLazyGetTopRatedMoviesQuery,
-  useLazyGetUpcomingMoviesQuery,
   useGetTopRatedMoviesQuery,
   useGetUpcomingMoviesQuery,
   useGetNowPlayingMoviesQuery,
   useGetGenresListQuery,
   useGetMovieCreditsQuery,
   useGetMovieDetailsQuery,
-  useLazyGetMovieDetailsQuery,
 } = moviesApi;

@@ -1,7 +1,7 @@
 import { useGetMoviesByFilterInfiniteQuery } from "@/features/api/moviesApi";
 import styles from "./FilteredMoviesPage.module.css";
 import { FiltersSection } from "./FiltersSection";
-import { MoviesList } from "@/common/components";
+import { MoviesList, MoviesSkeleton } from "@/common/components";
 import { useState } from "react";
 import type { GetFilteredMoviesParams } from "@/features/api/moviesApi.types";
 import { useDebounceValue } from "@/common/hooks";
@@ -32,7 +32,7 @@ export const FilteredMoviesPage = () => {
     <main aria-label="Filtered movies page" className={styles.page}>
       <FiltersSection params={params} setParams={setParams} resetFilters={resetFiltersHandler} />
       <div className={styles.content}>
-        {isLoading && <p className={styles.message}>Loading...</p>}
+        {isLoading && <MoviesSkeleton count={20} columns={5} />}
         {!isLoading && movies.length === 0 && <p className={styles.message}>No movies found</p>}
         {!isLoading && movies.length > 0 && <MoviesList movies={movies} title="Filtered movies" columns={5} />}
         {!isLoading && hasNextPage && (

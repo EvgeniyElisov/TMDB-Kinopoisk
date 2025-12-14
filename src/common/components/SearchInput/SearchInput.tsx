@@ -1,11 +1,15 @@
-import { useState, type ChangeEvent, type FormEvent } from "react";
+import { useEffect, useState, type ChangeEvent, type FormEvent } from "react";
 import { useNavigate, useSearchParams } from "react-router";
 import styles from "./SearchInput.module.css";
 import { PagePaths } from "@/common/types";
 
-export const SearchInput = () => {
+type Props = {
+  placeholder: string;
+};
+
+export const SearchInput = ({ placeholder }: Props) => {
   const navigate = useNavigate();
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [search, setSearch] = useState(searchParams.get("query") || "");
   const trimmedSearch = search.trim();
   const isDisabled = trimmedSearch === "";
@@ -20,9 +24,17 @@ export const SearchInput = () => {
     navigate(`${PagePaths.Search}?query=${trimmedSearch}`);
   };
 
+  useEffect(() => {
+    if (isDisabled && searchParams.has("query")) {
+      searchParams.delete("query");
+      setSearchParams({});
+    }
+  }, [isDisabled, searchParams]);
+
+ 
   return (
     <form onSubmit={searchHandler} className={styles.form}>
-      <input type="search" placeholder={"Search movie..."} value={search} onChange={onChangeHandler} className={styles.input} />
+      <input type="search" placeholder={placeholder} value={search} onChange={onChangeHandler} className={styles.input} />
       <button type="submit" disabled={isDisabled} className={styles.button}>
         Search
       </button>
