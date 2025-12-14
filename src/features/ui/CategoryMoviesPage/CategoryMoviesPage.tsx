@@ -11,10 +11,10 @@ import styles from "./CategoryMoviesPage.module.css";
 export const CategoryMoviesPage = () => {
   const { category } = useParams();
   const [page, setPage] = useState(1);
-  const { data: popularMoviesData, isLoading: isLoadingPopular } = useGetPopularMoviesQuery({ page }, { skip: category !== CategoryMoviesPaths.Popular });
-  const { data: topRatedMoviesData, isLoading: isLoadingTopRated } = useGetTopRatedMoviesQuery({ page }, { skip: category !== CategoryMoviesPaths.TopRated });
-  const { data: upcomingMoviesData, isLoading: isLoadingUpcoming } = useGetUpcomingMoviesQuery({ page }, { skip: category !== CategoryMoviesPaths.Upcoming });
-  const { data: nowPlayingMoviesData, isLoading: isLoadingNowPlaying } = useGetNowPlayingMoviesQuery(
+  const { data: popularMoviesData, isLoading: isLoadingPopular, isFetching: isFetchingPopular } = useGetPopularMoviesQuery({ page }, { skip: category !== CategoryMoviesPaths.Popular });
+  const { data: topRatedMoviesData, isLoading: isLoadingTopRated, isFetching: isFetchingTopRated } = useGetTopRatedMoviesQuery({ page }, { skip: category !== CategoryMoviesPaths.TopRated });
+  const { data: upcomingMoviesData, isLoading: isLoadingUpcoming, isFetching: isFetchingUpcoming } = useGetUpcomingMoviesQuery({ page }, { skip: category !== CategoryMoviesPaths.Upcoming });
+  const { data: nowPlayingMoviesData, isLoading: isLoadingNowPlaying, isFetching: isFetchingNowPlaying } = useGetNowPlayingMoviesQuery(
     { page },
     { skip: category !== CategoryMoviesPaths.NowPlaying }
   );
@@ -32,6 +32,7 @@ export const CategoryMoviesPage = () => {
   });
 
   const isLoading = isLoadingPopular || isLoadingTopRated || isLoadingUpcoming || isLoadingNowPlaying;
+  const isFetching = isFetchingPopular || isFetchingTopRated || isFetchingUpcoming || isFetchingNowPlaying;
 
   const handlePageChange = (_event: React.ChangeEvent<unknown>, value: number) => {
     setPage(value);
@@ -40,7 +41,7 @@ export const CategoryMoviesPage = () => {
   return (
     <main aria-label="Movies by category page" className={styles.page}>
       <CategoriesButtons />
-      {isLoading ? (
+      {isLoading || isFetching ? (
         <MoviesSkeleton count={20} />
       ) : (
         <>
