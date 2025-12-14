@@ -13,6 +13,8 @@ export const App = () => {
     <ThemeProvider theme={theme}>
       <div className={styles.container}>
         <Header />
+        {/* {isGlobalLoading && <LinearProgress />} */}
+
         <div className={styles.content}>
           <Routing />
         </div>

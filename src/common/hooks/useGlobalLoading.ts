@@ -1,12 +1,10 @@
 // import type { RootState } from '@/app/model/store.ts'
-// import { playlistsApi } from '@/features/playlists/api/playlistsApi'
-// import { tracksApi } from '@/features/tracks/api/tracksApi'
+// import { moviesApi } from '@/features/api/moviesApi'
 // import { useSelector } from 'react-redux'
 
 // // Список эндпоинтов для исключения из глобального индикатора
 // const excludedEndpoints = [
-//   playlistsApi.endpoints.fetchPlaylists.name,
-//   tracksApi.endpoints.fetchTracks.name,
+//   moviesApi.endpoints.fetchPlaylists.name,
 // ]
  
 // export const useGlobalLoading = () => {

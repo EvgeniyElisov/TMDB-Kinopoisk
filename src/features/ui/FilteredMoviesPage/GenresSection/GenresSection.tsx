@@ -1,16 +1,38 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useGetGenresListQuery } from "@/features/api/moviesApi";
 import styles from "./GenresSection.module.css";
+import type { GetFilteredMoviesParams } from "@/features/api/moviesApi.types";
 
-export const GenresSection = () => {
+type Props = {
+  params: GetFilteredMoviesParams;
+  setParams: (params: GetFilteredMoviesParams) => void;
+};
+
+export const GenresSection = ({ params, setParams }: Props) => {
+  const genres = params.with_genres || [];
+  const [selectedGenres, setSelectedGenres] = useState<number[]>(genres);
   const { data: genresListData } = useGetGenresListQuery({});
-  const [selectedGenres, setSelectedGenres] = useState<number[]>([]);
+
+  useEffect(() => {
+    setSelectedGenres(params.with_genres || []);
+  }, [params.with_genres]);
 
   const handleGenreToggle = (genreId: number) => {
-    setSelectedGenres((prev) =>
-      prev.includes(genreId) ? prev.filter((id) => id !== genreId) : [...prev, genreId]
-    );
+    if (!selectedGenres.includes(genreId)) {
+      setSelectedGenres([...selectedGenres, genreId]);
+    } else {
+      setSelectedGenres(selectedGenres.filter((id) => id !== genreId));
+    }
   };
+
+  useEffect(() => {
+    if (selectedGenres.length > 0) {
+      setParams({ ...params, with_genres: selectedGenres });
+    } else {
+      const { with_genres, ...restParams } = params;
+      setParams(restParams);
+    }
+  }, [selectedGenres]);
 
   return (
     <div className={styles.genresSection}>

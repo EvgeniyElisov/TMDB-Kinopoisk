@@ -29,9 +29,10 @@ export const moviesApi = baseApi.injectEndpoints({
         },
       },
       query: ({ pageParam, queryArg }) => {
+        const { page, ...restParams } = queryArg;
         return {
           url: `${Endpoints.getMoviesBySearch}`,
-          params: { page: pageParam, query: queryArg.query },
+          params: { page: pageParam, ...restParams },
         };
       },
       ...withZodCatch(getMoviesSchema),
@@ -57,8 +58,24 @@ export const moviesApi = baseApi.injectEndpoints({
       ...withZodCatch(getMoviesWithDatesSchema),
     }),
 
-    getMoviesByFilter: build.query<GetMoviesResponse, GetFilteredMoviesParams>({
-      query: (params) => ({ url: `${Endpoints.getMoviesByFilter}`, params }),
+    getMoviesByFilter: build.infiniteQuery<GetMoviesResponse, GetFilteredMoviesParams, number | undefined>({
+      infiniteQueryOptions: {
+        initialPageParam: 1,
+        getNextPageParam: (lastPage) => {
+          if (lastPage.page < lastPage.total_pages) {
+            return lastPage.page + 1;
+          }
+          return undefined;
+        },
+      },
+      query: ({ pageParam, queryArg }) => {
+        const { page, ...restParams } = queryArg;
+        return {
+          url: `${Endpoints.getMoviesByFilter}`,
+          params: { page: pageParam, ...restParams },
+        };
+      },
+      keepUnusedDataFor: 0,
       ...withZodCatch(getMoviesSchema),
     }),
 
@@ -84,7 +101,7 @@ export const {
   useGetPopularMoviesQuery,
   useLazyGetGenresListQuery,
   useLazyGetMovieCreditsQuery,
-  useLazyGetMoviesByFilterQuery,
+  useGetMoviesByFilterInfiniteQuery,
   useLazyGetNowPlayingMoviesQuery,
   useLazyGetPopularMoviesQuery,
   useLazyGetTopRatedMoviesQuery,
@@ -92,7 +109,6 @@ export const {
   useGetTopRatedMoviesQuery,
   useGetUpcomingMoviesQuery,
   useGetNowPlayingMoviesQuery,
-  useGetMoviesByFilterQuery,
   useGetGenresListQuery,
   useGetMovieCreditsQuery,
   useGetMovieDetailsQuery,
