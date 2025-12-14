@@ -11,14 +11,14 @@
 
 .genreButton {
   padding: 0.625rem 1.25rem;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 20px;
-  color: #ffffff;
+  background: var(--mui-palette-background-paper);
+  border: 1.5px solid var(--mui-palette-divider);
+  border-radius: var(--radius-20);
+  color: var(--mui-palette-text-primary);
   font-size: 0.875rem;
   font-weight: 500;
   cursor: pointer;
-  transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  transition: var(--transition-base);
   white-space: nowrap;
   position: relative;
   overflow: hidden;
@@ -33,15 +33,18 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.3) 0%, rgba(118, 75, 162, 0.3) 100%);
-  transition: left 0.3s ease;
+  background: var(--gradient-primary);
+  transition: left 0.4s ease 0.15s;
+  z-index: 0;
 }
 
 .genreButton:hover {
-  background: rgba(102, 126, 234, 0.15);
-  border-color: rgba(102, 126, 234, 0.4);
+  border-color: var(--color-primary-rgba-05);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+  box-shadow: var(--shadow-md);
+  font-weight: 500;
+  text-shadow: 0 0 0.5px color-mix(in srgb, var(--mui-palette-common-white) 50%, transparent);
+  color: #ffffff;
 }
 
 .genreButton:hover::before {
@@ -53,13 +56,14 @@
 }
 
 .genreButton.selected {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border-color: rgba(102, 126, 234, 0.5);
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  background: var(--gradient-primary);
+  border-color: var(--color-primary-rgba-05);
+  box-shadow: var(--shadow-md);
   font-weight: 500;
-  text-shadow: 0 0 0.5px rgba(255, 255, 255, 0.5);
-  transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  text-shadow: 0 0 0.5px color-mix(in srgb, var(--mui-palette-common-white) 50%, transparent);
+  transition: var(--transition-base);
   box-sizing: border-box;
+  color: #ffffff;
 }
 
 .genreButton.selected::before {
@@ -67,13 +71,14 @@
 }
 
 .genreButton.selected:hover {
-  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
-  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+  background: var(--gradient-primary);
+  box-shadow: var(--shadow-lg);
 }
 
 .genreText {
   position: relative;
   z-index: 1;
+  transition: color 0.3s ease 0.15s;
 }
 
 @media (max-width: 768px) {

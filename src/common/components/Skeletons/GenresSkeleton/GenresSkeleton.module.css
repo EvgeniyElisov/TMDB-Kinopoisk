@@ -10,30 +10,14 @@
 }
 
 .genreSkeleton {
-  border-radius: 20px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.15)) !important;
+  border-radius: var(--radius-20);
+  background: var(--gradient-skeleton) !important;
   flex-shrink: 0;
 }
 
 .genreSkeleton::after {
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.4),
-    rgba(255, 255, 255, 0.6),
-    rgba(255, 255, 255, 0.4),
-    transparent
-  ) !important;
+  background: var(--gradient-skeleton-shimmer) !important;
   animation: shimmer 2s ease-in-out infinite;
-}
-
-@keyframes shimmer {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
 }
 
 @media (max-width: 768px) {

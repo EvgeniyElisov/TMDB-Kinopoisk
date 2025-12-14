@@ -3,21 +3,21 @@
   grid-template-columns: 280px 1fr;
   gap: 2.5rem;
   padding: 2rem;
-  background: linear-gradient(135deg, rgba(26, 26, 26, 0.7) 0%, rgba(20, 20, 20, 0.9) 100%);
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(102, 126, 234, 0.1);
-  backdrop-filter: blur(10px);
+  background: var(--mui-palette-background-paper);
+  border-radius: var(--radius-2xl);
+  border: 1px solid var(--mui-palette-divider);
+  box-shadow: var(--shadow-2xl), 0 0 0 1px color-mix(in srgb, var(--mui-palette-primary-main) 10%, transparent);
+  backdrop-filter: var(--blur-lg);
 }
 
 .posterWrapper {
   position: relative;
   width: 100%;
   aspect-ratio: 2/3;
-  border-radius: 16px;
+  border-radius: var(--radius-xl);
   overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: var(--shadow-black-md);
+  border: 1px solid var(--mui-palette-divider);
 }
 
 .content {
@@ -44,7 +44,7 @@
   gap: 1.5rem;
   align-items: center;
   padding-bottom: 1rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid var(--mui-palette-divider);
 }
 
 .meta :global(.rating) {
@@ -55,27 +55,27 @@
 .releaseDate,
 .runtime {
   font-size: 0.9375rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--mui-palette-text-primary);
   display: flex;
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 1rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  backdrop-filter: blur(5px);
-  transition: all 0.3s ease;
+  background: var(--mui-palette-background-paper);
+  border: 1px solid var(--mui-palette-divider);
+  border-radius: var(--radius-lg);
+  backdrop-filter: var(--blur-sm);
+  transition: var(--transition-base);
 }
 
 .releaseDate:hover,
 .runtime:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.15);
+  background: color-mix(in srgb, var(--mui-palette-common-white) 8%, var(--mui-palette-background-paper));
+  border-color: color-mix(in srgb, var(--mui-palette-common-white) 15%, var(--mui-palette-background-paper));
   transform: translateY(-1px);
 }
 
 .label {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--mui-palette-text-secondary);
   font-weight: 600;
   font-size: 0.875rem;
   text-transform: uppercase;
@@ -85,7 +85,7 @@
 .overview {
   font-size: 1.0625rem;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--mui-palette-text-primary);
   margin: 0;
 }
 
@@ -98,20 +98,12 @@
 
 .genre {
   padding: 0.5rem 1rem;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
-  border: 1px solid rgba(102, 126, 234, 0.3);
-  border-radius: 20px;
+  background: var(--gradient-primary-ultra-light);
+  border: 2px solid var(--color-primary-rgba-05);
+  border-radius: var(--radius-20);
   font-size: 0.875rem;
   font-weight: 500;
-  color: #a5b4fc;
-  transition: all 0.3s ease;
-}
-
-.genre:hover {
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.3) 0%, rgba(118, 75, 162, 0.3) 100%);
-  border-color: rgba(102, 126, 234, 0.5);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+  color: var(--mui-palette-text-primary);
 }
 
 @media (max-width: 1024px) {
@@ -119,7 +111,7 @@
     grid-template-columns: 240px 1fr;
     gap: 2rem;
     padding: 1.75rem;
-    border-radius: 16px;
+    border-radius: var(--radius-xl);
   }
 
   .content {
@@ -169,7 +161,7 @@
   .info {
     padding: 1.25rem;
     gap: 1.25rem;
-    border-radius: 12px;
+    border-radius: var(--radius-lg);
   }
 
   .posterWrapper {

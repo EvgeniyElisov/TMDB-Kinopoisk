@@ -27,36 +27,36 @@ section h2 {
   flex-direction: column;
   height: 100%;
   cursor: pointer;
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
-  border-radius: 12px;
+  transition: var(--transition-transform), box-shadow 0.3s ease;
+  border-radius: var(--radius-lg);
   overflow: hidden;
-  background: linear-gradient(135deg, rgba(26, 26, 26, 0.9) 0%, rgba(20, 20, 20, 0.95) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: var(--gradient-primary-ultra-light);
+  border: 1px solid var(--color-primary-rgba-03);
 }
 
 .moviesList li:hover {
   transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 12px 24px rgba(102, 126, 234, 0.3), 0 0 0 1px rgba(102, 126, 234, 0.2);
-  border-color: rgba(102, 126, 234, 0.4);
+  box-shadow: 0 12px 24px var(--color-primary-rgba-03), 0 0 0 1px var(--color-primary-rgba-03);
+  border-color: var(--color-primary-rgba-04);
 }
 
 .viewMoreButton {
   padding: 0.875rem 2rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--gradient-primary);
   color: #ffffff;
   border: none;
-  border-radius: 10px;
+  border-radius: var(--radius-md);
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  transition: var(--transition-base);
+  box-shadow: var(--shadow-md);
   white-space: nowrap;
 }
 
 .viewMoreButton:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+  box-shadow: var(--shadow-lg);
 }
 
 .viewMoreButton:active {

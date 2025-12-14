@@ -17,48 +17,48 @@
 }
 
 .pagination :global(.MuiPaginationItem-root) {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--mui-palette-text-primary);
   font-size: 1rem;
   font-weight: 600;
   min-width: 44px;
   height: 44px;
-  border: 2px solid rgba(255, 255, 255, 0.15);
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(12px);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  border-radius: 12px;
+  border: 2px solid var(--mui-palette-divider);
+  background: var(--mui-palette-background-paper);
+  backdrop-filter: var(--blur-xl);
+  transition: var(--transition-smooth);
+  border-radius: var(--radius-lg);
 }
 
 .pagination :global(.MuiPaginationItem-root:hover) {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(102, 126, 234, 0.6);
-  color: #ffffff;
+  background: color-mix(in srgb, var(--mui-palette-common-white) 15%, var(--mui-palette-background-paper));
+  border-color: color-mix(in srgb, var(--mui-palette-primary-main) 60%, transparent);
+  color: var(--mui-palette-text-primary);
   transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+  box-shadow: var(--shadow-primary-sm);
 }
 
 .pagination :global(.Mui-selected) {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--gradient-primary);
   color: #ffffff;
   border-color: transparent;
-  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+  box-shadow: var(--shadow-lg);
   font-weight: 700;
 }
 
 .pagination :global(.Mui-selected:hover) {
-  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
-  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.5);
+  background: var(--gradient-primary);
+  box-shadow: var(--shadow-xl);
   transform: translateY(-2px) scale(1.05);
 }
 
 .pagination :global(.MuiPaginationItem-icon) {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--mui-palette-text-primary);
   font-size: 1.75rem;
-  transition: all 0.3s ease;
+  transition: var(--transition-base);
 }
 
 .pagination :global(.MuiPaginationItem-icon:hover) {
-  color: #ffffff;
+  color: var(--mui-palette-text-primary);
   transform: scale(1.1);
 }
 
@@ -68,7 +68,7 @@
 }
 
 .pagination :global(.MuiPaginationItem-ellipsis) {
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--mui-palette-text-secondary);
   font-size: 1.25rem;
   min-width: 44px;
   height: 44px;

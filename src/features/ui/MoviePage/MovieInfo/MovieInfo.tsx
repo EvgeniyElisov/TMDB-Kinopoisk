@@ -2,8 +2,8 @@ import { BackButton, MovieRating } from "@/common/components";
 import { formatRuntime } from "@/common/utils";
 import type { MovieDetails } from "@/features/api/moviesApi.types";
 import styles from "./MovieInfo.module.css";
-import noPhoto from "@/assets/images/no-photo.jpg";
 import { Image } from "@/common/components/Image";
+import noPoster from "@/assets/images/no-poster.jpg";
 
 type Props = {
   movieDetails: MovieDetails;
@@ -13,7 +13,7 @@ export const MovieInfo = ({ movieDetails }: Props) => {
   return (
     <div className={styles.info}>
       <div className={styles.posterWrapper}>
-        <Image imagePath={movieDetails.poster_path} title={movieDetails.title} noImagePath={noPhoto} />
+        <Image imagePath={movieDetails.poster_path} title={movieDetails.title} noImagePath={noPoster} />
       </div>
       <div className={styles.content}>
         <div className={styles.titleWrapper}>

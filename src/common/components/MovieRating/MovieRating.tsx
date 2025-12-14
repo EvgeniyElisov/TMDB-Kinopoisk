@@ -10,7 +10,7 @@ export const MovieRating = ({ rating }: Props) => {
 
   return (
     <div className={`${styles.rating} ${styles[ratingClass]}`} aria-label={`Rating: ${rating}`}>
-      {rating}
+      {rating.toFixed(1)}
     </div>
   );
 };

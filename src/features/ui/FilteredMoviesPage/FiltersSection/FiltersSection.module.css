@@ -2,11 +2,11 @@
   min-width: 350px;
   max-width: 400px;
   padding: 2rem;
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(10px);
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  background: var(--mui-palette-background-paper);
+  backdrop-filter: var(--blur-lg);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--mui-palette-divider);
+  box-shadow: var(--shadow-primary-lg);
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -16,35 +16,31 @@
 }
 
 .filtersSection h2 {
-  color: #ffffff;
+  color: var(--mui-palette-text-primary);
   font-size: 1.5rem;
   font-weight: 700;
   margin: 0;
   padding-bottom: 1rem;
-  border-bottom: 2px solid rgba(102, 126, 234, 0.3);
-  background: linear-gradient(135deg, #ffffff 0%, #667eea 50%, #764ba2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  border-bottom: 2px solid color-mix(in srgb, var(--mui-palette-primary-main) 30%, transparent);
 }
 
 .resetButton {
   padding: 0.875rem 1.5rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--gradient-primary);
   color: #ffffff;
   border: none;
-  border-radius: 10px;
+  border-radius: var(--radius-md);
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  transition: var(--transition-base);
+  box-shadow: var(--shadow-md);
   margin-top: auto;
 }
 
 .resetButton:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+  box-shadow: var(--shadow-lg);
 }
 
 .resetButton:active {

@@ -3,8 +3,9 @@ import styles from "./Image.module.css";
 
 type Props = {
   imagePath: string | null;
-  title: string;
-  noImagePath: string;
+  title?: string;
+  noImagePath?: string;
+  className?: string;
 };
 
 export const Image = ({ imagePath, noImagePath, title }: Props) => {

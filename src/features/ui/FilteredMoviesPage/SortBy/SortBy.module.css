@@ -6,7 +6,7 @@
 }
 
 .label {
-  color: #ffffff;
+  color: var(--mui-palette-text-primary);
   font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.5px;
@@ -16,17 +16,17 @@
 .select {
   flex: 1;
   padding: 0.875rem 1rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 10px;
-  color: #ffffff;
+  background: var(--mui-palette-background-paper);
+  border: 1.5px solid var(--mui-palette-divider);
+  border-radius: var(--radius-md);
+  color: var(--mui-palette-text-primary);
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(5px);
+  transition: var(--transition-base);
+  backdrop-filter: var(--blur-sm);
   appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23667eea' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23087EA4' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 1rem center;
   background-size: 12px;
@@ -34,21 +34,21 @@
 }
 
 .select:hover {
-  background-color: rgba(255, 255, 255, 0.08);
-  border-color: rgba(102, 126, 234, 0.3);
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+  background-color: color-mix(in srgb, var(--mui-palette-common-white) 8%, var(--mui-palette-background-paper));
+  border-color: color-mix(in srgb, var(--mui-palette-primary-main) 30%, transparent);
+  box-shadow: var(--shadow-primary-sm);
 }
 
 .select:focus {
   outline: none;
-  background-color: rgba(255, 255, 255, 0.08);
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+  background-color: color-mix(in srgb, var(--mui-palette-common-white) 8%, var(--mui-palette-background-paper));
+  border-color: var(--mui-palette-primary-main);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--mui-palette-primary-main) 20%, transparent);
 }
 
 .select option {
-  background-color: #1a1a2e;
-  color: #ffffff;
+  background-color: var(--mui-palette-background-paper);
+  color: var(--mui-palette-text-primary);
   padding: 0.75rem;
 }
 

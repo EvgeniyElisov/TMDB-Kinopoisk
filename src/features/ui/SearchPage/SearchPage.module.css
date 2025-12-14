@@ -14,28 +14,28 @@
 }
 
 .message {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--mui-palette-text-secondary);
   font-size: 1.125rem;
   line-height: 1.6;
   padding: 2rem;
   text-align: center;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: var(--mui-palette-background-paper);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--mui-palette-divider);
 }
 
 .noResults {
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--mui-palette-text-secondary);
   font-size: 1rem;
   padding: 1.5rem;
   text-align: center;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: var(--mui-palette-background-paper);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--mui-palette-divider);
 }
 
 .noResults strong {
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--mui-palette-text-primary);
   font-weight: 600;
 }
 

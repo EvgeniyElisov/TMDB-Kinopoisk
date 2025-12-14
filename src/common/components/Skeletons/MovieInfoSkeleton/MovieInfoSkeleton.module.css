@@ -3,62 +3,35 @@
   grid-template-columns: 280px 1fr;
   gap: 2.5rem;
   padding: 2rem;
-  background: linear-gradient(135deg, rgba(26, 26, 26, 0.7) 0%, rgba(20, 20, 20, 0.9) 100%);
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(102, 126, 234, 0.1);
-  backdrop-filter: blur(10px);
+  background: var(--gradient-primary-light);
+  border-radius: var(--radius-2xl);
+  border: 1px solid var(--color-primary-rgba-03);
+  box-shadow: var(--shadow-2xl), 0 0 0 1px var(--color-primary-rgba-03);
+  backdrop-filter: var(--blur-lg);
   animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%, 100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.85;
-    transform: scale(0.98);
-  }
 }
 
 .posterWrapper {
   position: relative;
   width: 100%;
   aspect-ratio: 2/3;
-  border-radius: 16px;
+  border-radius: var(--radius-xl);
   overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  box-shadow: var(--shadow-black-md);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.15));
+  background: var(--gradient-skeleton);
 }
 
 .posterSkeleton {
   width: 100%;
   height: 100%;
   border-radius: 0;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.15)) !important;
+  background: var(--gradient-skeleton) !important;
 }
 
 .posterSkeleton::after {
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.4),
-    rgba(255, 255, 255, 0.6),
-    rgba(255, 255, 255, 0.4),
-    transparent
-  ) !important;
+  background: var(--gradient-skeleton-shimmer) !important;
   animation: shimmer 2s ease-in-out infinite;
-}
-
-@keyframes shimmer {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
 }
 
 .content {
@@ -75,38 +48,24 @@
 }
 
 .titleSkeleton {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.15)) !important;
-  border-radius: 8px;
+  background: var(--gradient-skeleton) !important;
+  border-radius: var(--radius-sm);
 }
 
 .titleSkeleton::after {
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.4),
-    rgba(255, 255, 255, 0.6),
-    rgba(255, 255, 255, 0.4),
-    transparent
-  ) !important;
+  background: var(--gradient-skeleton-shimmer) !important;
   animation: shimmer 2s ease-in-out infinite;
 }
 
 .backButtonSkeleton {
-  border-radius: 8px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.15)) !important;
+  border-radius: var(--radius-sm);
+  background: var(--gradient-skeleton) !important;
   border: 1px solid rgba(255, 255, 255, 0.3);
   flex-shrink: 0;
 }
 
 .backButtonSkeleton::after {
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.4),
-    rgba(255, 255, 255, 0.6),
-    rgba(255, 255, 255, 0.4),
-    transparent
-  ) !important;
+  background: var(--gradient-skeleton-shimmer) !important;
   animation: shimmer 2s ease-in-out infinite;
 }
 
@@ -120,20 +79,13 @@
 }
 
 .metaItemSkeleton {
-  border-radius: 12px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.15)) !important;
+  border-radius: var(--radius-lg);
+  background: var(--gradient-skeleton) !important;
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .metaItemSkeleton::after {
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.4),
-    rgba(255, 255, 255, 0.6),
-    rgba(255, 255, 255, 0.4),
-    transparent
-  ) !important;
+  background: var(--gradient-skeleton-shimmer) !important;
   animation: shimmer 2s ease-in-out infinite;
 }
 
@@ -144,19 +96,12 @@
 }
 
 .overviewLine {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.15)) !important;
+  background: var(--gradient-skeleton) !important;
   border-radius: 4px;
 }
 
 .overviewLine::after {
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.4),
-    rgba(255, 255, 255, 0.6),
-    rgba(255, 255, 255, 0.4),
-    transparent
-  ) !important;
+  background: var(--gradient-skeleton-shimmer) !important;
   animation: shimmer 2s ease-in-out infinite;
 }
 
@@ -168,21 +113,14 @@
 }
 
 .genreSkeleton {
-  border-radius: 20px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.15)) !important;
+  border-radius: var(--radius-20);
+  background: var(--gradient-skeleton) !important;
   border: 1px solid rgba(255, 255, 255, 0.3);
   flex-shrink: 0;
 }
 
 .genreSkeleton::after {
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.4),
-    rgba(255, 255, 255, 0.6),
-    rgba(255, 255, 255, 0.4),
-    transparent
-  ) !important;
+  background: var(--gradient-skeleton-shimmer) !important;
   animation: shimmer 2s ease-in-out infinite;
 }
 

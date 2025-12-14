@@ -4,7 +4,7 @@ import { CategoryMoviesPaths } from "@/common/types";
 import { getCategoryMoviesData } from "@/common/utils";
 import { useGetNowPlayingMoviesQuery, useGetPopularMoviesQuery, useGetTopRatedMoviesQuery, useGetUpcomingMoviesQuery } from "@/features/api/moviesApi";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useLocation, useParams } from "react-router";
 import { CategoriesButtons } from "./CategoriesButtons";
 import styles from "./CategoryMoviesPage.module.css";
 
@@ -14,10 +14,7 @@ export const CategoryMoviesPage = () => {
   const { data: popularMoviesData, isLoading: isLoadingPopular, isFetching: isFetchingPopular } = useGetPopularMoviesQuery({ page }, { skip: category !== CategoryMoviesPaths.Popular });
   const { data: topRatedMoviesData, isLoading: isLoadingTopRated, isFetching: isFetchingTopRated } = useGetTopRatedMoviesQuery({ page }, { skip: category !== CategoryMoviesPaths.TopRated });
   const { data: upcomingMoviesData, isLoading: isLoadingUpcoming, isFetching: isFetchingUpcoming } = useGetUpcomingMoviesQuery({ page }, { skip: category !== CategoryMoviesPaths.Upcoming });
-  const { data: nowPlayingMoviesData, isLoading: isLoadingNowPlaying, isFetching: isFetchingNowPlaying } = useGetNowPlayingMoviesQuery(
-    { page },
-    { skip: category !== CategoryMoviesPaths.NowPlaying }
-  );
+  const { data: nowPlayingMoviesData, isLoading: isLoadingNowPlaying, isFetching: isFetchingNowPlaying } = useGetNowPlayingMoviesQuery({ page },{ skip: category !== CategoryMoviesPaths.NowPlaying });
 
   useEffect(() => {
     setPage(1);
@@ -41,7 +38,7 @@ export const CategoryMoviesPage = () => {
   return (
     <main aria-label="Movies by category page" className={styles.page}>
       <CategoriesButtons />
-      {isLoading || isFetching ? (
+      {isLoading ? (
         <MoviesSkeleton count={20} />
       ) : (
         <>

@@ -32,7 +32,7 @@ export const FilteredMoviesPage = () => {
     <main aria-label="Filtered movies page" className={styles.page}>
       <FiltersSection params={params} setParams={setParams} resetFilters={resetFiltersHandler} />
       <div className={styles.content}>
-        {isLoading && <MoviesSkeleton count={20} columns={5} />}
+        {isLoading && <MoviesSkeleton count={20} />}
         {!isLoading && movies.length === 0 && <p className={styles.message}>No movies found</p>}
         {!isLoading && movies.length > 0 && <MoviesList movies={movies} title="Filtered movies" columns={5} />}
         {!isLoading && hasNextPage && (

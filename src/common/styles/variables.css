@@ -1,0 +1,81 @@
+:root {
+  /* Цвета градиента */
+  --gradient-primary-start: #667eea;
+  --gradient-primary-end: #764ba2;
+  --gradient-primary: linear-gradient(135deg, var(--gradient-primary-start) 0%, var(--gradient-primary-end) 100%);
+  
+  /* Градиенты с прозрачностью для фонов */
+  --gradient-primary-light: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.2) 100%);
+  --gradient-primary-ultra-light: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  --gradient-primary-semi-transparent: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
+  --gradient-primary-medium: linear-gradient(135deg, rgba(102, 126, 234, 0.6) 0%, rgba(118, 75, 162, 0.8) 100%);
+  --gradient-primary-strong: linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.9) 100%);
+  
+  /* Градиенты для skeleton */
+  --gradient-skeleton: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.15));
+  --gradient-skeleton-shimmer: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.6),
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  
+  /* Цвета с прозрачностью */
+  --color-primary-rgba-03: rgba(102, 126, 234, 0.3);
+  --color-primary-rgba-04: rgba(102, 126, 234, 0.4);
+  --color-primary-rgba-05: rgba(102, 126, 234, 0.5);
+  --color-primary-rgba-08: rgba(102, 126, 234, 0.8);
+  --color-primary-rgba-016: rgba(102, 126, 234, 0.16);
+  
+  /* Border radius */
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+  --radius-3xl: 24px;
+  --radius-full: 50%;
+  --radius-20: 20px;
+  
+  /* Box shadows */
+  --shadow-sm: 0 2px 8px color-mix(in srgb, var(--mui-palette-common-black) 20%, transparent);
+  --shadow-md: 0 4px 12px rgba(102, 126, 234, 0.3);
+  --shadow-lg: 0 6px 20px rgba(102, 126, 234, 0.4);
+  --shadow-xl: 0 8px 24px rgba(102, 126, 234, 0.3);
+  --shadow-2xl: 0 12px 40px rgba(102, 126, 234, 0.2);
+  --shadow-primary-sm: 0 4px 12px color-mix(in srgb, var(--mui-palette-primary-main) 20%, transparent);
+  --shadow-primary-md: 0 6px 20px color-mix(in srgb, var(--mui-palette-primary-main) 40%, transparent);
+  --shadow-primary-lg: 0 8px 32px color-mix(in srgb, var(--mui-palette-common-black) 20%, transparent);
+  --shadow-black-sm: 0 4px 16px color-mix(in srgb, var(--mui-palette-common-black) 30%, transparent);
+  --shadow-black-md: 0 8px 24px color-mix(in srgb, var(--mui-palette-common-black) 50%, transparent);
+  
+  /* Transitions */
+  --transition-fast: all 0.2s ease;
+  --transition-base: all 0.3s ease;
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-transform: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-scale: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Spacing для skeleton */
+  --skeleton-gap-sm: 0.75rem;
+  --skeleton-gap-md: 1rem;
+  --skeleton-gap-lg: 1.5rem;
+  
+  /* Backdrop blur */
+  --blur-sm: blur(5px);
+  --blur-md: blur(8px);
+  --blur-lg: blur(10px);
+  --blur-xl: blur(12px);
+  --blur-2xl: blur(20px);
+  
+  /* Breakpoints (для использования в calc и других местах) */
+  --breakpoint-xs: 360px;
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-2xl: 1600px;
+}

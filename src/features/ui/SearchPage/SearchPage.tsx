@@ -12,6 +12,7 @@ export const SearchPage = () => {
     fetchNextPage,
     hasNextPage,
     isFetching,
+    isLoading,
   } = useGetMoviesBySearchInfiniteQuery({ query }, { skip: !query });
 
   const movies = searchedMoviesData?.pages.flatMap((page) => page.results) || [];
@@ -27,7 +28,7 @@ export const SearchPage = () => {
       <h1 className={styles.title}>Search Results</h1>
       <SearchInput placeholder="Search movie..." />
       {!query && <p className={styles.message}>Enter a movie title to search</p>}
-      {query && isFetching && movies.length === 0 && <MoviesSkeleton count={20} />}
+      {query && isFetching && isLoading && <MoviesSkeleton count={20} />}
       {query && movies.length === 0 && !isFetching && (
         <p className={styles.noResults}>
           No movies found for <strong>{query}</strong>

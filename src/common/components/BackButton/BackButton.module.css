@@ -1,24 +1,25 @@
 .backButton {
   padding: 0.75rem 1.5rem;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
-  border: 1px solid rgba(102, 126, 234, 0.3);
-  border-radius: 12px;
-  color: #a5b4fc;
+  background: var(--gradient-primary);
+  border: 1px solid var(--color-primary-rgba-03);
+  border-radius: var(--radius-lg);
+  color: #ffffff;
   font-size: 0.9375rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(5px);
+  transition: var(--transition-base);
+  backdrop-filter: var(--blur-sm);
   z-index: 10;
   flex-shrink: 0;
   white-space: nowrap;
+  box-shadow: var(--shadow-md);
 }
 
 .backButton:hover {
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.3) 0%, rgba(118, 75, 162, 0.3) 100%);
-  border-color: rgba(102, 126, 234, 0.5);
+  background: var(--gradient-primary);
+  border-color: var(--color-primary-rgba-05);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+  box-shadow: var(--shadow-lg);
   color: #ffffff;
 }
 

@@ -9,31 +9,27 @@
   justify-content: space-between;
   align-items: center;
   padding: 0.75rem 1rem;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(5px);
+  background: var(--mui-palette-background-paper);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--mui-palette-divider);
+  backdrop-filter: var(--blur-sm);
 }
 
 .ratingLabel {
-  color: #ffffff;
+  color: var(--mui-palette-text-primary);
   font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.5px;
 }
 
 .ratingValue {
-  color: #8b9aff;
+  color: var(--mui-palette-text-primary);
   font-size: 1rem;
   font-weight: 700;
-  background: linear-gradient(135deg, #a8b5ff 0%, #c77de8 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
   padding: 0.25rem 0.75rem;
-  background-color: rgba(139, 154, 255, 0.25);
-  border-radius: 6px;
-  border: 1px solid rgba(139, 154, 255, 0.5);
+  background-color: color-mix(in srgb, var(--mui-palette-primary-main) 15%, transparent);
+  border-radius: var(--radius-xs);
+  border: 1px solid color-mix(in srgb, var(--mui-palette-primary-main) 40%, transparent);
 }
 
 .sliderContainer {
@@ -41,31 +37,31 @@
 }
 
 .slider :global(.MuiSlider-root) {
-  color: #667eea;
+  color: var(--mui-palette-primary-main);
 }
 
 .slider :global(.MuiSlider-thumb) {
-  background-color: #667eea;
-  border: 2px solid #ffffff;
+  background: var(--gradient-primary);
+  border: 2px solid var(--mui-palette-background-paper);
   width: 20px;
   height: 20px;
 }
 
 .slider :global(.MuiSlider-thumb:hover) {
-  box-shadow: 0 0 0 8px rgba(102, 126, 234, 0.16);
+  box-shadow: 0 0 0 8px var(--color-primary-rgba-016);
 }
 
 .slider :global(.MuiSlider-thumb.Mui-active) {
-  box-shadow: 0 0 0 14px rgba(102, 126, 234, 0.16);
+  box-shadow: 0 0 0 14px var(--color-primary-rgba-016);
 }
 
 .slider :global(.MuiSlider-track) {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--gradient-primary);
   border: none;
 }
 
 .slider :global(.MuiSlider-rail) {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: var(--mui-palette-divider);
   opacity: 1;
 }
 
