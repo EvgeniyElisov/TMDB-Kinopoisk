@@ -17,6 +17,7 @@
 }
 
 .pagination :global(.MuiPaginationItem-root) {
+  position: relative;
   color: var(--mui-palette-text-primary);
   font-size: 1rem;
   font-weight: 600;
@@ -31,10 +32,30 @@
 
 .pagination :global(.MuiPaginationItem-root:hover) {
   background: color-mix(in srgb, var(--mui-palette-common-white) 15%, var(--mui-palette-background-paper));
-  border-color: color-mix(in srgb, var(--mui-palette-primary-main) 60%, transparent);
+  border-color: transparent;
   color: var(--mui-palette-text-primary);
   transform: translateY(-2px) scale(1.05);
   box-shadow: var(--shadow-primary-sm);
+}
+
+.pagination :global(.MuiPaginationItem-root:hover::before) {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: var(--radius-lg);
+  background: var(--gradient-primary);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.pagination :global(.MuiPaginationItem-root:hover::after) {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: calc(var(--radius-lg) - 2px);
+  background: color-mix(in srgb, var(--mui-palette-common-white) 15%, var(--mui-palette-background-paper));
+  z-index: -1;
+  pointer-events: none;
 }
 
 .pagination :global(.Mui-selected) {
@@ -47,6 +68,7 @@
 
 .pagination :global(.Mui-selected:hover) {
   background: var(--gradient-primary);
+  border-color: var(--gradient-primary-start);
   box-shadow: var(--shadow-xl);
   transform: translateY(-2px) scale(1.05);
 }
