@@ -1,11 +1,11 @@
-import { MovieRating } from "@/common/components/MovieRating";
+import noPoster from "@/assets/images/no-poster.jpg";
 import { FavoriteButton } from "@/common/components/FavoriteButton";
+import { Image } from "@/common/components/Image";
+import { MovieRating } from "@/common/components/MovieRating";
+import { isMovieInFavorites, toggleMovieFavorite } from "@/common/utils";
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router";
 import styles from "./MovieCard.module.css";
-import { Image } from "@/common/components/Image";
-import noPoster from "@/assets/images/no-poster.jpg";
-import { useEffect, useState } from "react";
-import { isMovieInFavorites, toggleMovieFavorite } from "@/common/utils";
 
 type Props = {
   id: number;
@@ -15,7 +15,9 @@ type Props = {
 };
 
 export const MovieCard = ({ id, title, poster_path, vote_average }: Props) => {  
+
   const [isFavorite, setIsFavorite] = useState(false);
+
   useEffect(() => {
     setIsFavorite(isMovieInFavorites(id));
   }, [id]);
@@ -24,6 +26,7 @@ export const MovieCard = ({ id, title, poster_path, vote_average }: Props) => {
     toggleMovieFavorite(id, title, poster_path || "", vote_average);
     setIsFavorite(isMovieInFavorites(id));
   };
+
 
   return (
     <article className={styles.card}>

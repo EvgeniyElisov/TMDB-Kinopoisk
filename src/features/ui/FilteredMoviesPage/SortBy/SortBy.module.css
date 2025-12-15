@@ -16,40 +16,62 @@
 .select {
   flex: 1;
   padding: 0.875rem 1rem;
+  padding-right: 3rem;
   background: var(--mui-palette-background-paper);
-  border: 1.5px solid var(--mui-palette-divider);
-  border-radius: var(--radius-md);
+  border: 2px solid var(--mui-palette-divider);
+  border-radius: var(--radius-lg);
   color: var(--mui-palette-text-primary);
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
-  transition: var(--transition-base);
+  transition: var(--transition-smooth);
   backdrop-filter: var(--blur-sm);
   appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23087EA4' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M4 6L8 10L12 6' stroke='%23667eea' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 1rem center;
-  background-size: 12px;
-  padding-right: 2.5rem;
+  background-size: 16px;
+  position: relative;
+  box-shadow: 0 2px 4px color-mix(in srgb, var(--mui-palette-common-black) 5%, transparent);
 }
 
 .select:hover {
-  background-color: color-mix(in srgb, var(--mui-palette-common-white) 8%, var(--mui-palette-background-paper));
-  border-color: color-mix(in srgb, var(--mui-palette-primary-main) 30%, transparent);
+  background-color: color-mix(in srgb, var(--mui-palette-primary-main) 5%, var(--mui-palette-background-paper));
+  border-color: var(--gradient-primary-start);
   box-shadow: var(--shadow-primary-sm);
+  transform: translateY(-1px);
 }
 
 .select:focus {
   outline: none;
-  background-color: color-mix(in srgb, var(--mui-palette-common-white) 8%, var(--mui-palette-background-paper));
-  border-color: var(--mui-palette-primary-main);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--mui-palette-primary-main) 20%, transparent);
+  background-color: color-mix(in srgb, var(--mui-palette-primary-main) 8%, var(--mui-palette-background-paper));
+  border-color: var(--gradient-primary-start);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--mui-palette-primary-main) 15%, transparent),
+    var(--shadow-primary-md);
+  transform: translateY(-1px);
+}
+
+.select:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px color-mix(in srgb, var(--mui-palette-common-black) 5%, transparent);
 }
 
 .select option {
   background-color: var(--mui-palette-background-paper);
   color: var(--mui-palette-text-primary);
-  padding: 0.75rem;
+  padding: 0.875rem 1rem;
+  font-weight: 500;
+  transition: var(--transition-fast);
+}
+
+.select option:hover {
+  background-color: color-mix(in srgb, var(--mui-palette-primary-main) 10%, var(--mui-palette-background-paper));
+}
+
+.select option:checked {
+  background-color: color-mix(in srgb, var(--mui-palette-primary-main) 15%, var(--mui-palette-background-paper));
+  color: var(--mui-palette-primary-main);
+  font-weight: 600;
 }
 
 @media (max-width: 768px) {
@@ -59,7 +81,15 @@
 
   .select {
     padding: 0.75rem 0.875rem;
-    padding-right: 2.25rem;
+    padding-right: 2.75rem;
     font-size: 0.875rem;
+    border-radius: var(--radius-md);
+    background-size: 14px;
+    background-position: right 0.875rem center;
+  }
+
+  .select:hover,
+  .select:focus {
+    transform: none;
   }
 }

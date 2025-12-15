@@ -28,7 +28,7 @@ export const MoviesList = ({ movies, title, itemsNumber, categoryPath, columns }
       <ul role="list" className={styles.moviesList} style={{ "--columns": columns } as React.CSSProperties}>
         {displayedMovies?.map((movie) => (
           <li key={movie.id}>
-            <MovieCard id={movie.id} title={movie.title} poster_path={movie.poster_path || null} vote_average={movie.vote_average || 0.0} />
+            <MovieCard id={movie.id} title={movie.title} poster_path={movie.poster_path} vote_average={movie.vote_average || 0.0} />
           </li>
         ))}
       </ul>

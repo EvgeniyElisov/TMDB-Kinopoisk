@@ -5,7 +5,7 @@
   background: var(--mui-palette-background-paper);
   backdrop-filter: var(--blur-lg);
   border-radius: var(--radius-xl);
-  border: 1px solid var(--mui-palette-divider);
+  border: 2px solid var(--mui-palette-divider);
   box-shadow: var(--shadow-primary-lg);
   display: flex;
   flex-direction: column;
@@ -13,39 +13,99 @@
   position: sticky;
   top: 2rem;
   align-self: flex-start;
+  transition: var(--transition-smooth);
+  overflow: hidden;
+}
+
+.filtersSection::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-primary);
+  opacity: 0.8;
+  transition: var(--transition-smooth);
+  z-index: 0;
+}
+
+.filtersSection:hover {
+  border-color: color-mix(in srgb, var(--mui-palette-primary-main) 40%, transparent);
+  box-shadow: var(--shadow-primary-lg), 0 0 0 1px color-mix(in srgb, var(--mui-palette-primary-main) 20%, transparent);
+}
+
+.filtersSection:hover::before {
+  opacity: 1;
+  height: 5px;
 }
 
 .filtersSection h2 {
   margin: 0;
   padding-bottom: 1rem;
   border-bottom: 2px solid color-mix(in srgb, var(--mui-palette-primary-main) 30%, transparent);
+  position: relative;
+  transition: var(--transition-smooth);
 }
 
 .filtersSection h2::after {
-  display: none;
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-full);
+  transition: var(--transition-smooth);
+}
+
+.filtersSection:hover h2::after {
+  width: 100%;
 }
 
 .resetButton {
   padding: 0.875rem 1.5rem;
   background: var(--gradient-primary);
   color: #ffffff;
-  border: none;
-  border-radius: var(--radius-md);
+  border: 2px solid var(--color-primary-rgba-05);
+  border-radius: var(--radius-lg);
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
   transition: var(--transition-base);
   box-shadow: var(--shadow-md);
   margin-top: auto;
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.5px;
+}
+
+.resetButton::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
+  transition: left 0.3s ease;
+  z-index: 0;
 }
 
 .resetButton:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary-rgba-08);
+}
+
+.resetButton:hover::before {
+  left: 0;
 }
 
 .resetButton:active {
   transform: translateY(0);
+  box-shadow: var(--shadow-md);
 }
 
 @media (max-width: 1024px) {

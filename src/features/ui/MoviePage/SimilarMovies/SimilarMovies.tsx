@@ -20,7 +20,7 @@ export const SimilarMovies = ({ similarMovies }: Props) => {
             <MovieCard
               id={movie.id}
               title={movie.title}
-              poster_path={movie.poster_path || null}
+              poster_path={movie.poster_path}
               vote_average={+movie.vote_average || 0.0}
             />
           </li>

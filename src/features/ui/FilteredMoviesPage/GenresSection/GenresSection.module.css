@@ -26,6 +26,23 @@
   flex-shrink: 0;
 }
 
+.genreButton::after {
+  content: "";
+  position: absolute;
+  inset: -1.5px;
+  border-radius: var(--radius-20);
+  padding: 1.5px;
+  background: var(--gradient-primary);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  z-index: 0;
+  pointer-events: none;
+}
+
 .genreButton::before {
   content: "";
   position: absolute;
@@ -39,12 +56,16 @@
 }
 
 .genreButton:hover {
-  border-color: var(--color-primary-rgba-05);
+  border-color: transparent;
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
   font-weight: 500;
   text-shadow: 0 0 0.5px color-mix(in srgb, var(--mui-palette-common-white) 50%, transparent);
   color: #ffffff;
+}
+
+.genreButton:hover::after {
+  opacity: 1;
 }
 
 .genreButton:hover::before {

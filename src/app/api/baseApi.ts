@@ -12,7 +12,6 @@ export const baseApi = createApi({
         Authorization: `Bearer ${import.meta.env.VITE_ACCESS_TOKEN}`,
       },
     })(args, api, extraOptions);
-    console.log(result);
     if (result.error) handleErrors(result.error);
     return result;
   },
