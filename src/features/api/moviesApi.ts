@@ -84,7 +84,7 @@ export const moviesApi = baseApi.injectEndpoints({
           params: { page: pageParam, ...restParams },
         };
       },
-      keepUnusedDataFor: 0,
+      // keepUnusedDataFor: 0, - посмотреть видос зачем мы это ставили
       ...withZodCatch(getMoviesSchema),
     }),
 

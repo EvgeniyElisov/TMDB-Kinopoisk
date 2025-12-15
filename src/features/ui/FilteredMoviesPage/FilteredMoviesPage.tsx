@@ -28,6 +28,10 @@ export const FilteredMoviesPage = () => {
     setParams(initialParams);
   };
 
+  const scrollToTopHandler = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <main aria-label="Filtered movies page" className={styles.page}>
       <FiltersSection params={params} setParams={setParams} resetFilters={resetFiltersHandler} />
@@ -35,11 +39,21 @@ export const FilteredMoviesPage = () => {
         {isLoading && <MoviesSkeleton count={20} />}
         {!isLoading && movies.length === 0 && <p className={styles.message}>No movies found</p>}
         {!isLoading && movies.length > 0 && <MoviesList movies={movies} title="Filtered movies" columns={5} />}
-        {!isLoading && hasNextPage && (
-          <button className={styles.loadMoreButton} onClick={loadMoreHandler} disabled={isFetching}>
-            {isFetchingNextPage ? "Loading..." : "Load more"}
+        <div className={styles.buttonsContainer}>
+          {!isLoading && hasNextPage && (
+            <button className={styles.loadMoreButton} onClick={loadMoreHandler} disabled={isFetching}>
+              {isFetchingNextPage ? "Loading..." : "Load more"}
+            </button>
+          )}
+          <button
+            className={styles.upButton}
+            onClick={scrollToTopHandler}
+            aria-label="Scroll to top"
+            type="button"
+          >
+            <span className={styles.upArrow}>↑</span>
           </button>
-        )}
+        </div>
       </div>
     </main>
   );

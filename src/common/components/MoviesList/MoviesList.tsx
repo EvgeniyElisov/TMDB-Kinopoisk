@@ -3,6 +3,7 @@ import { NavLink } from "react-router";
 import styles from "./MoviesList.module.css";
 import { MovieCard } from "../MovieCard/MovieCard";
 import type { PagePathsType } from "@/common/types";
+import { nanoid } from "@reduxjs/toolkit";
 
 type Props = {
   movies: Movie[];
@@ -32,7 +33,7 @@ export const MoviesList = ({ movies, title, itemsNumber, categoryPath, columns }
       </div>
       <ul role="list" className={styles.moviesList} style={{ "--columns": columns } as React.CSSProperties}>
         {displayedMovies?.map((movie) => (
-          <li key={movie.id}>
+          <li key={nanoid()}>
             <MovieCard id={movie.id} title={movie.title} poster_path={movie.poster_path} vote_average={movie.vote_average || 0.0} />
           </li>
         ))}
