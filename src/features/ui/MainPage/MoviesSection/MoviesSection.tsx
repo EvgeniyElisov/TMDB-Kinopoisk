@@ -1,21 +1,17 @@
 import { MoviesList, MoviesSkeleton } from "@/common/components";
-import { CategoryMoviesTitles, PagePathsType } from "@/common/types";
-import { useGetPopularMoviesQuery, useGetTopRatedMoviesQuery, useGetUpcomingMoviesQuery, useGetNowPlayingMoviesQuery } from "@/features/api/moviesApi";
+import { PagePathsType, type CategoryMoviesTitlesType } from "@/common/types";
+import type { Movie } from "@/features/api/moviesApi.types";
 
-export const MoviesSection = () => {
+type Props = {
+  moviesListData: {
+    title: CategoryMoviesTitlesType;
+    movies: Movie[];
+    categoryPath: PagePathsType;
+    isLoading: boolean;
+  }[];
+};
 
-  const { data: popularMoviesData, isLoading: isLoadingPopular } = useGetPopularMoviesQuery({ page: 1 });
-  const { data: topRatedMoviesData, isLoading: isLoadingTopRated } = useGetTopRatedMoviesQuery({ page: 1 });
-  const { data: upcomingMoviesData, isLoading: isLoadingUpcoming } = useGetUpcomingMoviesQuery({ page: 1 });
-  const { data: nowPlayingMoviesData, isLoading: isLoadingNowPlaying } = useGetNowPlayingMoviesQuery({ page: 1 });
-
-  const moviesListData = [
-    { title: CategoryMoviesTitles.Popular, movies: popularMoviesData?.results || [], categoryPath: PagePathsType.PopularMovies, isLoading: isLoadingPopular },
-    { title: CategoryMoviesTitles.TopRated, movies: topRatedMoviesData?.results || [], categoryPath: PagePathsType.TopRatedMovies, isLoading: isLoadingTopRated },
-    { title: CategoryMoviesTitles.Upcoming, movies: upcomingMoviesData?.results || [], categoryPath: PagePathsType.UpcomingMovies, isLoading: isLoadingUpcoming },
-    { title: CategoryMoviesTitles.NowPlaying, movies: nowPlayingMoviesData?.results || [], categoryPath: PagePathsType.NowPlayingMovies, isLoading: isLoadingNowPlaying },
-  ];
-
+export const MoviesSection = ({ moviesListData }: Props) => {
   return (
     <section>
       {moviesListData.map((movieData) => (
