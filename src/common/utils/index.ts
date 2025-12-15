@@ -4,4 +4,7 @@ export { getRandomBackdrop } from "./getRandomBackdrop.ts";
 export { getCategoryMoviesData } from "./getCategoryMoviesData.ts";
 export { formatRuntime } from "./formatRuntime.ts";
 export { sortBy } from "./sortBy.ts";
+export {errorToast} from "./errorToast.ts";
+export {handleErrors} from "./handleErrors.ts";
+export {isErrorWithProperty} from "./isErrorWithProperty.ts";
 export * from "./localStorage.ts";

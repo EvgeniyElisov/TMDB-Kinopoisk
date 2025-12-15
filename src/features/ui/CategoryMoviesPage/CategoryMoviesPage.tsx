@@ -4,17 +4,34 @@ import { CategoryMoviesPaths } from "@/common/types";
 import { getCategoryMoviesData } from "@/common/utils";
 import { useGetNowPlayingMoviesQuery, useGetPopularMoviesQuery, useGetTopRatedMoviesQuery, useGetUpcomingMoviesQuery } from "@/features/api/moviesApi";
 import { useEffect, useState } from "react";
-import { useLocation, useParams } from "react-router";
+import { useParams } from "react-router";
 import { CategoriesButtons } from "./CategoriesButtons";
 import styles from "./CategoryMoviesPage.module.css";
 
 export const CategoryMoviesPage = () => {
   const { category } = useParams();
   const [page, setPage] = useState(1);
-  const { data: popularMoviesData, isLoading: isLoadingPopular, isFetching: isFetchingPopular } = useGetPopularMoviesQuery({ page }, { skip: category !== CategoryMoviesPaths.Popular });
-  const { data: topRatedMoviesData, isLoading: isLoadingTopRated, isFetching: isFetchingTopRated } = useGetTopRatedMoviesQuery({ page }, { skip: category !== CategoryMoviesPaths.TopRated });
-  const { data: upcomingMoviesData, isLoading: isLoadingUpcoming, isFetching: isFetchingUpcoming } = useGetUpcomingMoviesQuery({ page }, { skip: category !== CategoryMoviesPaths.Upcoming });
-  const { data: nowPlayingMoviesData, isLoading: isLoadingNowPlaying, isFetching: isFetchingNowPlaying } = useGetNowPlayingMoviesQuery({ page },{ skip: category !== CategoryMoviesPaths.NowPlaying });
+
+  const {
+    data: popularMoviesData,
+    isLoading: isLoadingPopular,
+    isFetching: isFetchingPopular,
+  } = useGetPopularMoviesQuery({ page: page }, { skip: category !== CategoryMoviesPaths.Popular });
+  const {
+    data: topRatedMoviesData,
+    isLoading: isLoadingTopRated,
+    isFetching: isFetchingTopRated,
+  } = useGetTopRatedMoviesQuery({ page }, { skip: category !== CategoryMoviesPaths.TopRated });
+  const {
+    data: upcomingMoviesData,
+    isLoading: isLoadingUpcoming,
+    isFetching: isFetchingUpcoming,
+  } = useGetUpcomingMoviesQuery({ page }, { skip: category !== CategoryMoviesPaths.Upcoming });
+  const {
+    data: nowPlayingMoviesData,
+    isLoading: isLoadingNowPlaying,
+    isFetching: isFetchingNowPlaying,
+  } = useGetNowPlayingMoviesQuery({ page }, { skip: category !== CategoryMoviesPaths.NowPlaying });
 
   useEffect(() => {
     setPage(1);

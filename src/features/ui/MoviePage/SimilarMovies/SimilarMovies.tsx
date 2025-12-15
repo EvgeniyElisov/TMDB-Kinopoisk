@@ -20,8 +20,8 @@ export const SimilarMovies = ({ similarMovies }: Props) => {
             <MovieCard
               id={movie.id}
               title={movie.title}
-              posterPath={movie.poster_path}
-              rating={+movie.vote_average.toFixed(1)}
+              poster_path={movie.poster_path || null}
+              vote_average={+movie.vote_average || 0.0}
             />
           </li>
         ))}

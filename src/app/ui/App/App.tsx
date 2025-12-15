@@ -7,6 +7,7 @@ import { initThemeLS, toggleThemeLS } from "@/common/utils/localStorage";
 import { Box, CssBaseline, LinearProgress } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import { useState } from "react";
+import { ToastContainer } from "react-toastify";
 import styles from "./App.module.css";
 
 export const App = () => {
@@ -14,7 +15,7 @@ export const App = () => {
   const [themeMode, setThemeMode] = useState<ThemeMode>(initialThemeMode);
   const theme = getTheme(themeMode);
   const isGlobalLoading = useGlobalLoading();
-
+  
   const toggleTheme = () => {
     const newThemeMode = toggleThemeLS();
     setThemeMode(newThemeMode);
@@ -36,6 +37,12 @@ export const App = () => {
         </div>
         <Footer />
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        closeOnClick
+      />
     </ThemeProvider>
   );
 };

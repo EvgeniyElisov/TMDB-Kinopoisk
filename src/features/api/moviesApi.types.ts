@@ -7,7 +7,6 @@ import type {
   genresListSchema,
   getMoviesSchema,
   getMoviesWithDatesSchema,
-  getSimilarMoviesResponseSchema,
   movieCreditsSchema,
   movieDetailsSchema,
   movieSchema,
