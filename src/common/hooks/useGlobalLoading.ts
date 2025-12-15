@@ -14,6 +14,7 @@ const excludedEndpoints = [
 export const useGlobalLoading = () => {
   return useSelector((state: RootState) => {
     const queries = Object.values(state.baseApi.queries || {})
+   
     const hasActiveQueries = queries.some(query => {
       if (query?.status !== 'pending') return
       

@@ -15,12 +15,17 @@ type Props = {
 export const MoviesList = ({ movies, title, itemsNumber, categoryPath, columns }: Props) => {
   const displayedMovies = itemsNumber ? movies.slice(0, itemsNumber) : movies;
   const hasMoreMovies = itemsNumber && movies.length > itemsNumber;
+
+  const handleViewMoreClick = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <section aria-labelledby={`movies-section-${title?.replace(/\s+/g, "-").toLowerCase()}`}>
       <div className={styles.headerContainer}>
         <h2 id={`movies-section-${title.replace(/\s+/g, "-").toLowerCase()}`}>{title}</h2>
         {hasMoreMovies && categoryPath && (
-          <NavLink to={categoryPath} className={styles.viewMoreButton} aria-label={`View more ${title}`}>
+          <NavLink to={categoryPath} className={styles.viewMoreButton} aria-label={`View more ${title}`} onClick={handleViewMoreClick}>
             View more
           </NavLink>
         )}
