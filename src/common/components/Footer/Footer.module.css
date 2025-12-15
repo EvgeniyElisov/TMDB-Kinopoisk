@@ -77,7 +77,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.75rem 1.5rem;
+  padding: var(--button-padding-md);
   background: var(--gradient-primary);
   color: #ffffff;
   border: 1px solid var(--color-primary-rgba-03);
@@ -174,7 +174,7 @@
 
   .link {
     width: 100%;
-    padding: 0.625rem 1.25rem;
+    padding: var(--button-padding-sm);
     font-size: 0.9375rem;
   }
 

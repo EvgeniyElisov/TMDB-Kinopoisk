@@ -1,5 +1,5 @@
 .backButton {
-  padding: 0.75rem 1.5rem;
+  padding: var(--button-padding-md);
   background: var(--gradient-primary);
   border: 1px solid var(--color-primary-rgba-03);
   border-radius: var(--radius-lg);
@@ -28,14 +28,14 @@
 
 @media (max-width: 768px) {
   .backButton {
-    padding: 0.625rem 1.25rem;
+    padding: var(--button-padding-sm);
     font-size: 0.9375rem;
   }
 }
 
 @media (max-width: 480px) {
   .backButton {
-    padding: 0.5rem 1rem;
+    padding: var(--button-padding-sm);
     font-size: 0.875rem;
   }
 }

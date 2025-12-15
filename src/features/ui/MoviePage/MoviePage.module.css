@@ -44,9 +44,9 @@
 
   .loading,
   .error {
-    padding: 3rem 1.5rem;
+    padding: var(--message-padding-md);
     font-size: 1.125rem;
-    border-radius: 12px;
+    border-radius: var(--radius-md);
   }
 }
 
@@ -58,9 +58,9 @@
 
   .loading,
   .error {
-    padding: 2.5rem 1rem;
+    padding: var(--message-padding-sm);
     font-size: 1rem;
-    border-radius: 10px;
+    border-radius: var(--radius-sm);
   }
 }
 

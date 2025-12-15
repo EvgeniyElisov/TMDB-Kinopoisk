@@ -61,7 +61,7 @@
 
 @media (max-width: 768px) {
   .posterWrapper {
-    border-radius: 10px 10px 0 0;
+    border-radius: var(--radius-sm) var(--radius-sm) 0 0;
   }
 
   .info {

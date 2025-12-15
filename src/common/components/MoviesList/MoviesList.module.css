@@ -15,7 +15,7 @@ section h2 {
 
 .moviesList {
   display: grid;
-  gap: 1.5rem;
+  gap: var(--grid-gap-xl);
   padding: 1.5rem 0;
   list-style: none;
   margin: 0;
@@ -41,7 +41,7 @@ section h2 {
 }
 
 .viewMoreButton {
-  padding: 0.75rem 1.5rem;
+  padding: var(--button-padding-md);
   background: var(--gradient-primary);
   color: #ffffff;
   border: 1px solid var(--color-primary-rgba-03);
@@ -68,7 +68,7 @@ section h2 {
 /* Адаптивность для больших экранов */
 @media (min-width: 1920px) {
   .moviesList {
-    gap: 2rem;
+    gap: var(--grid-gap-2xl);
   }
 }
 
@@ -76,7 +76,7 @@ section h2 {
 @media (max-width: 1600px) {
   .moviesList {
     grid-template-columns: repeat(5, 1fr) !important;
-    gap: 1.5rem;
+    gap: var(--grid-gap-xl);
   }
 }
 
@@ -84,7 +84,7 @@ section h2 {
 @media (max-width: 1400px) {
   .moviesList {
     grid-template-columns: repeat(4, 1fr) !important;
-    gap: 1.25rem;
+    gap: var(--grid-gap-lg);
   }
 }
 
@@ -92,19 +92,19 @@ section h2 {
 @media (max-width: 1200px) {
   .moviesList {
     grid-template-columns: repeat(4, 1fr) !important;
-    gap: 1.25rem;
+    gap: var(--grid-gap-lg);
   }
 }
 
 /* Для экранов до 1024px - максимум 3 колонки */
 @media (max-width: 1024px) {
   .headerContainer {
-    gap: 1rem;
+    gap: var(--grid-gap-md);
   }
 
   .moviesList {
     grid-template-columns: repeat(3, 1fr) !important;
-    gap: 1rem;
+    gap: var(--grid-gap-md);
   }
 }
 
@@ -117,7 +117,7 @@ section h2 {
   .headerContainer {
     flex-direction: column;
     align-items: flex-start;
-    gap: 1rem;
+    gap: var(--grid-gap-md);
   }
 
   section h2 {
@@ -126,13 +126,13 @@ section h2 {
 
   .moviesList {
     grid-template-columns: repeat(2, 1fr);
-    gap: 0.875rem;
+    gap: var(--grid-gap-sm);
     padding: 1rem 0;
   }
 
   .viewMoreButton {
     width: 100%;
-    padding: 0.625rem 1.25rem;
+    padding: var(--button-padding-sm);
     font-size: 0.9375rem;
   }
 }
@@ -140,7 +140,7 @@ section h2 {
 /* Для экранов до 480px - остаются 2 колонки, уменьшаем gap */
 @media (max-width: 480px) {
   .moviesList {
-    gap: 0.75rem;
+    gap: var(--grid-gap-xs);
   }
 }
 
@@ -148,11 +148,11 @@ section h2 {
 @media (max-width: 360px) {
   .moviesList {
     grid-template-columns: 1fr !important;
-    gap: 1rem;
+    gap: var(--grid-gap-md);
   }
 
   .viewMoreButton {
-    padding: 0.5rem 1rem;
+    padding: var(--button-padding-sm);
     font-size: 0.875rem;
   }
 }

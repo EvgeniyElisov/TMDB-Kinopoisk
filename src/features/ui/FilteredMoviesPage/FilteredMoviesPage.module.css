@@ -14,11 +14,11 @@
 
 .message {
   text-align: center;
-  padding: 3rem 2rem;
+  padding: var(--message-padding-md);
   color: var(--mui-palette-text-secondary);
   font-size: 1.125rem;
   background: var(--mui-palette-background-paper);
-  border-radius: 12px;
+  border-radius: var(--radius-md);
   border: 1px solid var(--mui-palette-divider);
 }
 
@@ -30,7 +30,7 @@
 }
 
 .loadMoreButton {
-  padding: 0.875rem 2rem;
+  padding: var(--button-padding-lg);
   background: var(--gradient-primary);
   color: #ffffff;
   border: none;
@@ -70,7 +70,7 @@
 
   .loadMoreButton {
     width: 100%;
-    padding: 0.75rem 1.5rem;
+    padding: var(--button-padding-md);
     font-size: 0.9375rem;
   }
 }

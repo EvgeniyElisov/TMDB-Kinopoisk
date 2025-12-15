@@ -78,4 +78,27 @@
   --breakpoint-lg: 1024px;
   --breakpoint-xl: 1200px;
   --breakpoint-2xl: 1600px;
+  
+  /* Common component styles */
+  --button-padding-sm: 0.5rem 1rem;
+  --button-padding-md: 0.75rem 1.5rem;
+  --button-padding-lg: 0.875rem 2rem;
+  --button-padding-xl: 1rem 2.5rem;
+  
+  --container-padding-sm: 1rem;
+  --container-padding-md: 1.5rem;
+  --container-padding-lg: 2rem;
+  --container-padding-xl: 2.5rem;
+  
+  --message-padding-sm: 2rem 1rem;
+  --message-padding-md: 3rem 1.5rem;
+  --message-padding-lg: 4rem 2rem;
+  
+  /* Grid gaps */
+  --grid-gap-xs: 0.5rem;
+  --grid-gap-sm: 0.75rem;
+  --grid-gap-md: 1rem;
+  --grid-gap-lg: 1.25rem;
+  --grid-gap-xl: 1.5rem;
+  --grid-gap-2xl: 2rem;
 }

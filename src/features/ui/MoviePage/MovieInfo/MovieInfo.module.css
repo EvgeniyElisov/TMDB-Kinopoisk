@@ -123,8 +123,8 @@
   .info {
     grid-template-columns: 1fr;
     gap: 1.5rem;
-    padding: 1.5rem;
-    border-radius: 14px;
+    padding: var(--container-padding-md);
+    border-radius: var(--radius-lg);
   }
 
   .posterWrapper {

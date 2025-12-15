@@ -15,7 +15,7 @@
 
 .message {
   text-align: center;
-  padding: 4rem 2rem;
+  padding: var(--message-padding-lg);
   color: var(--mui-palette-text-secondary);
   font-size: 1.125rem;
   line-height: 1.6;
@@ -44,10 +44,6 @@
   opacity: 1;
 }
 
-.message {
-  position: relative;
-  z-index: 1;
-}
 
 @media (max-width: 1024px) {
   .page {
@@ -64,7 +60,7 @@
 
 
   .message {
-    padding: 3rem 1.5rem;
+    padding: var(--message-padding-md);
     font-size: 1rem;
     border-radius: var(--radius-lg);
   }
@@ -77,7 +73,7 @@
   }
 
   .message {
-    padding: 2.5rem 1rem;
+    padding: var(--message-padding-sm);
     font-size: 0.9375rem;
   }
 }

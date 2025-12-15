@@ -86,18 +86,7 @@
   }
 }
 
-:global([data-mui-color-scheme='light']) .subtitle {
-  text-shadow: 0 1px 4px color-mix(in srgb, var(--mui-palette-common-white) 40%, transparent);
-}
-
-:global([data-mui-color-scheme='light']) .title {
-  text-shadow: 0 1px 4px color-mix(in srgb, var(--mui-palette-common-white) 40%, transparent);
-}
-
-:global([data-mui-color-scheme='light']) .subtitle {
-  text-shadow: 0 1px 4px color-mix(in srgb, var(--mui-palette-common-white) 40%, transparent);
-}
-
+:global([data-mui-color-scheme='light']) .subtitle,
 :global([data-mui-color-scheme='light']) .title {
   text-shadow: 0 1px 4px color-mix(in srgb, var(--mui-palette-common-white) 40%, transparent);
 }

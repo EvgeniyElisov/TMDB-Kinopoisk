@@ -18,7 +18,7 @@
   color: var(--mui-palette-text-secondary);
   font-size: 1.125rem;
   line-height: 1.6;
-  padding: 2rem;
+  padding: var(--container-padding-sm);
   text-align: center;
   background: var(--mui-palette-background-paper);
   border-radius: var(--radius-lg);
@@ -28,7 +28,7 @@
 .noResults {
   color: var(--mui-palette-text-secondary);
   font-size: 1rem;
-  padding: 1.5rem;
+  padding: var(--container-padding-md);
   text-align: center;
   background: var(--mui-palette-background-paper);
   border-radius: var(--radius-lg);
@@ -47,12 +47,12 @@
 
   .message {
     font-size: 1rem;
-    padding: 1.5rem;
+    padding: var(--container-padding-md);
   }
 
   .noResults {
     font-size: 0.9375rem;
-    padding: 1.25rem;
+    padding: var(--container-padding-sm);
   }
 }
 

@@ -1,5 +1,5 @@
 .container {
-  padding: 2rem;
+  padding: var(--container-padding-lg);
   background: var(--gradient-primary-light);
   border-radius: var(--radius-2xl);
   border: 1px solid var(--color-primary-rgba-03);
@@ -14,7 +14,7 @@
 .moviesList {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 1.5rem;
+  gap: var(--grid-gap-xl);
   list-style: none;
   margin: 0;
   padding: 0;
@@ -23,33 +23,33 @@
 @media (max-width: 1600px) {
   .moviesList {
     grid-template-columns: repeat(5, 1fr);
-    gap: 1.25rem;
+    gap: var(--grid-gap-lg);
   }
 }
 
 @media (max-width: 1200px) {
   .moviesList {
     grid-template-columns: repeat(4, 1fr);
-    gap: 1.25rem;
+    gap: var(--grid-gap-lg);
   }
 }
 
 @media (max-width: 1024px) {
   .container {
-    padding: 1.75rem;
-    border-radius: 16px;
+    padding: var(--container-padding-md);
+    border-radius: var(--radius-xl);
   }
 
   .moviesList {
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.125rem;
+    gap: var(--grid-gap-lg);
   }
 }
 
 @media (max-width: 768px) {
   .container {
-    padding: 1.5rem;
-    border-radius: 14px;
+    padding: var(--container-padding-md);
+    border-radius: var(--radius-lg);
   }
 
   .title {
@@ -58,14 +58,14 @@
 
   .moviesList {
     grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    gap: var(--grid-gap-md);
   }
 }
 
 @media (max-width: 480px) {
   .container {
-    padding: 1.25rem;
-    border-radius: 12px;
+    padding: var(--container-padding-sm);
+    border-radius: var(--radius-md);
   }
 
   .title {
@@ -74,13 +74,13 @@
 
   .moviesList {
     grid-template-columns: repeat(2, 1fr);
-    gap: 0.875rem;
+    gap: var(--grid-gap-sm);
   }
 }
 
 @media (max-width: 360px) {
   .moviesList {
     grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem;
+    gap: var(--grid-gap-xs);
   }
 }
