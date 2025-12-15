@@ -1,19 +1,25 @@
-import { favoritesStorageKey } from "@/common/constants";
-import styles from "./FavoritesPage.module.css";
-import { MoviesList, Paginator } from "@/common/components";
-import { useEffect, useState, type ChangeEvent } from "react";
+import { MoviesList } from "@/common/components";
+import { loadFavorites } from "@/common/utils";
 import type { Movie } from "@/features/api/moviesApi.types";
+import { useEffect, useState } from "react";
+import styles from "./FavoritesPage.module.css";
+
+
 
 export const FavoritesPage = () => {
-  
   const [favorites, setFavorites] = useState<Movie[]>([]);
+
+  const handleFavoritesChange = () => {
+    setFavorites(loadFavorites());
+  };
+
   useEffect(() => {
-    const favorites = localStorage.getItem(favoritesStorageKey);
-    if (favorites) {
-      setFavorites(JSON.parse(favorites));
-    }
+    setFavorites(loadFavorites());
+    window.addEventListener("favoritesChanged", handleFavoritesChange);
+    return () => {
+      window.removeEventListener("favoritesChanged", handleFavoritesChange);
+    };
   }, []);
-  
 
   return (
     <main aria-label="Favorites page" className={styles.page}>

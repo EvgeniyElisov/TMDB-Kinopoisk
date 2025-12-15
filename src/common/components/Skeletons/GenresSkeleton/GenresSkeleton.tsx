@@ -5,8 +5,9 @@ type Props = {
   count?: number;
 };
 
-
 export const GenresSkeleton = ({ count = 10 }: Props) => {
+  const skeletonWidth = 60;
+  const skeletonHeight = 80;
   return (
     <div className={styles.genresSection}>
       <div className={styles.genresContainer}>
@@ -14,7 +15,7 @@ export const GenresSkeleton = ({ count = 10 }: Props) => {
           <Skeleton
             key={index}
             variant="rectangular"
-            width={Math.random() * 60 + 80}
+            width={Math.random() * skeletonWidth + skeletonHeight}
             height={36}
             className={styles.genreSkeleton}
             animation="wave"

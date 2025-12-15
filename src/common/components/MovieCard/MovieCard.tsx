@@ -14,26 +14,24 @@ type Props = {
   vote_average: number;
 };
 
-export const MovieCard = ({ id, title, poster_path, vote_average }: Props) => {  
-
+export const MovieCard = ({ id, title, poster_path, vote_average }: Props) => {
   const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
     setIsFavorite(isMovieInFavorites(id));
-  }, [id]);
+  }, []);
 
   const handleFavoriteClick = () => {
-    toggleMovieFavorite(id, title, poster_path || "", vote_average);
+    toggleMovieFavorite(id, title, poster_path || "", vote_average || 0.0);
     setIsFavorite(isMovieInFavorites(id));
   };
-
 
   return (
     <article className={styles.card}>
       <NavLink to={`/movie/${id}`} aria-label={`${title} - Rating: ${vote_average}`}>
         <div className={styles.posterWrapper}>
-          <Image imagePath={poster_path} title={title} noImagePath={noPoster}/>
-          <FavoriteButton isFavorite={isFavorite} setIsFavorite={setIsFavorite} changeFavorite={handleFavoriteClick}/>
+          <Image imagePath={poster_path} title={title} noImagePath={noPoster} />
+          <FavoriteButton isFavorite={isFavorite} setIsFavorite={setIsFavorite} changeFavorite={handleFavoriteClick} />
           <MovieRating rating={vote_average} />
         </div>
         <div className={styles.info}>

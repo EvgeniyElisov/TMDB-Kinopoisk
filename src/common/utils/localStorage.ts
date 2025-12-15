@@ -1,7 +1,7 @@
 import { favoritesStorageKey, themeModeStorageKey } from "../constants";
 import type { ThemeMode } from "../types";
 
-export const initThemeLS = () : ThemeMode => {
+export const initThemeLS = (): ThemeMode => {
   const initialThemeMode = "light";
   const themeMode = localStorage.getItem(themeModeStorageKey);
   if (themeMode) {
@@ -23,7 +23,7 @@ export const isMovieInFavorites = (movieId: number) => {
   const favorites = localStorage.getItem(favoritesStorageKey);
   if (favorites) {
     const favoritesArray = JSON.parse(favorites);
-    return Array.isArray(favoritesArray) && favoritesArray.some((movie: { id: number   }) => movie.id === movieId);
+    return Array.isArray(favoritesArray) && favoritesArray.some((movie: { id: number }) => movie.id === movieId);
   }
   return false;
 };
@@ -31,15 +31,17 @@ export const isMovieInFavorites = (movieId: number) => {
 export const toggleMovieFavorite = (movieId: number, title: string, poster_path: string, vote_average: number) => {
   const favorites = localStorage.getItem(favoritesStorageKey);
   let favoritesArray: Array<{ id: number; title: string; poster_path: string; vote_average: number }> = [];
-  
-  if (favorites) {
-    favoritesArray = JSON.parse(favorites);
-  }
-  
+  if (favorites) favoritesArray = JSON.parse(favorites);
   const isInFavorites = favoritesArray.some((movie: { id: number }) => movie.id === movieId);
-  
   const newFavorites = isInFavorites
     ? favoritesArray.filter((movie: { id: number }) => movie.id !== movieId)
     : [...favoritesArray, { id: movieId, title, poster_path, vote_average }];
   localStorage.setItem(favoritesStorageKey, JSON.stringify(newFavorites));
+  window.dispatchEvent(new CustomEvent("favoritesChanged"));
+};
+
+export const loadFavorites = () => {
+  const favorites = localStorage.getItem(favoritesStorageKey);
+  if (favorites) return JSON.parse(favorites);
+  return [];
 };
