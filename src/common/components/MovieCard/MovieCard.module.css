@@ -51,12 +51,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
   margin: 0;
-  transition: color 0.2s ease;
-}
-
-.card:hover .title,
-.card a:hover .title {
-  color: var(--mui-palette-primary-main);
 }
 
 @media (max-width: 768px) {

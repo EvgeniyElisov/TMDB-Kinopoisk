@@ -5,6 +5,7 @@ type Props = {
   count?: number;
 };
 
+
 export const GenresSkeleton = ({ count = 10 }: Props) => {
   return (
     <div className={styles.genresSection}>
