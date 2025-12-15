@@ -1,13 +1,17 @@
-import { useState } from "react";
 import styles from "./FavoriteButton.module.css";
 
-export const FavoriteButton = () => {
-  const [isFavorite, setIsFavorite] = useState(false);
+type Props = {
+  isFavorite: boolean;
+  setIsFavorite: (isFavorite: boolean) => void;
+  changeFavorite: () => void;
+};
+
+export const FavoriteButton = ({ isFavorite, changeFavorite }: Props) => {
 
   const handleFavoriteClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     e.stopPropagation();
-    setIsFavorite(!isFavorite);
+    changeFavorite();
   };
 
   return (

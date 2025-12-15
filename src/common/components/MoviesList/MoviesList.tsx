@@ -15,28 +15,20 @@ type Props = {
 export const MoviesList = ({ movies, title, itemsNumber, categoryPath, columns }: Props) => {
   const displayedMovies = itemsNumber ? movies.slice(0, itemsNumber) : movies;
   const hasMoreMovies = itemsNumber && movies.length > itemsNumber;
-
   return (
     <section aria-labelledby={`movies-section-${title?.replace(/\s+/g, "-").toLowerCase()}`}>
       <div className={styles.headerContainer}>
         <h2 id={`movies-section-${title.replace(/\s+/g, "-").toLowerCase()}`}>{title}</h2>
         {hasMoreMovies && categoryPath && (
-          <NavLink 
-            to={categoryPath}
-            className={styles.viewMoreButton} 
-            aria-label={`View more ${title}`}>
+          <NavLink to={categoryPath} className={styles.viewMoreButton} aria-label={`View more ${title}`}>
             View more
           </NavLink>
         )}
       </div>
-      <ul 
-        role="list"
-        className={styles.moviesList}
-        style={{ '--columns': columns } as React.CSSProperties}
-      >
+      <ul role="list" className={styles.moviesList} style={{ "--columns": columns } as React.CSSProperties}>
         {displayedMovies?.map((movie) => (
           <li key={movie.id}>
-            <MovieCard id={movie.id} title={movie.title} posterPath={movie.poster_path} rating={+movie.vote_average.toFixed(1)} />
+            <MovieCard id={movie.id} title={movie.title} poster_path={movie.poster_path || ""} vote_average={movie.vote_average || 0} />
           </li>
         ))}
       </ul>

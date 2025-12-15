@@ -14,6 +14,8 @@ import type {
   productionCompanySchema,
   productionCountrySchema,
   spokenLanguageSchema,
+  configImagesSchema,
+  getConfigsSchema,
 } from "../model/movies.schemas";
 
 export type Dates = z.infer<typeof datesSchema>;
@@ -30,6 +32,8 @@ export type ProductionCompany = z.infer<typeof productionCompanySchema>;
 export type ProductionCountry = z.infer<typeof productionCountrySchema>;
 export type SpokenLanguage = z.infer<typeof spokenLanguageSchema>;
 export type GetMovieDetailsResponse = z.infer<typeof movieDetailsSchema>;
+export type ConfigImages = z.infer<typeof configImagesSchema>;
+export type GetConfigsResponse = z.infer<typeof getConfigsSchema>;
 
 
 // Params

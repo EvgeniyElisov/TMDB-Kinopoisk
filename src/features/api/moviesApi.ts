@@ -1,7 +1,14 @@
 import { baseApi } from "@/app/api/baseApi";
 import { Endpoints } from "@/common/types";
 import { withZodCatch } from "@/common/utils/withZodCatch";
-import { genresListSchema, getMoviesSchema, getMoviesWithDatesSchema, movieCreditsSchema, movieDetailsSchema } from "../model/movies.schemas";
+import {
+  genresListSchema,
+  getMoviesSchema,
+  getMoviesWithDatesSchema,
+  movieCreditsSchema,
+  movieDetailsSchema,
+  getConfigsSchema,
+} from "../model/movies.schemas";
 import type {
   BaseQueryParams,
   GetFilteredMoviesParams,
@@ -15,6 +22,7 @@ import type {
   GetMoviesResponse,
   GetMoviesWithDatesResponse,
   GetSimilarMoviesParams,
+  GetConfigsResponse,
 } from "./moviesApi.types";
 
 export const moviesApi = baseApi.injectEndpoints({
@@ -99,10 +107,15 @@ export const moviesApi = baseApi.injectEndpoints({
       query: ({ movie_id, ...params }) => ({ url: `${Endpoints.getMovieDetails}/${movie_id}`, params }),
       ...withZodCatch(movieDetailsSchema),
     }),
+    getConfigs: build.query<GetConfigsResponse, void>({
+      query: () => ({ url: `${Endpoints.getConfigs}` }),
+      ...withZodCatch(getConfigsSchema),
+    }),
   }),
 });
 
 export const {
+  useGetConfigsQuery,
   useGetSimilarMoviesQuery,
   useGetMoviesBySearchInfiniteQuery,
   useGetPopularMoviesQuery,

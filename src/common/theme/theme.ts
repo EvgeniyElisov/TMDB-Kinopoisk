@@ -9,6 +9,12 @@ export const getTheme = (themeMode: ThemeMode) => {
       primary: {
         main: "#087EA4",
       },
+      ...(themeMode === "light" && {
+        background: {
+          default: "#f5f5f5",
+          paper: "rgba(255, 255, 255, 0)",
+        },
+      }),
     },
   });
 };

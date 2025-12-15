@@ -99,7 +99,7 @@
 .genre {
   padding: 0.5rem 1rem;
   background: var(--gradient-primary-ultra-light);
-  border: 2px solid var(--color-primary-rgba-05);
+  border: 2px solid var(--mui-palette-divider);
   border-radius: var(--radius-20);
   font-size: 0.875rem;
   font-weight: 500;

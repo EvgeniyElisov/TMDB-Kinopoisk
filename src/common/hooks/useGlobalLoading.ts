@@ -1,29 +1,27 @@
-// import type { RootState } from '@/app/model/store.ts'
-// import { moviesApi } from '@/features/api/moviesApi'
-// import { useSelector } from 'react-redux'
+import type { RootState } from '@/app/model/store.ts'
+import { moviesApi } from '@/features/api/moviesApi'
+import { useSelector } from 'react-redux'
 
-// // Список эндпоинтов для исключения из глобального индикатора
-// const excludedEndpoints = [
-//   moviesApi.endpoints.fetchPlaylists.name,
-// ]
+const excludedEndpoints = [
+  moviesApi.endpoints.getPopularMovies.name,
+  moviesApi.endpoints.getTopRatedMovies.name,
+  moviesApi.endpoints.getUpcomingMovies.name,
+  moviesApi.endpoints.getNowPlayingMovies.name,
+  moviesApi.endpoints.getMoviesByFilter.name,
+]
  
-// export const useGlobalLoading = () => {
-//   return useSelector((state: RootState) => {
-//     // Получаем все активные запросы из RTK Query API
-//     const queries = Object.values(state.baseApi.queries || {})
-//     const mutations = Object.values(state.baseApi.mutations || {})
+export const useGlobalLoading = () => {
+  return useSelector((state: RootState) => {
+    const queries = Object.values(state.baseApi.queries || {})
 
-//     const hasActiveQueries = queries.some(query => {
-//       if (query?.status !== 'pending') return
+    const hasActiveQueries = queries.some(query => {
+      if (query?.status !== 'pending') return
       
-//       if (excludedEndpoints.includes(query.endpointName)) {
-//         const completedQueries = queries.filter(q => q?.status === 'fulfilled')
-//         return completedQueries.length > 0
-//       }
-//     })
- 
-//     const hasActiveMutations = mutations.some(mutation => mutation?.status === 'pending')
- 
-//     return hasActiveQueries || hasActiveMutations
-//   })
-// }
+      if (excludedEndpoints.includes(query.endpointName)) {
+        const completedQueries = queries.filter(q => q?.status === 'fulfilled')
+        return completedQueries.length > 0
+      }
+    })
+    return hasActiveQueries
+  })
+}

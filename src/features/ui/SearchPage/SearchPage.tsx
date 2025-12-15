@@ -3,6 +3,7 @@ import { useInfiniteScroll } from "@/common/hooks";
 import { useGetMoviesBySearchInfiniteQuery } from "@/features/api/moviesApi";
 import { useSearchParams } from "react-router";
 import styles from "./SearchPage.module.css";
+import { LoadingTrigger } from "./LoadingTrigger";
 
 export const SearchPage = () => {
   const [searchParams] = useSearchParams();
@@ -13,6 +14,7 @@ export const SearchPage = () => {
     hasNextPage,
     isFetching,
     isLoading,
+    isFetchingNextPage,
   } = useGetMoviesBySearchInfiniteQuery({ query }, { skip: !query });
 
   const movies = searchedMoviesData?.pages.flatMap((page) => page.results) || [];
@@ -37,7 +39,7 @@ export const SearchPage = () => {
       {query && movies.length > 0 && (
         <>
           <MoviesList movies={movies} title={`Search results for "${query}"`} columns={5} />
-          <div ref={observerRef} />
+          <LoadingTrigger observerRef={observerRef} isFetchingNextPage={isFetchingNextPage} />
         </>
       )}
     </main>

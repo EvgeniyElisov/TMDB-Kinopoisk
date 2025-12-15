@@ -49,5 +49,6 @@ export const CategoryMoviesPaths = {
     getGenresList: "genre/movie/list",
     getMoviesBySearch: "search/movie",
     getMovieDetails: "movie",
+    getConfigs: "configuration",
   } as const;
   
