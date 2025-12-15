@@ -1,7 +1,7 @@
 import type { GetFilteredMoviesParams } from "@/features/api/moviesApi.types";
-import { GenresSection } from "../GenresSection";
-import { RatingSlider } from "../RatingSlider";
-import { SortBy } from "../SortBy";
+import { GenresSection } from "./GenresSection";
+import { RatingSlider } from "./RatingSlider";
+import { SortBy } from "./SortBy";
 import styles from "./FiltersSection.module.css";
 
 type Props = {
