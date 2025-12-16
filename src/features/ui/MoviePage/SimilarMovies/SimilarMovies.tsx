@@ -12,9 +12,9 @@ export const SimilarMovies = ({ similarMovies }: Props) => {
   const topMovies = sortBy(similarMovies, "popularity", 6);
 
   return (
-    <div className={styles.container}>
-      <h2 className={styles.title}>Similar Movies</h2>
-      <ul className={styles.moviesList}>
+    <section className={styles.container} aria-labelledby="similar-movies-title">
+      <h2 id="similar-movies-title" className={styles.title}>Similar Movies</h2>
+      <ul className={styles.moviesList} role="list">
         {topMovies.map((movie: Movie) => (
           <li key={movie.id}>
             <MovieCard
@@ -26,6 +26,6 @@ export const SimilarMovies = ({ similarMovies }: Props) => {
           </li>
         ))}
       </ul>
-    </div>
+    </section>
   );
 };

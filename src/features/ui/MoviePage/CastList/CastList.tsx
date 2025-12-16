@@ -12,13 +12,15 @@ export const CastList = ({ cast }: Props) => {
   const topCast = sortBy(cast, "popularity", 6);
 
   return (
-    <div className={styles.container}>
-      <h2 className={styles.title}>Cast:</h2>
-      <div className={styles.list}>
+    <section className={styles.container} aria-labelledby="cast-title">
+      <h2 id="cast-title" className={styles.title}>Cast:</h2>
+      <ul className={styles.list} role="list">
           {topCast.map((castMember: Cast) => (
-          <CastItem key={castMember.id} cast={castMember} />
+          <li key={castMember.id}>
+            <CastItem cast={castMember} />
+          </li>
         ))}
-      </div>
-    </div>
+      </ul>
+    </section>
   );
 };

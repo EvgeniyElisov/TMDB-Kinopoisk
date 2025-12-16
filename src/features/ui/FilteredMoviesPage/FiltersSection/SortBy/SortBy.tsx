@@ -27,15 +27,22 @@ export const SortBy = ({ params, setParams }: Props) => {
   }, [selectedSortBy]);
 
   return (
-    <div className={styles.container}>
-      <label className={styles.label}>Sort by</label>
-      <select className={styles.select} value={selectedSortBy} onChange={handleSortByChange}>
+    <fieldset className={styles.container}>
+      <legend className="visually-hidden">Sort movies</legend>
+      <label className={styles.label} htmlFor="sort-by-select">Sort by</label>
+      <select 
+        id="sort-by-select"
+        className={styles.select} 
+        value={selectedSortBy} 
+        onChange={handleSortByChange}
+        aria-label="Sort movies by"
+      >
         {sortByOptions.map((option) => (
           <option key={option.value} value={option.value}>
             {option.label}
           </option>
         ))}
       </select>
-    </div>
+    </fieldset>
   );
 };

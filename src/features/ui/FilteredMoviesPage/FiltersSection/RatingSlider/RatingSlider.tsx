@@ -27,16 +27,25 @@ export const RatingSlider = ({ params, setParams }: Props) => {
   }, [debouncedRating]);
 
   return (
-    <div className={styles.ratingSlider}>
+    <fieldset className={styles.ratingSlider}>
+      <legend className="visually-hidden">Movie rating filter</legend>
       <div className={styles.ratingHeader}>
-        <span className={styles.ratingLabel}>Rating</span>
-        <span className={styles.ratingValue}>
+        <label className={styles.ratingLabel} htmlFor="rating-slider">Rating</label>
+        <output className={styles.ratingValue} htmlFor="rating-slider" aria-live="polite">
           {rating[0]} - {rating[1]}
-        </span>
+        </output>
       </div>
       <div className={styles.sliderContainer}>
-        <Slider value={rating} onChange={handleChange} step={0.1} max={maxRating} className={styles.slider} />
+        <Slider 
+          id="rating-slider"
+          value={rating} 
+          onChange={handleChange} 
+          step={0.1} 
+          max={maxRating} 
+          className={styles.slider}
+          aria-label="Movie rating range"
+        />
       </div>
-    </div>
+    </fieldset>
   );
 };

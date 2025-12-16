@@ -11,7 +11,7 @@ export const CategoriesInfo = [
 
 export const CategoriesButtons = () => {
   return (
-    <div className={styles.container}>
+    <nav className={styles.container} aria-label="Movie categories navigation">
       {CategoriesInfo.map((category) => (
         <NavLink
           key={category.title}
@@ -19,10 +19,11 @@ export const CategoriesButtons = () => {
           className={({ isActive }) =>
             isActive ? `${styles.button} ${styles.active}` : styles.button
           }
+          aria-label={`Navigate to ${category.title} movies`}
         >
           {category.title}
         </NavLink>
       ))}
-    </div>
+    </nav>
   );
 };

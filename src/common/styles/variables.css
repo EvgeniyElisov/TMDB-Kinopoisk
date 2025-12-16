@@ -101,4 +101,68 @@
   --grid-gap-lg: 1.25rem;
   --grid-gap-xl: 1.5rem;
   --grid-gap-2xl: 2rem;
+  
+  /* Colors */
+  --color-white: #ffffff;
+  --color-white-rgba-03: rgba(255, 255, 255, 0.3);
+  --color-white-rgba-05: rgba(255, 255, 255, 0.5);
+  --color-white-rgba-06: rgba(255, 255, 255, 0.6);
+  --color-white-rgba-08: rgba(255, 255, 255, 0.8);
+  --color-white-rgba-09: rgba(255, 255, 255, 0.9);
+  --color-white-rgba-095: rgba(255, 255, 255, 0.95);
+  --color-white-rgba-01: rgba(255, 255, 255, 0.1);
+  --color-white-rgba-015: rgba(255, 255, 255, 0.15);
+  --color-white-rgba-016: rgba(255, 255, 255, 0.16);
+  --color-white-rgba-02: rgba(255, 255, 255, 0.2);
+  --color-white-rgba-025: rgba(255, 255, 255, 0.25);
+  
+  /* Rating colors */
+  --rating-low-start: #ef4444;
+  --rating-low-end: #dc2626;
+  --rating-medium-start: #f59e0b;
+  --rating-medium-end: #d97706;
+  --rating-high-start: #10b981;
+  --rating-high-end: #059669;
+  
+  /* Icon sizes */
+  --icon-size-xs: 18px;
+  --icon-size-sm: 20px;
+  --icon-size-md: 24px;
+  --icon-size-lg: 1.25rem;
+  --icon-size-xl: 1.5rem;
+  --icon-size-2xl: 1.75rem;
+  
+  /* Button sizes */
+  --button-size-sm: 36px;
+  --button-size-md: 40px;
+  --button-size-lg: 44px;
+  --button-size-xl: 45px;
+  --button-size-2xl: 50px;
+  
+  /* Common button styles */
+  --button-gradient-bg: var(--gradient-primary);
+  --button-gradient-color: var(--color-white);
+  --button-gradient-border: var(--color-primary-rgba-03);
+  --button-gradient-hover-transform: translateY(-2px);
+  --button-gradient-active-transform: translateY(0);
+  
+  /* Common container styles */
+  --container-gradient-light-bg: var(--gradient-primary-light);
+  --container-gradient-light-border: var(--color-primary-rgba-03);
+  --container-gradient-ultra-light-bg: var(--gradient-primary-ultra-light);
+  
+  /* Common message styles */
+  --message-bg: var(--mui-palette-background-paper);
+  --message-border: var(--mui-palette-divider);
+  --message-color: var(--mui-palette-text-secondary);
+  
+  /* Common hover effects */
+  --hover-scale: scale(1.05);
+  --hover-scale-lg: scale(1.1);
+  --hover-scale-xl: scale(1.15);
+  --hover-scale-2xl: scale(1.2);
+  --hover-translate-y-sm: translateY(-1px);
+  --hover-translate-y-md: translateY(-2px);
+  --hover-translate-y-lg: translateY(-4px);
+  --hover-translate-y-xl: translateY(-8px);
 }

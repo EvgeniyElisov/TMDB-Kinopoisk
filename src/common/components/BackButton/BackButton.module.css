@@ -1,9 +1,9 @@
 .backButton {
   padding: var(--button-padding-md);
-  background: var(--gradient-primary);
-  border: 1px solid var(--color-primary-rgba-03);
+  background: var(--button-gradient-bg);
+  border: 1px solid var(--button-gradient-border);
   border-radius: var(--radius-lg);
-  color: #ffffff;
+  color: var(--button-gradient-color);
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
@@ -16,14 +16,14 @@
 }
 
 .backButton:hover {
-  transform: translateY(-2px);
+  transform: var(--button-gradient-hover-transform);
   box-shadow: var(--shadow-lg);
   border-color: var(--color-primary-rgba-05);
-  color: #ffffff;
+  color: var(--button-gradient-color);
 }
 
 .backButton:active {
-  transform: translateY(0);
+  transform: var(--button-gradient-active-transform);
 }
 
 @media (max-width: 768px) {

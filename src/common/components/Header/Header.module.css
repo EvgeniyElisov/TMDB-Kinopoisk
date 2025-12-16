@@ -190,8 +190,8 @@
 }
 
 .themeIcon {
-  width: 24px;
-  height: 24px;
+  width: var(--icon-size-md);
+  height: var(--icon-size-md);
   color: var(--mui-palette-primary-contrastText);
   filter: drop-shadow(0 2px 4px color-mix(in srgb, var(--mui-palette-common-black) 20%, transparent));
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -199,7 +199,7 @@
 
 .themeToggle:hover .themeIcon {
   filter: drop-shadow(0 4px 12px color-mix(in srgb, var(--mui-palette-primary-contrastText) 50%, transparent)) brightness(1.2);
-  transform: scale(1.1);
+  transform: var(--hover-scale-lg);
 }
 
 @media (max-width: 768px) {
@@ -210,8 +210,8 @@
   }
 
   .themeIcon {
-    width: 20px;
-    height: 20px;
+    width: var(--icon-size-sm);
+    height: var(--icon-size-sm);
   }
 }
 
@@ -223,7 +223,7 @@
   }
 
   .themeIcon {
-    width: 18px;
-    height: 18px;
+    width: var(--icon-size-xs);
+    height: var(--icon-size-xs);
   }
 }

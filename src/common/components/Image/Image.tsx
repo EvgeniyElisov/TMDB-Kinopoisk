@@ -8,8 +8,9 @@ type Props = {
   className?: string;
 };
 
-export const Image = ({ imagePath, noImagePath, title }: Props) => {
+export const Image = ({ imagePath, noImagePath, title, className }: Props) => {
   const imgPath = imagePath ? `${picturesBaseUrl}${imagePath}` : noImagePath;
+  const altText = title || "Image";
 
-  return <img src={imgPath} alt={title} className={styles.poster} loading="lazy" />;
+  return <img src={imgPath} alt={altText} className={className || styles.poster} loading="lazy" />;
 };

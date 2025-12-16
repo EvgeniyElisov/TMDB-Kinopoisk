@@ -10,12 +10,12 @@ type Props = {
 export const CastItem = ({ cast }: Props) => {
 
   return (
-    <div className={styles.item}>
-      <div className={styles.imageWrapper}>
+    <article className={styles.item}>
+      <figure className={styles.imageWrapper}>
         <Image imagePath={cast.profile_path} title={cast.name} noImagePath={noPhoto} className={styles.image}/>
-      </div>
-      <div className={styles.name}>{cast.name}</div>
-      <div className={styles.character}>{cast.character}</div>
-    </div>
+      </figure>
+      <h3 className={styles.name}>{cast.name}</h3>
+      <p className={styles.character}>{cast.character}</p>
+    </article>
   );
 };

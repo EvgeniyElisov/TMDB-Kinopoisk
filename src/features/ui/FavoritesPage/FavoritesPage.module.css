@@ -16,12 +16,12 @@
 .message {
   text-align: center;
   padding: var(--message-padding-lg);
-  color: var(--mui-palette-text-secondary);
+  color: var(--message-color);
   font-size: 1.125rem;
   line-height: 1.6;
-  background: var(--gradient-primary-ultra-light);
+  background: var(--container-gradient-ultra-light-bg);
   border-radius: var(--radius-xl);
-  border: 1px solid var(--color-primary-rgba-03);
+  border: 1px solid var(--container-gradient-light-border);
   box-shadow: var(--shadow-sm);
   position: relative;
   overflow: hidden;

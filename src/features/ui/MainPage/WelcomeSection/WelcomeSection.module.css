@@ -50,7 +50,7 @@
   margin-bottom: 0.75rem;
   max-width: 780px;
   text-shadow: 0 10px 30px color-mix(in srgb, var(--mui-palette-common-black) 75%, transparent);
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--color-white-rgba-09);
 }
 
 .subtitle {
@@ -62,7 +62,7 @@
   font-family: 'Inter', 'Poppins', system-ui, sans-serif;
   line-height: 1.6;
   max-width: 680px;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--color-white-rgba-09);
   text-shadow: 0 2px 12px color-mix(in srgb, var(--mui-palette-common-black) 70%, transparent);
 }
 
@@ -79,9 +79,9 @@
 }
 
 .section form input {
-  color: rgba(255, 255, 255, 0.95) !important;
+  color: var(--color-white-rgba-095) !important;
   background: transparent !important;
-  border-color: rgba(255, 255, 255, 0.3) !important;
+  border-color: var(--color-white-rgba-03) !important;
   box-shadow: 0 2px 4px color-mix(in srgb, var(--mui-palette-common-black) 20%, transparent) !important;
 }
 
@@ -99,7 +99,7 @@
 }
 
 .section form input::placeholder {
-  color: rgba(255, 255, 255, 0.6) !important;
+  color: var(--color-white-rgba-06) !important;
 }
 
 @media (max-width: 1024px) {

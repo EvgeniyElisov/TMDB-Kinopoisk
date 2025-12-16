@@ -37,9 +37,9 @@
 
 .button:hover {
   border-color: var(--color-primary-rgba-05);
-  transform: translateY(-2px);
+  transform: var(--button-gradient-hover-transform);
   box-shadow: var(--shadow-md);
-  color: #ffffff;
+  color: var(--button-gradient-color);
 }
 
 .button:hover::before {
@@ -47,11 +47,11 @@
 }
 
 .button.active {
-  background: var(--gradient-primary);
+  background: var(--button-gradient-bg);
   border-color: var(--color-primary-rgba-08);
   font-weight: 600;
   box-shadow: var(--shadow-lg);
-  color: #ffffff;
+  color: var(--button-gradient-color);
 }
 
 .button.active::before {

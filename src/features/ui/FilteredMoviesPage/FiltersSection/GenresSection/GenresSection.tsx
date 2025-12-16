@@ -36,8 +36,9 @@ export const GenresSection = ({ params, setParams, genres }: Props) => {
 
 
   return (
-    <div className={styles.genresSection}>
-      <div className={styles.genresContainer}>
+    <fieldset className={styles.genresSection}>
+      <legend className="visually-hidden">Movie genres</legend>
+      <div className={styles.genresContainer} role="group" aria-label="Select movie genres">
         {genres.map((genre) => (
           <Button
             key={genre.id}
@@ -51,6 +52,6 @@ export const GenresSection = ({ params, setParams, genres }: Props) => {
           </Button>
         ))}
       </div>
-    </div>
+    </fieldset>
   );
 };

@@ -10,6 +10,11 @@
   box-shadow: 0 2px 8px color-mix(in srgb, var(--mui-palette-common-black) 5%, transparent);
   transition: var(--transition-smooth);
   position: relative;
+  margin: 0;
+}
+
+.ratingSlider legend {
+  display: none;
 }
 
 .ratingSlider::after {
@@ -66,11 +71,11 @@
 }
 
 .ratingValue {
-  color: var(--mui-palette-common-white);
+  color: var(--color-white);
   font-size: 1rem;
   font-weight: 700;
   padding: 0.5rem 1rem;
-  background: var(--gradient-primary);
+  background: var(--button-gradient-bg);
   border-radius: var(--radius-md);
   border: 2px solid var(--gradient-primary-start);
   box-shadow: 0 2px 8px color-mix(in srgb, var(--gradient-primary-start) 20%, transparent);
@@ -154,8 +159,8 @@
 }
 
 .slider :global(.MuiSlider-valueLabel) {
-  background: var(--gradient-primary);
-  color: #ffffff;
+  background: var(--button-gradient-bg);
+  color: var(--button-gradient-color);
   font-weight: 700;
   font-size: 0.75rem;
   padding: 0.25rem 0.5rem;

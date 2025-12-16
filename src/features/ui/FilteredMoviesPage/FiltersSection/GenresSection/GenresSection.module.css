@@ -1,6 +1,9 @@
 .genresSection {
   display: flex;
   flex-direction: column;
+  border: none;
+  padding: 0;
+  margin: 0;
 }
 
 .genresContainer {
@@ -57,11 +60,11 @@
 
 .genreButton:hover {
   border-color: transparent;
-  transform: translateY(-2px);
+  transform: var(--button-gradient-hover-transform);
   box-shadow: var(--shadow-md);
   font-weight: 500;
   text-shadow: 0 0 0.5px color-mix(in srgb, var(--mui-palette-common-white) 50%, transparent);
-  color: #ffffff;
+  color: var(--button-gradient-color);
 }
 
 .genreButton:hover::after {
@@ -73,18 +76,18 @@
 }
 
 .genreButton:active {
-  transform: translateY(0);
+  transform: var(--button-gradient-active-transform);
 }
 
 .genreButton.selected {
-  background: var(--gradient-primary);
+  background: var(--button-gradient-bg);
   border-color: var(--color-primary-rgba-05);
   box-shadow: var(--shadow-md);
   font-weight: 500;
   text-shadow: 0 0 0.5px color-mix(in srgb, var(--mui-palette-common-white) 50%, transparent);
   transition: var(--transition-base);
   box-sizing: border-box;
-  color: #ffffff;
+  color: var(--button-gradient-color);
 }
 
 .genreButton.selected::before {

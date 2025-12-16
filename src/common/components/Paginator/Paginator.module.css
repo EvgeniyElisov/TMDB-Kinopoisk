@@ -59,8 +59,8 @@
 }
 
 .pagination :global(.Mui-selected) {
-  background: var(--gradient-primary);
-  color: #ffffff;
+  background: var(--button-gradient-bg);
+  color: var(--button-gradient-color);
   border-color: transparent;
   box-shadow: var(--shadow-lg);
   font-weight: 700;

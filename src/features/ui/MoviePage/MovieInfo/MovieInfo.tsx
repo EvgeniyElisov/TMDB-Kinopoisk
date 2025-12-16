@@ -11,15 +11,15 @@ type Props = {
 
 export const MovieInfo = ({ movieDetails }: Props) => {
   return (
-    <div className={styles.info}>
-      <div className={styles.posterWrapper}>
+    <article className={styles.info}>
+      <figure className={styles.posterWrapper}>
         <Image imagePath={movieDetails.poster_path} title={movieDetails.title} noImagePath={noPoster} />
-      </div>
+      </figure>
       <div className={styles.content}>
-        <div className={styles.titleWrapper}>
+        <header className={styles.titleWrapper}>
           <h1 className={styles.title}>{movieDetails.title}</h1>
           <BackButton />
-        </div>
+        </header>
         <div className={styles.meta}>
           <div className={styles.releaseDate}>
             <span className={styles.label}>Release date:</span> {movieDetails.release_date}
@@ -32,14 +32,14 @@ export const MovieInfo = ({ movieDetails }: Props) => {
           )}
         </div>
         <p className={styles.overview}>{movieDetails.overview}</p>
-        <div className={styles.genres}>
+        <div className={styles.genres} role="list">
           {movieDetails.genres.map((genre) => (
-            <span key={genre.id} className={styles.genre}>
+            <span key={genre.id} className={styles.genre} role="listitem">
               {genre.name}
             </span>
           ))}
         </div>
       </div>
-    </div>
+    </article>
   );
 };

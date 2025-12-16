@@ -45,10 +45,10 @@
 
 .button {
   padding: var(--button-padding-md);
-  border: 1px solid var(--color-primary-rgba-03);
+  border: 1px solid var(--button-gradient-border);
   border-radius: var(--radius-lg);
-  background: var(--gradient-primary);
-  color: #ffffff;
+  background: var(--button-gradient-bg);
+  color: var(--button-gradient-color);
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
@@ -58,14 +58,14 @@
 }
 
 .button:hover:not(:disabled) {
-  transform: translateY(-2px);
+  transform: var(--button-gradient-hover-transform);
   box-shadow: var(--shadow-lg);
   border-color: var(--color-primary-rgba-05);
-  color: #ffffff;
+  color: var(--button-gradient-color);
 }
 
 .button:active:not(:disabled) {
-  transform: translateY(0);
+  transform: var(--button-gradient-active-transform);
 }
 
 .button:disabled {
