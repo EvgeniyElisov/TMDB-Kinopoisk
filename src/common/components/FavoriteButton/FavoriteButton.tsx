@@ -1,3 +1,4 @@
+import { Button } from "@/common/components";
 import styles from "./FavoriteButton.module.css";
 
 type Props = {
@@ -15,13 +16,13 @@ export const FavoriteButton = ({ isFavorite, changeFavorite }: Props) => {
   };
 
   return (
-    <button
+    <Button
       className={`${styles.favoriteButton} ${isFavorite ? styles.active : ""}`}
       onClick={handleFavoriteClick}
       aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
       type="button"
     >
       {isFavorite ? "❤️" : "🤍"}
-    </button>
+    </Button>
   );
 };

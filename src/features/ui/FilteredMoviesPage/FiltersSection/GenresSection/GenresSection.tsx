@@ -1,3 +1,4 @@
+import { Button } from "@/common/components";
 import type { Genre, GetFilteredMoviesParams } from "@/features/api/moviesApi.types";
 import { useEffect, useState } from "react";
 import styles from "./GenresSection.module.css";
@@ -38,7 +39,7 @@ export const GenresSection = ({ params, setParams, genres }: Props) => {
     <div className={styles.genresSection}>
       <div className={styles.genresContainer}>
         {genres.map((genre) => (
-          <button
+          <Button
             key={genre.id}
             type="button"
             className={`${styles.genreButton} ${selectedGenres.includes(genre.id) ? styles.selected : ""}`}
@@ -47,7 +48,7 @@ export const GenresSection = ({ params, setParams, genres }: Props) => {
             aria-pressed={selectedGenres.includes(genre.id)}
           >
             <span className={styles.genreText}>{genre.name}</span>
-          </button>
+          </Button>
         ))}
       </div>
     </div>

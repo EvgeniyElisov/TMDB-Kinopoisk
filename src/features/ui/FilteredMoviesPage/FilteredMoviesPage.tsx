@@ -1,4 +1,4 @@
-import { MoviesList, MoviesSkeleton } from "@/common/components";
+import { Button, MoviesList, MoviesSkeleton } from "@/common/components";
 import { useDebounceValue } from "@/common/hooks";
 import { scrollToTop } from "@/common/utils";
 import { useGetMoviesByFilterInfiniteQuery } from "@/features/api/moviesApi";
@@ -16,25 +16,21 @@ const initialParams: GetFilteredMoviesParams = {
 export const FilteredMoviesPage = () => {
   const [params, setParams] = useState<GetFilteredMoviesParams>(initialParams);
   const debouncedParams = useDebounceValue(params, 1000);
-  const { 
-    data: filteredMoviesData, 
-    fetchNextPage, 
-    hasNextPage, 
-    isFetching, 
-    isLoading: 
-    isLoadingFilteredMovies, 
-    isFetchingNextPage } = useGetMoviesByFilterInfiniteQuery(debouncedParams);
+  const {
+    data: filteredMoviesData,
+    fetchNextPage,
+    hasNextPage,
+    isFetching,
+    isLoading: isLoadingFilteredMovies,
+    isFetchingNextPage,
+  } = useGetMoviesByFilterInfiniteQuery(debouncedParams);
   const movies = filteredMoviesData?.pages.flatMap((page) => page.results) || [];
 
   const loadMoreHandler = () => {
-    if (hasNextPage && !isFetching) {
-      fetchNextPage();
-    }
+    if (hasNextPage && !isFetching) fetchNextPage();
   };
 
-  const resetFiltersHandler = () => {
-    setParams(initialParams);
-  };
+  const resetFiltersHandler = () => setParams(initialParams);
 
   useEffect(() => {
     scrollToTop();
@@ -42,27 +38,21 @@ export const FilteredMoviesPage = () => {
 
   return (
     <main aria-label="Filtered movies page" className={styles.page}>
-      <FiltersSection params={params} setParams={setParams} resetFilters={resetFiltersHandler}/>
+      <FiltersSection params={params} setParams={setParams} resetFilters={resetFiltersHandler} />
       <div className={styles.content}>
         {isLoadingFilteredMovies && <MoviesSkeleton count={20} />}
         {movies.length === 0 && <p className={styles.message}>No movies found</p>}
         {movies.length > 0 && <MoviesList movies={movies} title="Filtered movies" columns={5} />}
         <div className={`${styles.buttonsContainer} ${!hasNextPage && movies.length > 0 ? styles.buttonsContainerCentered : ""}`}>
           {!isLoadingFilteredMovies && hasNextPage && (
-            <button className={styles.loadMoreButton} onClick={loadMoreHandler} disabled={isFetching}>
+            <Button onClick={loadMoreHandler} disabled={isFetching} className={styles.loadMoreButton}>
               {isFetchingNextPage ? "Loading..." : "Load more"}
-            </button>
+            </Button>
           )}
-          {/* Button вынести в отдельную компоненту */}
           {movies.length > 0 && (
-            <button
-              className={styles.upButton}
-              onClick={scrollToTop}
-              aria-label="Scroll to top"
-              type="button"
-            >
+            <Button onClick={scrollToTop} aria-label="Scroll to top" type="button" className={styles.upButton}>
               <span className={styles.upArrow}>↑</span>
-            </button>
+            </Button>
           )}
         </div>
       </div>

@@ -40,6 +40,48 @@
   font-weight: 600;
 }
 
+.buttonsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.upButton {
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  background: var(--gradient-primary);
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-base);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.upArrow {
+  font-size: 1.5rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.upButton:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.upButton:active {
+  transform: translateY(0);
+}
+
 @media (max-width: 768px) {
   .page {
     gap: 1.5rem;
@@ -53,6 +95,15 @@
   .noResults {
     font-size: 0.9375rem;
     padding: var(--container-padding-sm);
+  }
+
+  .upButton {
+    width: 45px;
+    height: 45px;
+  }
+
+  .upArrow {
+    font-size: 1.25rem;
   }
 }
 

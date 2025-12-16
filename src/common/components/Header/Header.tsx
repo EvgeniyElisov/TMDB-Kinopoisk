@@ -1,4 +1,5 @@
 import tmdbLogo from "@/assets/images/tmdb-logo.svg";
+import { Button } from "@/common/components";
 import { PagePaths } from "@/common/types";
 import { NavLink, useLocation } from "react-router";
 import styles from "./Header.module.css";
@@ -46,11 +47,11 @@ export const Header = ({ toggleTheme }: Props) => {
           ))}
         </ul>
       </nav>
-      <button className={styles.themeToggle} aria-label="Toggle theme" type="button" onClick={toggleTheme}>
+      <Button className={styles.themeToggle} aria-label="Toggle theme" type="button" onClick={toggleTheme}>
         <svg className={styles.themeIcon} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
         </svg>
-      </button>
+      </Button>
     </header>
   );
 };

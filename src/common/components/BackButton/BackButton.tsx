@@ -1,3 +1,4 @@
+import { Button } from "@/common/components";
 import { useNavigate } from "react-router";
 import styles from "./BackButton.module.css";
 
@@ -9,13 +10,13 @@ export const BackButton = () => {
   };
 
   return (
-    <button
+    <Button
       className={styles.backButton}
       onClick={handleBackClick}
       aria-label="Go back to previous page"
       type="button"
     >
       ← Back
-    </button>
+    </Button>
   );
 };
