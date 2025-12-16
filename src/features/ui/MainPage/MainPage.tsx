@@ -1,3 +1,4 @@
+import { MoviesSkeleton, WelcomeSectionSkeleton } from "@/common/components";
 import { CategoryMoviesTitles, PagePathsType } from "@/common/types";
 import { useGetNowPlayingMoviesQuery, useGetPopularMoviesQuery, useGetTopRatedMoviesQuery, useGetUpcomingMoviesQuery } from "@/features/api/moviesApi";
 import { MoviesSection } from "./MoviesSection";
@@ -10,10 +11,7 @@ export const MainPage = () => {
   const { data: nowPlayingMoviesData, isLoading: isLoadingNowPlaying } = useGetNowPlayingMoviesQuery({ page: 1 });
 
   const moviesListData = [
-    { title: CategoryMoviesTitles.Popular, 
-      movies: popularMoviesData?.results || [], 
-      categoryPath: PagePathsType.PopularMovies, 
-      isLoading: isLoadingPopular },
+    { title: CategoryMoviesTitles.Popular, movies: popularMoviesData?.results || [], categoryPath: PagePathsType.PopularMovies, isLoading: isLoadingPopular },
     {
       title: CategoryMoviesTitles.TopRated,
       movies: topRatedMoviesData?.results || [],
@@ -35,11 +33,12 @@ export const MainPage = () => {
   ];
 
   const backdrops = popularMoviesData?.results.map((movie) => movie.backdrop_path || "") || [];
+  const isMoviesSectionLoading = isLoadingPopular || isLoadingTopRated || isLoadingUpcoming || isLoadingNowPlaying;
 
   return (
     <main aria-label="Main page">
-      <WelcomeSection backdrops={backdrops} />
-      <MoviesSection moviesListData={moviesListData} />
+      {isLoadingPopular ? <WelcomeSectionSkeleton /> : <WelcomeSection backdrops={backdrops} />}
+      {isMoviesSectionLoading ? <MoviesSkeleton count={6} /> : <MoviesSection moviesListData={moviesListData} />}
     </main>
   );
 };

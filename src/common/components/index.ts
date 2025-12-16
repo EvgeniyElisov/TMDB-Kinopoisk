@@ -11,4 +11,5 @@ export {Paginator} from "./Paginator/Paginator";
 export {MoviesSkeleton} from "./Skeletons/MoviesSkeleton/MoviesSkeleton";
 export {MovieInfoSkeleton} from "./Skeletons/MovieInfoSkeleton/MovieInfoSkeleton";
 export {CastListSkeleton} from "./Skeletons/CastListSkeleton/CastListSkeleton";
-export {GenresSkeleton} from "./Skeletons/GenresSkeleton/GenresSkeleton";
+export {WelcomeSectionSkeleton} from "./Skeletons/WelcomeSectionSkeleton/WelcomeSectionSkeleton";
+export {FiltersSectionSkeleton} from "./Skeletons/FiltersSectionSkeleton/FiltersSectionSkeleton";

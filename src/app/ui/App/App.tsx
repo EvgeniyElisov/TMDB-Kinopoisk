@@ -27,11 +27,11 @@ export const App = () => {
       <CssBaseline />
       <div className={styles.container}>
         <Header toggleTheme={toggleTheme} />
-        {isGlobalLoading && (
+        {/* {isGlobalLoading && (
           <Box sx={{ width: "100%" }}>
             <LinearProgress />
           </Box>
-        )}
+        )} */}
         <div className={styles.content}>
           <Routing />
         </div>

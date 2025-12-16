@@ -1,18 +1,16 @@
+import type { Genre, GetFilteredMoviesParams } from "@/features/api/moviesApi.types";
 import { useEffect, useState } from "react";
-import { useGetGenresListQuery } from "@/features/api/moviesApi";
 import styles from "./GenresSection.module.css";
-import type { GetFilteredMoviesParams } from "@/features/api/moviesApi.types";
-import { GenresSkeleton } from "@/common/components/Skeletons";
 
 type Props = {
   params: GetFilteredMoviesParams;
   setParams: (params: GetFilteredMoviesParams) => void;
+  genres: Genre[];
 };
 
-export const GenresSection = ({ params, setParams }: Props) => {
-  const genres = params.with_genres || [];
-  const [selectedGenres, setSelectedGenres] = useState<number[]>(genres);
-  const { data: genresListData, isLoading } = useGetGenresListQuery({});
+export const GenresSection = ({ params, setParams, genres }: Props) => {
+  const paramsGenres = params.with_genres || [];
+  const [selectedGenres, setSelectedGenres] = useState<number[]>(paramsGenres);
 
   useEffect(() => {
     setSelectedGenres(params.with_genres || []);
@@ -35,14 +33,11 @@ export const GenresSection = ({ params, setParams }: Props) => {
     }
   }, [selectedGenres]);
 
-  if (isLoading) {
-    return <GenresSkeleton />;
-  }
 
   return (
     <div className={styles.genresSection}>
       <div className={styles.genresContainer}>
-        {genresListData?.genres.map((genre) => (
+        {genres.map((genre) => (
           <button
             key={genre.id}
             type="button"
