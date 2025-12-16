@@ -78,6 +78,30 @@
   box-shadow: 0 16px 40px color-mix(in srgb, var(--mui-palette-common-black) 60%, transparent);
 }
 
+.section form input {
+  color: rgba(255, 255, 255, 0.95) !important;
+  background: transparent !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 0 2px 4px color-mix(in srgb, var(--mui-palette-common-black) 20%, transparent) !important;
+}
+
+.section form input:hover {
+  background: transparent !important;
+  border-color: var(--gradient-primary-start) !important;
+  box-shadow: var(--shadow-primary-sm) !important;
+}
+
+.section form input:focus {
+  background: transparent !important;
+  border-color: var(--gradient-primary-start) !important;
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--gradient-primary-start) 20%, transparent),
+    var(--shadow-primary-md) !important;
+}
+
+.section form input::placeholder {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
 @media (max-width: 1024px) {
   .section {
     padding: 4.5rem 1.75rem;

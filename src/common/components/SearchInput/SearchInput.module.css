@@ -7,24 +7,40 @@
 .input {
   flex: 1;
   padding: 0.75rem 1rem;
-  border: 1px solid var(--mui-palette-divider);
-  border-radius: var(--radius-md);
+  border: 2px solid var(--mui-palette-divider);
+  border-radius: var(--radius-lg);
   background: var(--mui-palette-background-paper);
   color: var(--mui-palette-text-primary);
   font-size: 1rem;
+  font-weight: 500;
   transition: var(--transition-smooth);
-  backdrop-filter: var(--blur-lg);
+  backdrop-filter: var(--blur-sm);
+  box-shadow: 0 2px 4px color-mix(in srgb, var(--mui-palette-common-black) 5%, transparent);
 }
 
 .input::placeholder {
   color: var(--mui-palette-text-secondary);
 }
 
+.input:hover {
+  background-color: color-mix(in srgb, var(--mui-palette-primary-main) 5%, var(--mui-palette-background-paper));
+  border-color: var(--gradient-primary-start);
+  box-shadow: var(--shadow-primary-sm);
+  transform: translateY(-1px);
+}
+
 .input:focus {
   outline: none;
-  border-color: var(--gradient-primary);
-  background: var(--mui-palette-background-paper);
-  box-shadow: 0 0 0 4px color-mix(in srgb, var(--mui-palette-primary-main) 10%, transparent);
+  background-color: color-mix(in srgb, var(--mui-palette-primary-main) 8%, var(--mui-palette-background-paper));
+  border-color: var(--gradient-primary-start);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--mui-palette-primary-main) 15%, transparent),
+    var(--shadow-primary-md);
+  transform: translateY(-1px);
+}
+
+.input:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px color-mix(in srgb, var(--mui-palette-common-black) 5%, transparent);
 }
 
 .button {
@@ -71,8 +87,14 @@
   }
 
   .input {
-    padding: 0.625rem 0.875rem;
-    font-size: 0.9375rem;
+    padding: 0.75rem 0.875rem;
+    font-size: 0.875rem;
+    border-radius: var(--radius-md);
+  }
+
+  .input:hover,
+  .input:focus {
+    transform: none;
   }
 
   .button {
