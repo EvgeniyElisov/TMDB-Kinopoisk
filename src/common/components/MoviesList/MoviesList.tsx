@@ -17,7 +17,6 @@ type Props = {
 export const MoviesList = ({ movies, title, itemsNumber, categoryPath, columns }: Props) => {
   const displayedMovies = itemsNumber ? movies.slice(0, itemsNumber) : movies;
   const hasMoreMovies = itemsNumber && movies.length > itemsNumber;
-  console.log(displayedMovies);
 
   return (
     <section aria-labelledby={`movies-section-${title?.replace(/\s+/g, "-").toLowerCase()}`}>
