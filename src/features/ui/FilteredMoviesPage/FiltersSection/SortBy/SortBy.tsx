@@ -1,3 +1,4 @@
+import { nanoid } from "nanoid";
 import type { GetFilteredMoviesParams, SortByValues } from "@/features/api/moviesApi.types";
 import styles from "./SortBy.module.css";
 import { useEffect, useState } from "react";
@@ -38,7 +39,7 @@ export const SortBy = ({ params, setParams }: Props) => {
         aria-label="Sort movies by"
       >
         {sortByOptions.map((option) => (
-          <option key={option.value} value={option.value}>
+          <option key={nanoid()} value={option.value}>
             {option.label}
           </option>
         ))}

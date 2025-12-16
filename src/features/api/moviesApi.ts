@@ -1,14 +1,8 @@
 import { baseApi } from "@/app/api/baseApi";
 import { Endpoints } from "@/common/types";
+import { createInfiniteMoviesQuery } from "@/common/utils/createInfiniteMoviesQuery";
 import { withZodCatch } from "@/common/utils/withZodCatch";
-import {
-  genresListSchema,
-  getMoviesSchema,
-  getMoviesWithDatesSchema,
-  movieCreditsSchema,
-  movieDetailsSchema,
-  getConfigsSchema,
-} from "../model/movies.schemas";
+import { genresListSchema, getMoviesSchema, getMoviesWithDatesSchema, movieCreditsSchema, movieDetailsSchema, getConfigsSchema } from "../model/movies.schemas";
 import type {
   BaseQueryParams,
   GetFilteredMoviesParams,
@@ -25,25 +19,11 @@ import type {
   GetConfigsResponse,
 } from "./moviesApi.types";
 
+
 export const moviesApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
     getMoviesBySearch: build.infiniteQuery<GetMoviesResponse, GetMoviesBySearchParams, number | undefined>({
-      infiniteQueryOptions: {
-        initialPageParam: 1,
-        getNextPageParam: (lastPage) => {
-          if (lastPage.page < lastPage.total_pages) {
-            return lastPage.page + 1;
-          }
-          return undefined;
-        },
-      },
-      query: ({ pageParam, queryArg }) => {
-        const { page, ...restParams } = queryArg;
-        return {
-          url: `${Endpoints.getMoviesBySearch}`,
-          params: { page: pageParam, ...restParams },
-        };
-      },
+      ...createInfiniteMoviesQuery<GetMoviesResponse>(Endpoints.getMoviesBySearch),
       ...withZodCatch(getMoviesSchema),
     }),
 
@@ -68,22 +48,7 @@ export const moviesApi = baseApi.injectEndpoints({
     }),
 
     getMoviesByFilter: build.infiniteQuery<GetMoviesResponse, GetFilteredMoviesParams, number | undefined>({
-      infiniteQueryOptions: {
-        initialPageParam: 1,
-        getNextPageParam: (lastPage) => {
-          if (lastPage.page < lastPage.total_pages) {
-            return lastPage.page + 1;
-          }
-          return undefined;
-        },
-      },
-      query: ({ pageParam, queryArg }) => {
-        const { page, ...restParams } = queryArg;
-        return {
-          url: `${Endpoints.getMoviesByFilter}`,
-          params: { page: pageParam, ...restParams },
-        };
-      },
+      ...createInfiniteMoviesQuery<GetMoviesResponse>(Endpoints.getMoviesByFilter),
       ...withZodCatch(getMoviesSchema),
     }),
 

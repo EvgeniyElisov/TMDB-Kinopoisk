@@ -1,3 +1,4 @@
+import { nanoid } from "nanoid";
 import { CategoriesInfo } from "@/common/constants";
 import styles from "./CategoriesButtons.module.css";
 import { CategoryButton } from "./CategoryButton";
@@ -9,7 +10,7 @@ export const CategoriesButtons = () => {
     <nav className={styles.container} aria-label="Movie categories navigation">
       {CategoriesInfo.map((category) => (
         <CategoryButton
-          key={category.title}
+          key={nanoid()}
           title={category.title}
           path={category.path}
         />

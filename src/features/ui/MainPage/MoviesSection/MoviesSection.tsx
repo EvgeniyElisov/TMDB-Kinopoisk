@@ -1,3 +1,4 @@
+import { nanoid } from "nanoid";
 import { MoviesList } from "@/common/components";
 import { PagePathsType, type CategoryMoviesTitlesType } from "@/common/types";
 import type { Movie } from "@/features/api/moviesApi.types";
@@ -15,7 +16,7 @@ export const MoviesSection = ({ moviesListData }: Props) => {
     <section>
       {moviesListData.map((movieData) => (
         <MoviesList 
-          key={movieData.title} 
+          key={nanoid()} 
           title={movieData.title} 
           movies={movieData.movies} 
           itemsNumber={6} 

@@ -1,3 +1,4 @@
+import { nanoid } from "nanoid";
 import { Skeleton } from "@mui/material";
 import styles from "./MovieInfoSkeleton.module.css";
 
@@ -86,7 +87,7 @@ export const MovieInfoSkeleton = () => {
         <div className={styles.genres}>
           {Array.from({ length: 4 }).map((_, index) => (
             <Skeleton
-              key={index}
+              key={nanoid()}
               variant="rectangular"
               width={Math.random() * 40 + 80}
               height={36}

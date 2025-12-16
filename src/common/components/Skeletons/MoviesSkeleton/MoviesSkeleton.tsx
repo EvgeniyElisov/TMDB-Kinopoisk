@@ -1,3 +1,4 @@
+import { nanoid } from "nanoid";
 import { Skeleton } from "@mui/material";
 import styles from "./MoviesSkeleton.module.css";
 
@@ -17,7 +18,7 @@ export const MoviesSkeleton = ({ count = 6 }: Props) => {
       />
       <ul className={styles.moviesList}>
         {Array.from({ length: count }).map((_, index) => (
-          <li key={index} className={styles.movieCardSkeleton}>
+          <li key={nanoid()} className={styles.movieCardSkeleton}>
             <div className={styles.posterWrapper}>
               <Skeleton
                 variant="rectangular"

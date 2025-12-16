@@ -1,3 +1,4 @@
+import { nanoid } from "nanoid";
 import { Skeleton } from "@mui/material";
 import styles from "./FiltersSectionSkeleton.module.css";
 
@@ -56,7 +57,7 @@ export const FiltersSectionSkeleton = () => {
         <div className={styles.genresContainerSkeleton}>
           {Array.from({ length: 12 }).map((_, index) => (
             <Skeleton
-              key={index}
+              key={nanoid()}
               variant="rectangular"
               width={80}
               height={36}

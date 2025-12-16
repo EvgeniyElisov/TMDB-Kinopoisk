@@ -1,3 +1,4 @@
+import { nanoid } from "nanoid";
 import tmdbLogo from "@/assets/images/tmdb-logo.svg";
 import { FooterLink } from "./FooterLink";
 import styles from "./Footer.module.css";
@@ -25,7 +26,7 @@ export const Footer = () => {
 
         <nav className={styles.nav} aria-label="Quick links">
           {externalLinks.map(({ label, href, ariaLabel }) => (
-            <FooterLink key={label} label={label} href={href} ariaLabel={ariaLabel} />
+            <FooterLink key={nanoid()} label={label} href={href} ariaLabel={ariaLabel} />
           ))}
         </nav>
 

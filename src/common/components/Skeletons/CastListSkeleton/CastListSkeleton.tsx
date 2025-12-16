@@ -1,3 +1,4 @@
+import { nanoid } from "nanoid";
 import { Skeleton } from "@mui/material";
 import styles from "./CastListSkeleton.module.css";
 
@@ -17,7 +18,7 @@ export const CastListSkeleton = ({ count = 6 }: Props) => {
       />
       <div className={styles.list}>
         {Array.from({ length: count }).map((_, index) => (
-          <div key={index} className={styles.item}>
+          <div key={nanoid()} className={styles.item}>
             <div className={styles.imageWrapper}>
               <Skeleton
                 variant="circular"
