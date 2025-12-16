@@ -9,7 +9,7 @@ type Props = {
 
 export const SimilarMovies = ({ similarMovies }: Props) => {
   
-  const topMovies = sortBy(similarMovies, "popularity", 6);
+  const topMovies = sortBy(similarMovies, "vote_average", 6);
 
   return (
     <section className={styles.container} aria-labelledby="similar-movies-title">
