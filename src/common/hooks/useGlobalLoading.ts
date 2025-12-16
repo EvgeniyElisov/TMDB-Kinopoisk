@@ -9,34 +9,27 @@ const excludedEndpoints = [
   moviesApi.endpoints.getNowPlayingMovies.name,
   moviesApi.endpoints.getMoviesByFilter.name,
   moviesApi.endpoints.getMoviesBySearch.name,
-
+  moviesApi.endpoints.getGenresList.name,
+  moviesApi.endpoints.getMovieCredits.name,
+  moviesApi.endpoints.getSimilarMovies.name,
+  moviesApi.endpoints.getMovieDetails.name,
 ]
-
-const getQueries = (state: RootState) => {
-  const regularQueries = Object.values(state.baseApi.queries || {})
-  const infiniteQueries = Object.values((state.baseApi as any).infiniteQueries || {})
-  return [...regularQueries, ...infiniteQueries] as Array<{ status?: string; endpointName?: string }>
-}
-
 
  
 export const useGlobalLoading = () => {
   return useSelector((state: RootState) => {
-    const queries = getQueries(state);
-
-    console.log(queries);
-
+    const queries = Object.values(state.baseApi.queries || {})
+    
     const hasActiveQueries = queries.some(query => {
-      if (query?.status !== 'pending') return false
-      if (!query?.endpointName) return true
-      
-      if (excludedEndpoints.includes(query.endpointName) && queries.find(q => q?.endpointName === query.endpointName)?.status === 'fulfilled') {
-        const completedQueries = queries.filter(q => q?.status === 'fulfilled')
+      if (query?.status !== 'pending') return
+
+      if (excludedEndpoints.includes(query.endpointName)) {
+        const completedQueries = queries.filter(q => q?.status === 'fulfilled' && q.endpointName === query.endpointName)
         return completedQueries.length > 0
       }
-      return true
     })
-    return hasActiveQueries
+    
+    return hasActiveQueries 
   })
 }
 
