@@ -31,7 +31,7 @@ export const CategoryMoviesPage = () => {
 
   const isLoading = isLoadingPopular || isLoadingTopRated || isLoadingUpcoming || isLoadingNowPlaying;
 
-  const handlePageChange = (_event: React.ChangeEvent<unknown>, value: number) => {
+  const handlePageChange = (value: number) => {
     setPage(value);
   };
 
