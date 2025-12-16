@@ -7,4 +7,5 @@ export { sortBy } from "./sortBy.ts";
 export {errorToast} from "./errorToast.ts";
 export {handleErrors} from "./handleErrors.ts";
 export {isErrorWithProperty} from "./isErrorWithProperty.ts";
+export { scrollToTop } from "./scrollToTop.ts";
 export * from "./localStorage.ts";

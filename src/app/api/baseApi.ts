@@ -5,7 +5,6 @@ export const baseApi = createApi({
   reducerPath: "baseApi",
   tagTypes: ["Movies"],
   refetchOnReconnect: true,
-  keepUnusedDataFor: 600,
   baseQuery: async (args, api, extraOptions) => {
     const result = await fetchBaseQuery({
       baseUrl: import.meta.env.VITE_BASE_URL,

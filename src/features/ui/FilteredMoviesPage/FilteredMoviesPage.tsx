@@ -1,8 +1,9 @@
 import { MoviesList, MoviesSkeleton } from "@/common/components";
 import { useDebounceValue } from "@/common/hooks";
+import { scrollToTop } from "@/common/utils";
 import { useGetMoviesByFilterInfiniteQuery } from "@/features/api/moviesApi";
 import type { GetFilteredMoviesParams } from "@/features/api/moviesApi.types";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./FilteredMoviesPage.module.css";
 import { FiltersSection } from "./FiltersSection";
 
@@ -35,32 +36,34 @@ export const FilteredMoviesPage = () => {
     setParams(initialParams);
   };
 
-  const scrollToTopHandler = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+  useEffect(() => {
+    scrollToTop();
+  }, [params]);
 
   return (
     <main aria-label="Filtered movies page" className={styles.page}>
       <FiltersSection params={params} setParams={setParams} resetFilters={resetFiltersHandler}/>
       <div className={styles.content}>
         {isLoadingFilteredMovies && <MoviesSkeleton count={20} />}
-        {!isLoadingFilteredMovies && movies.length === 0 && <p className={styles.message}>No movies found</p>}
-        {!isLoadingFilteredMovies && movies.length > 0 && <MoviesList movies={movies} title="Filtered movies" columns={5} />}
-        <div className={styles.buttonsContainer}>
+        {movies.length === 0 && <p className={styles.message}>No movies found</p>}
+        {movies.length > 0 && <MoviesList movies={movies} title="Filtered movies" columns={5} />}
+        <div className={`${styles.buttonsContainer} ${!hasNextPage && movies.length > 0 ? styles.buttonsContainerCentered : ""}`}>
           {!isLoadingFilteredMovies && hasNextPage && (
             <button className={styles.loadMoreButton} onClick={loadMoreHandler} disabled={isFetching}>
               {isFetchingNextPage ? "Loading..." : "Load more"}
             </button>
           )}
           {/* Button вынести в отдельную компоненту */}
-          <button
-            className={styles.upButton}
-            onClick={scrollToTopHandler}
-            aria-label="Scroll to top"
-            type="button"
-          >
-            <span className={styles.upArrow}>↑</span>
-          </button>
+          {movies.length > 0 && (
+            <button
+              className={styles.upButton}
+              onClick={scrollToTop}
+              aria-label="Scroll to top"
+              type="button"
+            >
+              <span className={styles.upArrow}>↑</span>
+            </button>
+          )}
         </div>
       </div>
     </main>
