@@ -8,10 +8,10 @@
 }
 
 .content {
-  max-width: 1200px;
+  max-width: var(--container-max-width-medium);
   width: 100%;
   text-align: center;
-  background: rgba(0, 0, 0, 0.4);
+  background: var(--bg-dark-04);
   backdrop-filter: var(--blur-md);
   border-radius: var(--radius-2xl);
   box-shadow: var(--shadow-2xl);
@@ -39,7 +39,7 @@
   font-weight: 700;
   color: var(--color-white);
   margin-bottom: 0.5rem;
-  text-shadow: 0 2px 8px color-mix(in srgb, var(--mui-palette-common-black) 50%, transparent);
+  text-shadow: var(--text-shadow-md);
 }
 
 .description {
@@ -48,7 +48,7 @@
   opacity: 0.85;
   margin-bottom: 1.5rem;
   line-height: 1.6;
-  text-shadow: 0 1px 4px color-mix(in srgb, var(--mui-palette-common-black) 40%, transparent);
+  text-shadow: var(--text-shadow-sm);
 }
 
 .actions {

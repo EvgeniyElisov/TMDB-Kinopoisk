@@ -2,7 +2,7 @@ import noPoster from "@/assets/images/no-poster.jpg";
 import { FavoriteButton } from "@/common/components/FavoriteButton";
 import { Image } from "@/common/components/Image";
 import { MovieRating } from "@/common/components/MovieRating";
-import { isMovieInFavorites, toggleMovieFavorite } from "@/common/utils";
+import { isMovieInFavorites, toggleMovieFavorite, scrollToTop } from "@/common/utils";
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router";
 import styles from "./MovieCard.module.css";
@@ -28,7 +28,7 @@ export const MovieCard = ({ id, title, poster_path, vote_average }: Props) => {
 
   return (
     <article className={styles.card}>
-      <NavLink to={`/movie/${id}`} aria-label={`${title} - Rating: ${vote_average}`}>
+      <NavLink to={`/movie/${id}`} aria-label={`${title} - Rating: ${vote_average}`} onClick={scrollToTop}>
         <div className={styles.posterWrapper}>
           <Image imagePath={poster_path} title={title} noImagePath={noPoster} />
           <FavoriteButton isFavorite={isFavorite} setIsFavorite={setIsFavorite} changeFavorite={handleFavoriteClick} />

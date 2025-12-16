@@ -5,7 +5,7 @@
   border: 1px solid var(--color-primary-rgba-03);
   box-shadow: var(--shadow-2xl), 0 0 0 1px var(--color-primary-rgba-03);
   backdrop-filter: var(--blur-lg);
-  animation: pulse 2s ease-in-out infinite;
+  animation: pulse var(--skeleton-animation-duration) var(--skeleton-animation-timing) infinite;
 }
 
 .titleSkeleton {
@@ -16,7 +16,7 @@
 
 .titleSkeleton::after {
   background: var(--gradient-skeleton-shimmer) !important;
-  animation: shimmer 2s ease-in-out infinite;
+  animation: shimmer var(--skeleton-animation-duration) var(--skeleton-animation-timing) infinite;
 }
 
 .movieTitleSkeleton {
@@ -26,12 +26,12 @@
 
 .movieTitleSkeleton::after {
   background: var(--gradient-skeleton-shimmer) !important;
-  animation: shimmer 2s ease-in-out infinite;
+  animation: shimmer var(--skeleton-animation-duration) var(--skeleton-animation-timing) infinite;
 }
 
 .moviesList {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: var(--grid-cols-6);
   gap: var(--grid-gap-xl);
   list-style: none;
   margin: 0;
@@ -45,15 +45,15 @@
   border-radius: var(--radius-lg);
   overflow: hidden;
   background: var(--gradient-skeleton);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid var(--border-white-03);
   box-sizing: border-box;
-  animation: pulse 2s ease-in-out infinite;
+  animation: pulse var(--skeleton-animation-duration) var(--skeleton-animation-timing) infinite;
 }
 
 .posterWrapper {
   position: relative;
   width: 100%;
-  aspect-ratio: 2/3;
+  aspect-ratio: var(--aspect-poster);
   overflow: hidden;
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   background: var(--gradient-skeleton);
@@ -68,7 +68,7 @@
 
 .posterSkeleton::after {
   background: var(--gradient-skeleton-shimmer) !important;
-  animation: shimmer 2s ease-in-out infinite;
+  animation: shimmer var(--skeleton-animation-duration) var(--skeleton-animation-timing) infinite;
 }
 
 .infoSkeleton {
@@ -84,14 +84,14 @@
 
 @media (max-width: 1600px) {
   .moviesList {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: var(--grid-cols-5);
     gap: var(--grid-gap-lg);
   }
 }
 
 @media (max-width: 1200px) {
   .moviesList {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: var(--grid-cols-4);
     gap: var(--grid-gap-lg);
   }
 }
@@ -103,7 +103,7 @@
   }
 
   .moviesList {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: var(--grid-cols-3);
     gap: var(--grid-gap-lg);
   }
 }
@@ -119,7 +119,7 @@
   }
 
   .moviesList {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: var(--grid-cols-3);
     gap: var(--grid-gap-md);
   }
 }
@@ -135,7 +135,7 @@
   }
 
   .moviesList {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: var(--grid-cols-2);
     gap: var(--grid-gap-sm);
   }
 
@@ -151,7 +151,7 @@
 
 @media (max-width: 360px) {
   .moviesList {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: var(--grid-cols-2);
     gap: var(--grid-gap-xs);
   }
 }

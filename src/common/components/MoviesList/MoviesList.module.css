@@ -22,6 +22,12 @@ section h2 {
   grid-template-columns: repeat(var(--columns, 6), 1fr);
 }
 
+@media (min-width: 1920px) {
+  .moviesList {
+    gap: var(--grid-gap-2xl);
+  }
+}
+
 .moviesList li {
   display: flex;
   flex-direction: column;
@@ -65,53 +71,41 @@ section h2 {
   transform: var(--button-gradient-active-transform);
 }
 
-/* Адаптивность для больших экранов */
-@media (min-width: 1920px) {
-  .moviesList {
-    gap: var(--grid-gap-2xl);
-  }
-}
-
-/* Для экранов до 1600px - максимум 5 колонок */
 @media (max-width: 1600px) {
   .moviesList {
-    grid-template-columns: repeat(5, 1fr) !important;
+    grid-template-columns: var(--grid-cols-5) !important;
     gap: var(--grid-gap-xl);
   }
 }
 
-/* Для экранов до 1400px - максимум 4 колонки */
 @media (max-width: 1400px) {
   .moviesList {
-    grid-template-columns: repeat(4, 1fr) !important;
+    grid-template-columns: var(--grid-cols-4) !important;
     gap: var(--grid-gap-lg);
   }
 }
 
-/* Для экранов до 1200px - максимум 4 колонки */
 @media (max-width: 1200px) {
   .moviesList {
-    grid-template-columns: repeat(4, 1fr) !important;
+    grid-template-columns: var(--grid-cols-4) !important;
     gap: var(--grid-gap-lg);
   }
 }
 
-/* Для экранов до 1024px - максимум 3 колонки */
 @media (max-width: 1024px) {
   .headerContainer {
     gap: var(--grid-gap-md);
   }
 
   .moviesList {
-    grid-template-columns: repeat(3, 1fr) !important;
+    grid-template-columns: var(--grid-cols-3) !important;
     gap: var(--grid-gap-md);
   }
 }
 
-/* Для экранов до 768px - 2 колонки */
 @media (max-width: 768px) {
   section {
-    margin-bottom: 3rem;
+    margin-bottom: var(--section-gap-sm);
   }
 
   .headerContainer {
@@ -125,7 +119,7 @@ section h2 {
   }
 
   .moviesList {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: var(--grid-cols-2);
     gap: var(--grid-gap-sm);
     padding: 1rem 0;
   }
@@ -133,27 +127,25 @@ section h2 {
   .viewMoreButton {
     width: 100%;
     padding: var(--button-padding-sm);
-    font-size: 0.9375rem;
+    font-size: var(--font-size-md);
   }
 }
 
-/* Для экранов до 480px - остаются 2 колонки, уменьшаем gap */
 @media (max-width: 480px) {
   .moviesList {
     gap: var(--grid-gap-xs);
   }
 }
 
-/* Для экранов до 360px - одна колонка */
 @media (max-width: 360px) {
   .moviesList {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: var(--grid-cols-1) !important;
     gap: var(--grid-gap-md);
   }
 
   .viewMoreButton {
     padding: var(--button-padding-sm);
-    font-size: 0.875rem;
+    font-size: var(--font-size-base);
   }
 }
 

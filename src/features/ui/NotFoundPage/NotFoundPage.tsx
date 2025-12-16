@@ -1,6 +1,7 @@
 import { PagePaths } from "@/common/types";
 import { NavLink } from "react-router";
 import styles from "./NotFoundPage.module.css";
+import { scrollToTop } from "@/common/utils";
 
 export const NotFoundPage = () => {
   return (
@@ -12,7 +13,7 @@ export const NotFoundPage = () => {
           We could not find the page you were looking for. It might have been removed, renamed, or never existed.
         </p>
         <div className={styles.actions}>
-          <NavLink to={PagePaths.Main} className={styles.primaryAction} aria-label="Go to main page">
+          <NavLink to={PagePaths.Main} className={styles.primaryAction} aria-label="Go to main page" onClick={scrollToTop}>
             Go to main page
           </NavLink>
         </div>

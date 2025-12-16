@@ -10,13 +10,13 @@
 }
 
 .page form {
-  max-width: 700px;
+  max-width: var(--container-max-width-small);
   width: 100%;
 }
 
 .message {
   color: var(--message-color);
-  font-size: 1.125rem;
+  font-size: var(--font-size-xl);
   line-height: 1.6;
   padding: var(--container-padding-sm);
   text-align: center;
@@ -27,7 +27,7 @@
 
 .noResults {
   color: var(--message-color);
-  font-size: 1rem;
+  font-size: var(--font-size-lg);
   padding: var(--container-padding-md);
   text-align: center;
   background: var(--message-bg);
@@ -88,12 +88,12 @@
   }
 
   .message {
-    font-size: 1rem;
+    font-size: var(--font-size-lg);
     padding: var(--container-padding-md);
   }
 
   .noResults {
-    font-size: 0.9375rem;
+    font-size: var(--font-size-md);
     padding: var(--container-padding-sm);
   }
 

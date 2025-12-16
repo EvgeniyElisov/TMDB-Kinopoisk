@@ -1,4 +1,5 @@
 import tmdbLogo from "@/assets/images/tmdb-logo.svg";
+import { FooterLink } from "./FooterLink";
 import styles from "./Footer.module.css";
 
 const externalLinks = [
@@ -6,16 +7,7 @@ const externalLinks = [
   { label: "Terms", href: "https://www.themoviedb.org/terms-of-use", ariaLabel: "Go to terms of use" },
 ];
 
-const openLink = (href: string) => {
-  window.open(href, "_blank", "noopener,noreferrer");
-};
-
 export const Footer = () => {
-  const handleClick = (event: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    event.preventDefault();
-    openLink(href);
-  };
-
   return (
     <footer className={styles.footer} aria-label="Footer">
       <div className={styles.content}>
@@ -33,9 +25,7 @@ export const Footer = () => {
 
         <nav className={styles.nav} aria-label="Quick links">
           {externalLinks.map(({ label, href, ariaLabel }) => (
-            <a key={label} href={href} tabIndex={0} aria-label={ariaLabel} className={styles.link} onClick={(event) => handleClick(event, href)}>
-              {label}
-            </a>
+            <FooterLink key={label} label={label} href={href} ariaLabel={ariaLabel} />
           ))}
         </nav>
 

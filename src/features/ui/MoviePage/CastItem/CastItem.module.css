@@ -14,7 +14,7 @@
 .imageWrapper {
   position: relative;
   width: 100%;
-  aspect-ratio: 1/1;
+  aspect-ratio: var(--aspect-square);
   border-radius: var(--radius-full);
   overflow: hidden;
   margin-bottom: 0.75rem;
@@ -46,7 +46,7 @@
 .name {
   margin: 0;
   font-weight: 600;
-  font-size: 0.9375rem;
+  font-size: var(--font-size-md);
   color: var(--mui-palette-text-primary);
   line-height: 1.4;
   display: -webkit-box;
@@ -82,11 +82,11 @@
   }
 
   .name {
-    font-size: 0.875rem;
+    font-size: var(--font-size-base);
   }
 
   .character {
-    font-size: 0.75rem;
+    font-size: var(--font-size-xs);
     margin-top: 0.25rem;
   }
 }

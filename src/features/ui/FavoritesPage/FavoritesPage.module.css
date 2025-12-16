@@ -1,10 +1,10 @@
 .page {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  gap: var(--section-gap-lg);
   padding: 2.5rem 2rem;
   width: 100%;
-  max-width: 1920px;
+  max-width: var(--container-max-width);
   margin: 0 auto;
 }
 
@@ -17,7 +17,7 @@
   text-align: center;
   padding: var(--message-padding-lg);
   color: var(--message-color);
-  font-size: 1.125rem;
+  font-size: var(--font-size-xl);
   line-height: 1.6;
   background: var(--container-gradient-ultra-light-bg);
   border-radius: var(--radius-xl);
@@ -47,7 +47,7 @@
 
 @media (max-width: 1024px) {
   .page {
-    gap: 2rem;
+    gap: var(--section-gap-md);
     padding: 2rem 1.5rem;
   }
 }
@@ -55,13 +55,12 @@
 @media (max-width: 768px) {
   .page {
     padding: 1.5rem 1rem;
-    gap: 1.5rem;
+    gap: var(--section-gap-sm);
   }
-
 
   .message {
     padding: var(--message-padding-md);
-    font-size: 1rem;
+    font-size: var(--font-size-lg);
     border-radius: var(--radius-lg);
   }
 }
@@ -74,7 +73,7 @@
 
   .message {
     padding: var(--message-padding-sm);
-    font-size: 0.9375rem;
+    font-size: var(--font-size-md);
   }
 }
 

@@ -7,13 +7,13 @@
 }
 
 .content {
-  max-width: 1600px;
+  max-width: var(--container-max-width-content);
   margin: 0 auto;
   padding: 2.5rem 2rem 3rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 3rem;
+  gap: var(--section-gap-xl);
 }
 
 .brandBlock {
@@ -31,10 +31,10 @@
 }
 
 .logo {
-  width: 44px;
-  height: 44px;
+  width: var(--logo-size-lg);
+  height: var(--logo-size-lg);
   filter: drop-shadow(0 4px 12px color-mix(in srgb, var(--mui-palette-primary-main) 40%, transparent));
-  transition: filter 0.3s ease;
+  transition: var(--transition-base);
 }
 
 .logoBlock:hover .logo {
@@ -71,48 +71,6 @@
   align-items: center;
   gap: 1rem;
   flex-wrap: wrap;
-}
-
-.link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--button-padding-lg);
-  background: transparent;
-  color: var(--mui-palette-text-primary);
-  text-decoration: none;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  white-space: nowrap;
-  position: relative;
-}
-
-.link:hover {
-  color: var(--mui-palette-text-primary);
-}
-
-.link::after {
-  content: '';
-  position: absolute;
-  bottom: 0.5rem;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: var(--gradient-primary);
-  border-radius: var(--radius-full);
-  opacity: 0;
-  transition: opacity var(--transition-smooth);
-}
-
-.link:hover::after {
-  opacity: 0.6;
-}
-
-.link:focus-visible {
-  outline: 2px solid var(--mui-palette-primary-main);
-  outline-offset: 2px;
-  border-radius: var(--radius-md);
 }
 
 .meta {
@@ -157,8 +115,8 @@
   }
 
   .logo {
-    width: 40px;
-    height: 40px;
+    width: var(--logo-size-md);
+    height: var(--logo-size-md);
   }
 
   .brandTitle {
@@ -178,11 +136,6 @@
   .content {
     padding: 1.5rem 1rem 1.75rem;
     gap: 1.25rem;
-  }
-
-  .link {
-    padding: 0.5rem 0.75rem;
-    font-size: 0.875rem;
   }
 
   .nav {

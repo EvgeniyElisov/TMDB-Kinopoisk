@@ -2,7 +2,7 @@
   position: relative;
   margin-bottom: 4rem;
   padding: 6rem 2rem;
-  min-height: 65vh;
+  min-height: var(--min-height-welcome-xl);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -49,7 +49,7 @@
 .title {
   margin-bottom: 0.75rem;
   max-width: 780px;
-  text-shadow: 0 10px 30px color-mix(in srgb, var(--mui-palette-common-black) 75%, transparent);
+  text-shadow: var(--text-shadow-xl);
   color: var(--color-white-rgba-09);
 }
 
@@ -58,22 +58,22 @@
   margin-bottom: 2.5rem;
   font-weight: 400;
   line-height: 1.5;
-  text-shadow: 0 2px 8px color-mix(in srgb, var(--mui-palette-common-black) 50%, transparent);
+  text-shadow: var(--text-shadow-md);
   font-family: 'Inter', 'Poppins', system-ui, sans-serif;
   line-height: 1.6;
   max-width: 680px;
   color: var(--color-white-rgba-09);
-  text-shadow: 0 2px 12px color-mix(in srgb, var(--mui-palette-common-black) 70%, transparent);
+  text-shadow: var(--text-shadow-lg);
 }
 
 .section form {
-  max-width: 700px;
+  max-width: var(--container-max-width-small);
   width: 100%;
   margin: 0 auto;
   padding: 0.75rem 0.75rem 0.75rem 0.875rem;
   border-radius: var(--radius-2xl);
-  background: rgba(5, 8, 22, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: var(--bg-dark-075);
+  border: 1px solid var(--border-white-016);
   backdrop-filter: var(--blur-lg);
   box-shadow: 0 16px 40px color-mix(in srgb, var(--mui-palette-common-black) 60%, transparent);
 }
@@ -105,7 +105,7 @@
 @media (max-width: 1024px) {
   .section {
     padding: 4.5rem 1.75rem;
-    min-height: 55vh;
+    min-height: var(--min-height-welcome-lg);
     border-radius: var(--radius-2xl);
   }
 }
@@ -117,9 +117,9 @@
 
 @media (max-width: 768px) {
   .section {
-    margin-bottom: 3rem;
+    margin-bottom: var(--section-gap-sm);
     padding: 4rem 1.5rem;
-    min-height: 50vh;
+    min-height: var(--min-height-welcome-md);
     border-radius: var(--radius-xl);
   }
 
@@ -136,7 +136,7 @@
 @media (max-width: 480px) {
   .section {
     padding: 3rem 1rem;
-    min-height: 45vh;
+    min-height: var(--min-height-welcome-sm);
     border-radius: var(--radius-lg);
   }
 

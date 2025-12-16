@@ -1,10 +1,10 @@
 .page {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: var(--section-gap-xl);
   padding: 2.5rem 2rem;
   width: 100%;
-  max-width: 1920px;
+  max-width: var(--container-max-width);
   margin: 0 auto;
   position: relative;
 }
@@ -31,7 +31,7 @@
 
 @media (max-width: 1024px) {
   .page {
-    gap: 2.5rem;
+    gap: var(--section-gap-lg);
     padding: 2rem 1.5rem;
   }
 }
@@ -39,13 +39,13 @@
 @media (max-width: 768px) {
   .page {
     padding: 1.5rem 1rem;
-    gap: 2rem;
+    gap: var(--section-gap-md);
   }
 
   .loading,
   .error {
     padding: var(--message-padding-md);
-    font-size: 1.125rem;
+    font-size: var(--font-size-xl);
     border-radius: var(--radius-md);
   }
 }
@@ -53,13 +53,13 @@
 @media (max-width: 480px) {
   .page {
     padding: 1.25rem 0.875rem;
-    gap: 1.5rem;
+    gap: var(--section-gap-sm);
   }
 
   .loading,
   .error {
     padding: var(--message-padding-sm);
-    font-size: 1rem;
+    font-size: var(--font-size-lg);
     border-radius: var(--radius-sm);
   }
 }

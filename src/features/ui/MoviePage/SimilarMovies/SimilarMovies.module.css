@@ -13,7 +13,7 @@
 
 .moviesList {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: var(--grid-cols-6);
   gap: var(--grid-gap-xl);
   list-style: none;
   margin: 0;
@@ -22,14 +22,14 @@
 
 @media (max-width: 1600px) {
   .moviesList {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: var(--grid-cols-5);
     gap: var(--grid-gap-lg);
   }
 }
 
 @media (max-width: 1200px) {
   .moviesList {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: var(--grid-cols-4);
     gap: var(--grid-gap-lg);
   }
 }
@@ -41,7 +41,7 @@
   }
 
   .moviesList {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: var(--grid-cols-3);
     gap: var(--grid-gap-lg);
   }
 }
@@ -57,7 +57,7 @@
   }
 
   .moviesList {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: var(--grid-cols-3);
     gap: var(--grid-gap-md);
   }
 }
@@ -73,14 +73,14 @@
   }
 
   .moviesList {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: var(--grid-cols-2);
     gap: var(--grid-gap-sm);
   }
 }
 
 @media (max-width: 360px) {
   .moviesList {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: var(--grid-cols-2);
     gap: var(--grid-gap-xs);
   }
 }

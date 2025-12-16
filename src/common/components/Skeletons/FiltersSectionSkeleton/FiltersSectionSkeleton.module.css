@@ -15,7 +15,7 @@
   align-self: flex-start;
   transition: var(--transition-smooth);
   overflow: hidden;
-  animation: pulse 2s ease-in-out infinite;
+  animation: pulse var(--skeleton-animation-duration) var(--skeleton-animation-timing) infinite;
 }
 
 .titleSkeleton {
@@ -28,7 +28,7 @@
 
 .titleSkeleton::after {
   background: var(--gradient-skeleton-shimmer) !important;
-  animation: shimmer 2s ease-in-out infinite;
+  animation: shimmer var(--skeleton-animation-duration) var(--skeleton-animation-timing) infinite;
 }
 
 .sortBySkeleton {
@@ -44,7 +44,7 @@
 
 .labelSkeleton::after {
   background: var(--gradient-skeleton-shimmer) !important;
-  animation: shimmer 2s ease-in-out infinite;
+  animation: shimmer var(--skeleton-animation-duration) var(--skeleton-animation-timing) infinite;
 }
 
 .selectSkeleton {
@@ -54,7 +54,7 @@
 
 .selectSkeleton::after {
   background: var(--gradient-skeleton-shimmer) !important;
-  animation: shimmer 2s ease-in-out infinite;
+  animation: shimmer var(--skeleton-animation-duration) var(--skeleton-animation-timing) infinite;
 }
 
 .ratingSliderSkeleton {
@@ -76,7 +76,7 @@
 
 .ratingLabelSkeleton::after {
   background: var(--gradient-skeleton-shimmer) !important;
-  animation: shimmer 2s ease-in-out infinite;
+  animation: shimmer var(--skeleton-animation-duration) var(--skeleton-animation-timing) infinite;
 }
 
 .ratingValueSkeleton {
@@ -86,7 +86,7 @@
 
 .ratingValueSkeleton::after {
   background: var(--gradient-skeleton-shimmer) !important;
-  animation: shimmer 2s ease-in-out infinite;
+  animation: shimmer var(--skeleton-animation-duration) var(--skeleton-animation-timing) infinite;
 }
 
 .sliderSkeleton {
@@ -96,7 +96,7 @@
 
 .sliderSkeleton::after {
   background: var(--gradient-skeleton-shimmer) !important;
-  animation: shimmer 2s ease-in-out infinite;
+  animation: shimmer var(--skeleton-animation-duration) var(--skeleton-animation-timing) infinite;
 }
 
 .genresSectionSkeleton {
@@ -118,7 +118,7 @@
 
 .genreButtonSkeleton::after {
   background: var(--gradient-skeleton-shimmer) !important;
-  animation: shimmer 2s ease-in-out infinite;
+  animation: shimmer var(--skeleton-animation-duration) var(--skeleton-animation-timing) infinite;
 }
 
 .resetButtonSkeleton {
@@ -129,7 +129,7 @@
 
 .resetButtonSkeleton::after {
   background: var(--gradient-skeleton-shimmer) !important;
-  animation: shimmer 2s ease-in-out infinite;
+  animation: shimmer var(--skeleton-animation-duration) var(--skeleton-animation-timing) infinite;
 }
 
 @media (max-width: 1024px) {

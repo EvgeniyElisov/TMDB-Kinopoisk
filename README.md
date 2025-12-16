@@ -42,11 +42,19 @@ TMDB-Kinopoisk — это современное React-приложение, к�
 src/
 ├── app/                   # Конфигурация приложения
 │   ├── api/               # Базовый API клиент (RTK Query)
-│   └── model/             # Redux store
+│   │   └── baseApi.ts
+│   ├── model/             # Redux store
+│   │   └── store.ts
 │   └── ui/                # Корневой компонент App
+│       └── App/
+│           ├── App.tsx
+│           └── App.module.css
 │
 ├── assets/                # Статические ресурсы
 │   └── images/            # Изображения (логотипы, плейсхолдеры)
+│       ├── no-photo.jpg
+│       ├── no-poster.jpg
+│       └── tmdb-logo.svg
 │
 ├── common/               # Общие компоненты и утилиты
 │   ├── components/       # Переиспользуемые компоненты
@@ -54,7 +62,11 @@ src/
 │   │   ├── Button/       # Кнопка
 │   │   ├── FavoriteButton/ # Кнопка избранного
 │   │   ├── Footer/       # Футер
+│   │   │   └── FooterLink/ # Компонент ссылки футера
 │   │   ├── Header/       # Хедер с навигацией
+│   │   │   ├── Logo/     # Логотип приложения
+│   │   │   ├── Navigation/ # Навигационное меню
+│   │   │   └── NavigationLink/ # Ссылка навигации
 │   │   ├── Image/        # Компонент изображения
 │   │   ├── MovieCard/    # Карточка фильма
 │   │   ├── MovieRating/  # Рейтинг фильма
@@ -62,16 +74,37 @@ src/
 │   │   ├── Paginator/    # Пагинация
 │   │   ├── SearchInput/  # Поле поиска
 │   │   └── Skeletons/    # Skeleton компоненты для загрузки
+│   │       ├── CastListSkeleton/
+│   │       ├── FiltersSectionSkeleton/
+│   │       ├── MovieInfoSkeleton/
+│   │       ├── MoviesSkeleton/
+│   │       └── WelcomeSectionSkeleton/
 │   ├── constants/        # Константы приложения
 │   ├── hooks/            # Кастомные хуки
 │   │   ├── useDebounceValue.ts
 │   │   ├── useGlobalLoading.ts
 │   │   └── useInfiniteScroll.ts
 │   ├── routing/          # Конфигурация маршрутов
+│   │   └── Routing.tsx
 │   ├── styles/           # Глобальные стили
+│   │   ├── animations.css
+│   │   └── variables.css
 │   ├── theme/            # Тема Material UI
+│   │   └── theme.ts
 │   ├── types/            # TypeScript типы
+│   │   └── types.ts
 │   └── utils/            # Утилитарные функции
+│       ├── errorToast.ts
+│       ├── formatRuntime.ts
+│       ├── getCategoryMoviesData.ts
+│       ├── getRandomBackdrop.ts
+│       ├── getRatingClass.ts
+│       ├── handleErrors.ts
+│       ├── isErrorWithProperty.ts
+│       ├── localStorage.ts
+│       ├── scrollToTop.ts
+│       ├── sortBy.ts
+│       └── withZodCatch.ts
 │
 └── features/              # Функциональные модули
     ├── api/              # API endpoints (RTK Query)
@@ -81,12 +114,25 @@ src/
     │   └── movies.schemas.ts
     └── ui/              # Страницы приложения
         ├── CategoryMoviesPage/    # Страница категории фильмов
+        │   └── CategoriesButtons/ # Кнопки категорий
+        │       └── CategoryButton/ # Кнопка категории
         ├── FavoritesPage/         # Страница избранного
         ├── FilteredMoviesPage/    # Страница фильтрованных фильмов
+        │   └── FiltersSection/    # Секция фильтров
+        │       ├── GenresSection/ # Секция жанров
+        │       ├── RatingSlider/  # Слайдер рейтинга
+        │       └── SortBy/        # Сортировка
         ├── MainPage/              # Главная страница
+        │   ├── MoviesSection/     # Секция фильмов
+        │   └── WelcomeSection/   # Приветственная секция
         ├── MoviePage/             # Страница деталей фильма
+        │   ├── CastItem/          # Элемент актера
+        │   ├── CastList/          # Список актеров
+        │   ├── MovieInfo/         # Информация о фильме
+        │   └── SimilarMovies/     # Похожие фильмы
         ├── NotFoundPage/          # Страница 404
         └── SearchPage/            # Страница поиска
+            └── LoadingTrigger/    # Триггер загрузки (infinite scroll)
 ```
 
 ## 🛠 Установка и запуск

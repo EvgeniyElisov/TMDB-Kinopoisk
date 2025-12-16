@@ -5,7 +5,7 @@
   border: 1px solid var(--color-primary-rgba-03);
   box-shadow: var(--shadow-2xl), 0 0 0 1px var(--color-primary-rgba-03);
   backdrop-filter: var(--blur-lg);
-  animation: pulse 2s ease-in-out infinite;
+  animation: pulse var(--skeleton-animation-duration) var(--skeleton-animation-timing) infinite;
 }
 
 .titleSkeleton {
@@ -16,7 +16,7 @@
 
 .titleSkeleton::after {
   background: var(--gradient-skeleton-shimmer) !important;
-  animation: shimmer 2s ease-in-out infinite;
+  animation: shimmer var(--skeleton-animation-duration) var(--skeleton-animation-timing) infinite;
 }
 
 .list {
@@ -35,12 +35,12 @@
 .imageWrapper {
   position: relative;
   width: 100%;
-  aspect-ratio: 1/1;
+  aspect-ratio: var(--aspect-square);
   border-radius: var(--radius-full);
   overflow: hidden;
   margin-bottom: 0.75rem;
   box-shadow: var(--shadow-black-sm);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-white-01);
   background: var(--gradient-skeleton);
 }
 
@@ -52,7 +52,7 @@
 
 .imageSkeleton::after {
   background: var(--gradient-skeleton-shimmer) !important;
-  animation: shimmer 2s ease-in-out infinite;
+  animation: shimmer var(--skeleton-animation-duration) var(--skeleton-animation-timing) infinite;
 }
 
 .nameSkeleton {
@@ -64,7 +64,7 @@
 
 .nameSkeleton::after {
   background: var(--gradient-skeleton-shimmer) !important;
-  animation: shimmer 2s ease-in-out infinite;
+  animation: shimmer var(--skeleton-animation-duration) var(--skeleton-animation-timing) infinite;
 }
 
 .characterSkeleton {
@@ -76,7 +76,7 @@
 
 .characterSkeleton::after {
   background: var(--gradient-skeleton-shimmer) !important;
-  animation: shimmer 2s ease-in-out infinite;
+  animation: shimmer var(--skeleton-animation-duration) var(--skeleton-animation-timing) infinite;
 }
 
 @media (max-width: 1600px) {

@@ -1,0 +1,38 @@
+.logoContainer {
+  display: flex;
+  align-items: center;
+}
+
+.logoContainer a {
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.logoContainer a:hover {
+  transform: scale(1.08);
+}
+
+.logoContainer img {
+  height: var(--logo-size-lg);
+  width: auto;
+  filter: drop-shadow(0 2px 8px color-mix(in srgb, var(--mui-palette-common-black) 20%, transparent));
+  transition: var(--transition-base);
+}
+
+.logoContainer a:hover img {
+  filter: drop-shadow(0 4px 12px color-mix(in srgb, var(--mui-palette-common-black) 30%, transparent));
+}
+
+@media (max-width: 768px) {
+  .logoContainer img {
+    height: var(--logo-size-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .logoContainer img {
+    height: var(--logo-size-xs);
+  }
+}
+

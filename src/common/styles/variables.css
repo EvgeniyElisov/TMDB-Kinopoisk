@@ -165,4 +165,85 @@
   --hover-translate-y-md: translateY(-2px);
   --hover-translate-y-lg: translateY(-4px);
   --hover-translate-y-xl: translateY(-8px);
+  
+  /* Font sizes */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.8125rem;
+  --font-size-base: 0.875rem;
+  --font-size-md: 0.9375rem;
+  --font-size-lg: 1rem;
+  --font-size-xl: 1.125rem;
+  --font-size-2xl: 1.25rem;
+  --font-size-3xl: 1.5rem;
+  
+  /* Z-index layers */
+  --z-index-base: 1;
+  --z-index-dropdown: 10;
+  --z-index-sticky: 100;
+  --z-index-modal: 1000;
+  --z-index-tooltip: 2000;
+  
+  /* Skeleton animation */
+  --skeleton-animation-duration: 2s;
+  --skeleton-animation-timing: ease-in-out;
+  
+  /* Common border colors */
+  --border-white-01: rgba(255, 255, 255, 0.1);
+  --border-white-03: rgba(255, 255, 255, 0.3);
+  --border-white-016: rgba(255, 255, 255, 0.16);
+  
+  /* Common background colors */
+  --bg-dark-04: rgba(0, 0, 0, 0.4);
+  --bg-dark-075: rgba(5, 8, 22, 0.75);
+  
+  /* Grid columns responsive */
+  --grid-cols-6: repeat(6, 1fr);
+  --grid-cols-5: repeat(5, 1fr);
+  --grid-cols-4: repeat(4, 1fr);
+  --grid-cols-3: repeat(3, 1fr);
+  --grid-cols-2: repeat(2, 1fr);
+  --grid-cols-1: 1fr;
+  
+  /* Aspect ratios */
+  --aspect-poster: 2/3;
+  --aspect-square: 1/1;
+  
+  /* Common spacing for sections */
+  --section-gap-xl: 3rem;
+  --section-gap-lg: 2.5rem;
+  --section-gap-md: 2rem;
+  --section-gap-sm: 1.5rem;
+  
+  /* Logo sizes */
+  --logo-size-lg: 44px;
+  --logo-size-md: 40px;
+  --logo-size-sm: 38px;
+  --logo-size-xs: 34px;
+  
+  /* Favorite button sizes */
+  --favorite-button-lg: 2.5rem;
+  --favorite-button-md: 2.25rem;
+  --favorite-button-sm: 2rem;
+  
+  /* Rating badge positioning */
+  --rating-badge-offset-lg: 0.75rem;
+  --rating-badge-offset-md: 0.5rem;
+  
+  /* Container max widths */
+  --container-max-width: 1920px;
+  --container-max-width-content: 1600px;
+  --container-max-width-medium: 1200px;
+  --container-max-width-small: 700px;
+  
+  /* Min heights */
+  --min-height-welcome-xl: 65vh;
+  --min-height-welcome-lg: 55vh;
+  --min-height-welcome-md: 50vh;
+  --min-height-welcome-sm: 45vh;
+  
+  /* Common text shadows */
+  --text-shadow-sm: 0 1px 4px color-mix(in srgb, var(--mui-palette-common-black) 40%, transparent);
+  --text-shadow-md: 0 2px 8px color-mix(in srgb, var(--mui-palette-common-black) 50%, transparent);
+  --text-shadow-lg: 0 2px 12px color-mix(in srgb, var(--mui-palette-common-black) 70%, transparent);
+  --text-shadow-xl: 0 10px 30px color-mix(in srgb, var(--mui-palette-common-black) 75%, transparent);
 }

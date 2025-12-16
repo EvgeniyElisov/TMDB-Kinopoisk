@@ -15,7 +15,7 @@
   border: 1px solid var(--color-primary-rgba-03);
   box-shadow: var(--shadow-2xl), 0 0 0 1px var(--color-primary-rgba-03);
   backdrop-filter: var(--blur-lg);
-  animation: pulse 2s ease-in-out infinite;
+  animation: pulse var(--skeleton-animation-duration) var(--skeleton-animation-timing) infinite;
 }
 
 .titleSkeleton {
@@ -26,7 +26,7 @@
 
 .titleSkeleton::after {
   background: var(--gradient-skeleton-shimmer) !important;
-  animation: shimmer 2s ease-in-out infinite;
+  animation: shimmer var(--skeleton-animation-duration) var(--skeleton-animation-timing) infinite;
 }
 
 .subtitleSkeleton {
@@ -37,7 +37,7 @@
 
 .subtitleSkeleton::after {
   background: var(--gradient-skeleton-shimmer) !important;
-  animation: shimmer 2s ease-in-out infinite;
+  animation: shimmer var(--skeleton-animation-duration) var(--skeleton-animation-timing) infinite;
 }
 
 .searchInputWrapper {
@@ -60,7 +60,7 @@
 
 .searchInputSkeleton::after {
   background: var(--gradient-skeleton-shimmer) !important;
-  animation: shimmer 2s ease-in-out infinite;
+  animation: shimmer var(--skeleton-animation-duration) var(--skeleton-animation-timing) infinite;
 }
 
 @media (max-width: 1024px) {

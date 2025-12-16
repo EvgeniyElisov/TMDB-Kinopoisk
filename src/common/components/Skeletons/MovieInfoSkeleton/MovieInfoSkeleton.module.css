@@ -8,17 +8,17 @@
   border: 1px solid var(--color-primary-rgba-03);
   box-shadow: var(--shadow-2xl), 0 0 0 1px var(--color-primary-rgba-03);
   backdrop-filter: var(--blur-lg);
-  animation: pulse 2s ease-in-out infinite;
+  animation: pulse var(--skeleton-animation-duration) var(--skeleton-animation-timing) infinite;
 }
 
 .posterWrapper {
   position: relative;
   width: 100%;
-  aspect-ratio: 2/3;
+  aspect-ratio: var(--aspect-poster);
   border-radius: var(--radius-xl);
   overflow: hidden;
   box-shadow: var(--shadow-black-md);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-white-01);
   background: var(--gradient-skeleton);
 }
 
@@ -31,7 +31,7 @@
 
 .posterSkeleton::after {
   background: var(--gradient-skeleton-shimmer) !important;
-  animation: shimmer 2s ease-in-out infinite;
+  animation: shimmer var(--skeleton-animation-duration) var(--skeleton-animation-timing) infinite;
 }
 
 .content {
@@ -54,19 +54,19 @@
 
 .titleSkeleton::after {
   background: var(--gradient-skeleton-shimmer) !important;
-  animation: shimmer 2s ease-in-out infinite;
+  animation: shimmer var(--skeleton-animation-duration) var(--skeleton-animation-timing) infinite;
 }
 
 .backButtonSkeleton {
   border-radius: var(--radius-sm);
   background: var(--gradient-skeleton) !important;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid var(--border-white-03);
   flex-shrink: 0;
 }
 
 .backButtonSkeleton::after {
   background: var(--gradient-skeleton-shimmer) !important;
-  animation: shimmer 2s ease-in-out infinite;
+  animation: shimmer var(--skeleton-animation-duration) var(--skeleton-animation-timing) infinite;
 }
 
 .meta {
@@ -81,12 +81,12 @@
 .metaItemSkeleton {
   border-radius: var(--radius-lg);
   background: var(--gradient-skeleton) !important;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid var(--border-white-03);
 }
 
 .metaItemSkeleton::after {
   background: var(--gradient-skeleton-shimmer) !important;
-  animation: shimmer 2s ease-in-out infinite;
+  animation: shimmer var(--skeleton-animation-duration) var(--skeleton-animation-timing) infinite;
 }
 
 .overviewWrapper {
@@ -102,7 +102,7 @@
 
 .overviewLine::after {
   background: var(--gradient-skeleton-shimmer) !important;
-  animation: shimmer 2s ease-in-out infinite;
+  animation: shimmer var(--skeleton-animation-duration) var(--skeleton-animation-timing) infinite;
 }
 
 .genres {
@@ -115,13 +115,13 @@
 .genreSkeleton {
   border-radius: var(--radius-20);
   background: var(--gradient-skeleton) !important;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid var(--border-white-03);
   flex-shrink: 0;
 }
 
 .genreSkeleton::after {
   background: var(--gradient-skeleton-shimmer) !important;
-  animation: shimmer 2s ease-in-out infinite;
+  animation: shimmer var(--skeleton-animation-duration) var(--skeleton-animation-timing) infinite;
 }
 
 @media (max-width: 1024px) {
