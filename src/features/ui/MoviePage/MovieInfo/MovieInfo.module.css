@@ -1,47 +1,57 @@
 .info {
   display: grid;
   grid-template-columns: 280px 1fr;
-  gap: 2.5rem;
-  padding: 2rem;
+  gap: var(--grid-gap-2xl);
+  align-items: start;
+  padding: var(--container-padding-lg);
   background: var(--mui-palette-background-paper);
   border-radius: var(--radius-2xl);
   border: 1px solid var(--mui-palette-divider);
-  box-shadow: var(--shadow-2xl), 0 0 0 1px color-mix(in srgb, var(--mui-palette-primary-main) 10%, transparent);
+  box-shadow: var(--shadow-2xl);
   backdrop-filter: var(--blur-lg);
 }
 
 .posterWrapper {
   position: relative;
   width: 100%;
+  max-width: 280px;
   aspect-ratio: 2/3;
   border-radius: var(--radius-xl);
   overflow: hidden;
   box-shadow: var(--shadow-black-md);
   border: 1px solid var(--mui-palette-divider);
+  flex-shrink: 0;
+  margin: 0;
 }
 
 .content {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: var(--grid-gap-xl);
+  min-width: 0;
+  overflow: hidden;
+  width: 100%;
 }
 
 .titleWrapper {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 1.5rem;
+  gap: var(--grid-gap-xl);
 }
 
 .title {
   flex: 1;
-  margin-bottom: 0;
+  margin: 0;
+  color: var(--mui-palette-text-primary);
+  min-width: 0;
+  word-wrap: break-word;
 }
 
 .meta {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: var(--grid-gap-xl);
   align-items: center;
   padding-bottom: 1rem;
   border-bottom: 1px solid var(--mui-palette-divider);
@@ -59,19 +69,21 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.5rem 1rem;
+  padding: var(--button-padding-sm);
   background: var(--mui-palette-background-paper);
   border: 1px solid var(--mui-palette-divider);
   border-radius: var(--radius-lg);
   backdrop-filter: var(--blur-sm);
   transition: var(--transition-base);
+  white-space: nowrap;
 }
 
 .releaseDate:hover,
 .runtime:hover {
-  background: color-mix(in srgb, var(--mui-palette-common-white) 8%, var(--mui-palette-background-paper));
-  border-color: color-mix(in srgb, var(--mui-palette-common-white) 15%, var(--mui-palette-background-paper));
-  transform: translateY(-1px);
+  background: var(--gradient-primary-ultra-light);
+  border-color: var(--color-primary-rgba-03);
+  transform: var(--hover-translate-y-sm);
+  box-shadow: var(--shadow-sm);
 }
 
 .label {
@@ -92,37 +104,50 @@
 .genres {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: var(--skeleton-gap-sm);
   margin-top: 0.5rem;
 }
 
 .genre {
-  padding: 0.5rem 1rem;
+  padding: var(--button-padding-sm);
   background: var(--gradient-primary-ultra-light);
-  border: 2px solid var(--mui-palette-divider);
+  border: 1px solid var(--color-primary-rgba-03);
   border-radius: var(--radius-20);
   font-size: 0.875rem;
   font-weight: 500;
   color: var(--mui-palette-text-primary);
+  transition: var(--transition-base);
+}
+
+.genre:hover {
+  background: var(--gradient-primary-light);
+  border-color: var(--color-primary-rgba-04);
+  transform: var(--hover-translate-y-sm);
 }
 
 @media (max-width: 1024px) {
   .info {
     grid-template-columns: 240px 1fr;
-    gap: 2rem;
-    padding: 1.75rem;
+    gap: var(--grid-gap-xl);
+    align-items: start;
+    padding: var(--container-padding-md);
     border-radius: var(--radius-xl);
   }
 
+  .posterWrapper {
+    max-width: 240px;
+  }
+
   .content {
-    gap: 1.25rem;
+    gap: var(--grid-gap-lg);
   }
 }
 
 @media (max-width: 768px) {
   .info {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: var(--grid-gap-xl);
+    align-items: start;
     padding: var(--container-padding-md);
     border-radius: var(--radius-lg);
   }
@@ -135,7 +160,7 @@
   .titleWrapper {
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: var(--grid-gap-md);
   }
 
   .title {
@@ -144,7 +169,7 @@
 
   .meta {
     justify-content: center;
-    gap: 1rem;
+    gap: var(--grid-gap-md);
   }
 
   .overview {
@@ -159,8 +184,9 @@
 
 @media (max-width: 480px) {
   .info {
-    padding: 1.25rem;
-    gap: 1.25rem;
+    padding: var(--container-padding-sm);
+    gap: var(--grid-gap-lg);
+    align-items: start;
     border-radius: var(--radius-lg);
   }
 
@@ -171,7 +197,7 @@
   .meta {
     flex-direction: column;
     align-items: center;
-    gap: 0.75rem;
+    gap: var(--skeleton-gap-sm);
   }
 
   .releaseDate,

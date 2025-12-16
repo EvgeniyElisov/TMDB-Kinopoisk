@@ -4,16 +4,16 @@ import styles from "./CastList.module.css";
 import { sortBy } from "@/common/utils";
 
 type Props = {
-  cast: Cast[];
+  casts: Cast[];
 };
 
-export const CastList = ({ cast }: Props) => {
+export const CastList = ({ casts }: Props) => {
 
-  const topCast = sortBy(cast, "popularity", 6);
+  const topCast = sortBy(casts, "popularity", 6);
 
   return (
     <section className={styles.container} aria-labelledby="cast-title">
-      <h2 id="cast-title" className={styles.title}>Cast:</h2>
+      <h2 id="casts-title" className={styles.title}>Cast:</h2>
       <ul className={styles.list} role="list">
           {topCast.map((castMember: Cast) => (
           <li key={castMember.id}>

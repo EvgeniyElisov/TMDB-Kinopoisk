@@ -4,7 +4,7 @@ const nonNegativeInt = z.number().int().min(0);
 const nonNegativeNumber = z.number().min(0);
 const nullableString = z.string().nullable();
 const voteAverageSchema = z.number().min(0).max(10);
-const genderSchema = z.number().int().min(0).max(2);
+const genderSchema = z.number().int();
 
 
 export const datesSchema = z.object({
