@@ -1,4 +1,4 @@
-import { nanoid } from "nanoid";
+import { nanoid } from "@reduxjs/toolkit";
 import { CategoriesInfo } from "@/common/constants";
 import styles from "./CategoriesButtons.module.css";
 import { CategoryButton } from "./CategoryButton";

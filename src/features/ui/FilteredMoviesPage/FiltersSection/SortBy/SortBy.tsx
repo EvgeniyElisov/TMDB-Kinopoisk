@@ -1,4 +1,4 @@
-import { nanoid } from "nanoid";
+import { nanoid } from "@reduxjs/toolkit";
 import type { GetFilteredMoviesParams, SortByValues } from "@/features/api/moviesApi.types";
 import styles from "./SortBy.module.css";
 import { useEffect, useState } from "react";

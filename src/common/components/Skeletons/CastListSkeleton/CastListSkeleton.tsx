@@ -1,6 +1,6 @@
 import { Skeleton } from "@mui/material";
-import { nanoid } from "nanoid";
 import styles from "./CastListSkeleton.module.css";
+import { nanoid } from "@reduxjs/toolkit";
 
 type Props = {
   count?: number;

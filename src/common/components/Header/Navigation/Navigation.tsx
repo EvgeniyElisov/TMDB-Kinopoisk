@@ -1,4 +1,4 @@
-import { nanoid } from "nanoid";
+import { nanoid } from "@reduxjs/toolkit";
 import { NavItems } from "@/common/constants";
 import { NavigationLink } from "../NavigationLink";
 import styles from "./Navigation.module.css";

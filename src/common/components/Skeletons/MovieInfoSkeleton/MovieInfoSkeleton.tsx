@@ -1,4 +1,4 @@
-import { nanoid } from "nanoid";
+import { nanoid } from "@reduxjs/toolkit";
 import { Skeleton } from "@mui/material";
 import styles from "./MovieInfoSkeleton.module.css";
 

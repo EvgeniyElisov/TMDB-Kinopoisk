@@ -1,4 +1,4 @@
-import { nanoid } from "nanoid";
+import { nanoid } from "@reduxjs/toolkit";
 import tmdbLogo from "@/assets/images/tmdb-logo.svg";
 import { FooterLink } from "./FooterLink";
 import styles from "./Footer.module.css";
