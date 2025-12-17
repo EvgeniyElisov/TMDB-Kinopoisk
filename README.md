@@ -42,13 +42,14 @@ TMDB-Kinopoisk — это современное React-приложение, к�
 src/
 ├── app/                   # Конфигурация приложения
 │   ├── api/               # Базовый API клиент (RTK Query)
-│   │   └── baseApi.ts
+│   │   └── baseApi.ts     # Базовый RTK Query API с настройками
 │   ├── model/             # Redux store
-│   │   └── store.ts
+│   │   └── store.ts       # Конфигурация Redux store
 │   └── ui/                # Корневой компонент App
+│       ├── index.ts       # Экспорт App
 │       └── App/
-│           ├── App.tsx
-│           └── App.module.css
+│           ├── App.module.css
+│           └── App.tsx
 │
 ├── assets/                # Статические ресурсы
 │   └── images/            # Изображения (логотипы, плейсхолдеры)
@@ -58,81 +59,193 @@ src/
 │
 ├── common/               # Общие компоненты и утилиты
 │   ├── components/       # Переиспользуемые компоненты
+│   │   ├── index.ts      # Экспорт всех компонентов
 │   │   ├── BackButton/   # Кнопка "Назад"
+│   │   │   ├── index.ts
+│   │   │   ├── BackButton.module.css
+│   │   │   └── BackButton.tsx
 │   │   ├── Button/       # Кнопка
+│   │   │   └── Button.tsx
 │   │   ├── FavoriteButton/ # Кнопка избранного
+│   │   │   ├── index.ts
+│   │   │   ├── FavoriteButton.module.css
+│   │   │   └── FavoriteButton.tsx
 │   │   ├── Footer/       # Футер
+│   │   │   ├── Footer.module.css
+│   │   │   ├── Footer.tsx
 │   │   │   └── FooterLink/ # Компонент ссылки футера
+│   │   │       ├── index.ts
+│   │   │       ├── FooterLink.module.css
+│   │   │       └── FooterLink.tsx
 │   │   ├── Header/       # Хедер с навигацией
+│   │   │   ├── Header.module.css
+│   │   │   ├── Header.tsx
 │   │   │   ├── Logo/     # Логотип приложения
+│   │   │   │   ├── index.ts
+│   │   │   │   ├── Logo.module.css
+│   │   │   │   └── Logo.tsx
 │   │   │   ├── Navigation/ # Навигационное меню
+│   │   │   │   ├── index.ts
+│   │   │   │   ├── Navigation.module.css
+│   │   │   │   └── Navigation.tsx
 │   │   │   └── NavigationLink/ # Ссылка навигации
+│   │   │       ├── index.ts
+│   │   │       ├── NavigationLink.module.css
+│   │   │       └── NavigationLink.tsx
 │   │   ├── Image/        # Компонент изображения
+│   │   │   ├── index.ts
+│   │   │   ├── Image.module.css
+│   │   │   └── Image.tsx
 │   │   ├── MovieCard/    # Карточка фильма
+│   │   │   ├── MovieCard.module.css
+│   │   │   └── MovieCard.tsx
 │   │   ├── MovieRating/  # Рейтинг фильма
+│   │   │   ├── index.ts
+│   │   │   ├── MovieRating.module.css
+│   │   │   └── MovieRating.tsx
 │   │   ├── MoviesList/   # Список фильмов
+│   │   │   ├── MoviesList.module.css
+│   │   │   └── MoviesList.tsx
 │   │   ├── Paginator/    # Пагинация
+│   │   │   ├── index.ts
+│   │   │   ├── Paginator.module.css
+│   │   │   └── Paginator.tsx
 │   │   ├── SearchInput/  # Поле поиска
+│   │   │   ├── SearchInput.module.css
+│   │   │   └── SearchInput.tsx
 │   │   └── Skeletons/    # Skeleton компоненты для загрузки
+│   │       ├── index.ts
 │   │       ├── CastListSkeleton/
+│   │       │   ├── CastListSkeleton.module.css
+│   │       │   └── CastListSkeleton.tsx
 │   │       ├── FiltersSectionSkeleton/
+│   │       │   ├── index.ts
+│   │       │   ├── FiltersSectionSkeleton.module.css
+│   │       │   └── FiltersSectionSkeleton.tsx
 │   │       ├── MovieInfoSkeleton/
+│   │       │   ├── MovieInfoSkeleton.module.css
+│   │       │   └── MovieInfoSkeleton.tsx
 │   │       ├── MoviesSkeleton/
+│   │       │   ├── MoviesSkeleton.module.css
+│   │       │   └── MoviesSkeleton.tsx
 │   │       └── WelcomeSectionSkeleton/
+│   │           ├── index.ts
+│   │           ├── WelcomeSectionSkeleton.module.css
+│   │           └── WelcomeSectionSkeleton.tsx
 │   ├── constants/        # Константы приложения
+│   │   ├── constants.ts  # Основные константы (URL изображений, ключи localStorage, опции сортировки, категории, навигация)
+│   │   └── index.ts      # Экспорт констант
 │   ├── hooks/            # Кастомные хуки
+│   │   ├── index.ts      # Экспорт хуков
 │   │   ├── useDebounceValue.ts
 │   │   ├── useGlobalLoading.ts
 │   │   └── useInfiniteScroll.ts
 │   ├── routing/          # Конфигурация маршрутов
-│   │   └── Routing.tsx
+│   │   ├── index.ts      # Экспорт Routing
+│   │   └── Routing.tsx    # Компонент маршрутизации
 │   ├── styles/           # Глобальные стили
-│   │   ├── animations.css
-│   │   └── variables.css
+│   │   ├── animations.css # CSS анимации
+│   │   └── variables.css  # CSS переменные
 │   ├── theme/            # Тема Material UI
-│   │   └── theme.ts
+│   │   ├── index.ts      # Экспорт темы
+│   │   └── theme.ts      # Конфигурация темы
 │   ├── types/            # TypeScript типы
-│   │   └── types.ts
+│   │   ├── index.ts      # Экспорт типов
+│   │   └── types.ts      # Типы, пути страниц, endpoints, категории фильмов
 │   └── utils/            # Утилитарные функции
-│       ├── errorToast.ts
-│       ├── formatRuntime.ts
-│       ├── getCategoryMoviesData.ts
-│       ├── getRandomBackdrop.ts
-│       ├── getRatingClass.ts
-│       ├── handleErrors.ts
-│       ├── isErrorWithProperty.ts
-│       ├── localStorage.ts
-│       ├── scrollToTop.ts
-│       ├── sortBy.ts
-│       └── withZodCatch.ts
+│       ├── index.ts      # Экспорт утилит
+│       ├── createInfiniteMoviesQuery.ts # Создание infinite query для RTK Query
+│       ├── errorToast.ts # Показ ошибок через toast
+│       ├── formatRuntime.ts # Форматирование длительности фильма
+│       ├── getCategoryMoviesData.ts # Получение данных категории фильмов
+│       ├── getRandomBackdrop.ts # Получение случайного backdrop изображения
+│       ├── getRatingClass.ts # Получение CSS класса для рейтинга
+│       ├── handleErrors.ts # Обработка ошибок
+│       ├── isErrorWithProperty.ts # Проверка типа ошибки
+│       ├── localStorage.ts # Работа с localStorage
+│       ├── scrollToTop.ts # Прокрутка страницы вверх
+│       ├── sortBy.ts # Функция сортировки
+│       └── withZodCatch.ts # Обработка ошибок Zod валидации
 │
 └── features/              # Функциональные модули
     ├── api/              # API endpoints (RTK Query)
-    │   ├── moviesApi.ts
-    │   └── moviesApi.types.ts
+    │   ├── moviesApi.ts  # RTK Query API с endpoints для фильмов
+    │   └── moviesApi.types.ts # TypeScript типы для API
     ├── model/           # Схемы валидации (Zod)
-    │   └── movies.schemas.ts
+    │   ├── index.ts     # Экспорт схем
+    │   └── movies.schemas.ts # Zod схемы для валидации данных фильмов
     └── ui/              # Страницы приложения
         ├── CategoryMoviesPage/    # Страница категории фильмов
+        │   ├── CategoryMoviesPage.module.css
+        │   ├── CategoryMoviesPage.tsx
+        │   ├── index.ts
         │   └── CategoriesButtons/ # Кнопки категорий
+        │       ├── index.ts
+        │       ├── CategoriesButtons.module.css
+        │       ├── CategoriesButtons.tsx
         │       └── CategoryButton/ # Кнопка категории
+        │           ├── index.ts
+        │           ├── CategoryButton.module.css
+        │           └── CategoryButton.tsx
         ├── FavoritesPage/         # Страница избранного
         ├── FilteredMoviesPage/    # Страница фильтрованных фильмов
+        │   ├── FilteredMoviesPage.module.css
+        │   ├── FilteredMoviesPage.tsx
+        │   ├── index.ts
         │   └── FiltersSection/    # Секция фильтров
+        │       ├── index.ts
+        │       ├── FiltersSection.module.css
+        │       ├── FiltersSection.tsx
         │       ├── GenresSection/ # Секция жанров
+        │       │   ├── index.ts
+        │       │   ├── GenresSection.module.css
+        │       │   └── GenresSection.tsx
         │       ├── RatingSlider/  # Слайдер рейтинга
+        │       │   ├── index.ts
+        │       │   ├── RatingSlider.module.css
+        │       │   └── RatingSlider.tsx
         │       └── SortBy/        # Сортировка
+        │           ├── index.ts
+        │           ├── SortBy.module.css
+        │           └── SortBy.tsx
         ├── MainPage/              # Главная страница
+        │   ├── index.ts
+        │   ├── MainPage.tsx
         │   ├── MoviesSection/     # Секция фильмов
+        │   │   ├── index.ts
+        │   │   └── MoviesSection.tsx
         │   └── WelcomeSection/   # Приветственная секция
+        │       ├── index.ts
+        │       ├── WelcomeSection.module.css
+        │       └── WelcomeSection.tsx
         ├── MoviePage/             # Страница деталей фильма
+        │   ├── index.ts
+        │   ├── MoviePage.module.css
+        │   ├── MoviePage.tsx
         │   ├── CastItem/          # Элемент актера
+        │   │   ├── index.ts
+        │   │   ├── CastItem.module.css
+        │   │   └── CastItem.tsx
         │   ├── CastList/          # Список актеров
+        │   │   ├── index.ts
+        │   │   ├── CastList.module.css
+        │   │   └── CastList.tsx
         │   ├── MovieInfo/         # Информация о фильме
+        │   │   ├── index.ts
+        │   │   ├── MovieInfo.module.css
+        │   │   └── MovieInfo.tsx
         │   └── SimilarMovies/     # Похожие фильмы
+        │       ├── SimilarMovies.module.css
+        │       └── SimilarMovies.tsx
         ├── NotFoundPage/          # Страница 404
         └── SearchPage/            # Страница поиска
+            ├── index.ts
+            ├── SearchPage.module.css
+            ├── SearchPage.tsx
             └── LoadingTrigger/    # Триггер загрузки (infinite scroll)
+                ├── index.ts
+                ├── LoadingTrigger.module.css
+                └── LoadingTrigger.tsx
 ```
 
 ## 🛠 Установка и запуск
@@ -250,21 +363,29 @@ pnpm lint
 
 ## 📝 Особенности реализации
 
+### Архитектура проекта
+- **Feature-Sliced Design** — разделение на `app`, `features` и `common`
+- **Barrel exports** — каждый модуль имеет `index.ts` для централизованного экспорта
+- **CSS Modules** — каждый компонент имеет свой `.module.css` файл
+- **Типобезопасность** — все компоненты и функции типизированы через TypeScript
+
 ### RTK Query
 - Использование RTK Query для всех API запросов
-- Infinite queries для пагинации
+- Infinite queries для пагинации (через утилиту `createInfiniteMoviesQuery`)
 - Автоматическое кеширование данных
 - Валидация ответов API с помощью Zod
+- Базовый API клиент в `app/api/baseApi.ts` с настройками для TMDB API
 
 ### Валидация данных
 - Все ответы API валидируются через Zod схемы
 - Типобезопасность на уровне TypeScript
 
 ### Оптимизация производительности
-- Debounce для поиска
-- Lazy loading изображений
+- Debounce для поиска (через хук `useDebounceValue`)
+- Lazy loading изображений (компонент `Image`)
 - Skeleton компоненты для улучшения UX
-- Infinite scroll для больших списков
+- Infinite scroll для больших списков (через хук `useInfiniteScroll` и `createInfiniteMoviesQuery`)
+- Кеширование данных через RTK Query
 
 ### Доступность (Accessibility)
 - ARIA атрибуты на интерактивных элементах
@@ -297,13 +418,16 @@ pnpm lint
 1. Добавьте endpoint в `src/features/api/moviesApi.ts`
 2. Создайте Zod схему в `src/features/model/movies.schemas.ts`
 3. Добавьте типы в `src/features/api/moviesApi.types.ts`
-4. Экспортируйте хук для использования в компонентах
+4. Если нужна infinite pagination, используйте утилиту `createInfiniteMoviesQuery` из `src/common/utils/createInfiniteMoviesQuery.ts`
+5. Экспортируйте хук для использования в компонентах
 
 ### Добавление новой страницы
 
 1. Создайте компонент страницы в `src/features/ui/`
-2. Добавьте маршрут в `src/common/routing/Routing.tsx`
-3. Добавьте путь в `src/common/types/types.ts`
+2. Создайте `index.ts` файл для экспорта компонента
+3. Добавьте маршрут в `src/common/routing/Routing.tsx`
+4. Добавьте путь в `src/common/types/types.ts` (в объект `PagePaths`)
+5. При необходимости добавьте навигационный элемент в `src/common/constants/constants.ts` (в массив `NavItems`)
 
 ## 📄 Лицензия
 
